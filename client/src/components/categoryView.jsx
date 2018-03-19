@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Icon, Menu } from 'semantic-ui-react'
 
-export default class MenuExampleCompact extends Component {
+export default class MenuExampleCompact extends React.Component {
   state = {}
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })

@@ -1,18 +1,25 @@
 import React, { Component } from 'react'
 import { Input, Menu } from 'semantic-ui-react'
 
-class NavBar extends Component {
-  state = { activeItem: 'home' }
+class Navbar extends React.Component {
+    constructor(props) {
+    super(props)
+    this.state = {
+       activeItem: 'home'
+    }
+  }
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+
+
 
   render() {
     const { activeItem } = this.state
 
     return (
+      <div>
       <Menu stackable>
         <Menu.Item>
-          <img src='/logo.png' />
+          logo
         </Menu.Item>
 
         <Menu.Item
@@ -45,7 +52,8 @@ class NavBar extends Component {
           <Menu.Item name='logout' active={activeItem === 'logout'} onClick={this.handleItemClick} />
 
       </Menu>
+      </div>
     )
   }
 }
-export default NavBar;
+export default Navbar;
