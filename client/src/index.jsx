@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, browserHistory } from 'react-router-dom';
 import App from './components/app.jsx';
+
 // import { ApolloProvider } from 'react-apollo'
 // import { ApolloClient } from 'apollo-client'
 // import { HttpLink } from 'apollo-link-http'
@@ -19,7 +20,5 @@ import App from './components/app.jsx';
 
 ReactDOM.render(
   <BrowserRouter history={ browserHistory }>
-    {/* <ApolloProvider> */}
       <App />
-    {/* </ApolloProvider> */}
   </BrowserRouter>, document.getElementById('app'));

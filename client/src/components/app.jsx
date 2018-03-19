@@ -1,14 +1,24 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
 import Landing from './landing.jsx'
-import NavBar from './navBar.jsx'
+import LoginPage from './loginPage.jsx'
+import SingleProblemPage from './singleProblemPage.jsx'
+import ViewConversation from './viewConversation.jsx'
+import SignUp from './signUp.jsx'
+import UserProfile from './userProfile.jsx'
+
 
 class App extends React.Component {
   render () {
     return (
       <div>
-        <NavBar />
         <Route exact path='/' component={ Landing } />
+        <Route path='/signUp' component={ SignUp } />
+        <Route path='/landing' component={ Landing } />
+        <Route path='/login' component={ LoginPage } />
+        <Route path='/singleProblemPage' component={ SingleProblemPage } />
+        <Route path='/userProfile' component={ UserProfile } />
+        <Route path='/viewConversation' component={ ViewConversation } />
       </div>
     )
   }
