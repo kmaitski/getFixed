@@ -6,15 +6,15 @@ class SideBar extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      listings: [],
+      filters: props.filters,
     }
   }
 
   render() {
     return (
       <div>
-        <div>
-          //{this.state.listings.map((listing, index) => <Listing key={listing.id} listing={listing} index={index} />)}
+        <div className="ui visible left sidebar">
+          {this.state.filters.map((filter, index) => <a className="filter" href={filter.name} key={`filter${index}`} />)}
         </div>
       </div>
     )
