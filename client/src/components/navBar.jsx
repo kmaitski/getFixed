@@ -1,28 +1,51 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Search from './search.jsx';
-import LoginButton from './loginButton.jsx';
-import FixButton from './fixButton.jsx';
+import React, { Component } from 'react'
+import { Input, Menu } from 'semantic-ui-react'
 
-class NavBar extends React.Component {
+class NavBar extends Component {
+  state = { activeItem: 'home' }
 
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
   render() {
+    const { activeItem } = this.state
+
     return (
-      <div>
-        <div>
-          LOGO HERE
-        </div>
-        <div>
-          <Search />
-        </div>
-        <div>
-          <FixButton />
-          <LoginButton />
-        </div>
-      </div>
+      <Menu stackable>
+        <Menu.Item>
+          <img src='/logo.png' />
+        </Menu.Item>
+
+        <Menu.Item
+          name='features'
+          active={activeItem === 'features'}
+          onClick={this.handleItemClick}
+        >
+          Features
+        </Menu.Item>
+
+        <Menu.Item
+          name='testimonials'
+          active={activeItem === 'testimonials'}
+          onClick={this.handleItemClick}
+        >
+          Testimonials
+        </Menu.Item>
+
+        <Menu.Item
+          name='sign-in'
+          active={activeItem === 'sign-in'}
+          onClick={this.handleItemClick}
+        >
+          Sign-in
+        </Menu.Item>
+
+          <Menu.Item>
+            <Input icon='search' placeholder='What are you looking for?' />
+          </Menu.Item>
+          <Menu.Item name='logout' active={activeItem === 'logout'} onClick={this.handleItemClick} />
+
+      </Menu>
     )
   }
 }
-
 export default NavBar;
