@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import Dropzone from 'react-dropzone';
+import request from 'superagent';
 
 const customStyles = {
   content: {
@@ -10,7 +11,7 @@ const customStyles = {
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
-    width: '30%'
+    width: '80%'
   }
 };
 
@@ -21,14 +22,38 @@ class CreateProblemModal extends React.Component {
       modalOpen: true,
       name: '',
       description: '',
-      dropzoneView: true
+      dropzoneView: true,
+      cloudinaryUrl: ''
     };
     this.closeModal = this.closeModal.bind(this);
+    this.handleDrop = this.handleDrop.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   closeModal() {
     this.setState({ modalOpen: false });
     this.props.closeMainModal();
+  }
+
+  handleDrop(files) {
+    const req = request.post('/api/cloudinaryUpload');
+    req.attach('problemImage', files[0]);
+    req.then(result => {
+      console.log(result);
+      this.setState({
+        dropzoneView: false,
+        cloudinaryUrl: result.body.secure_url
+      });
+    });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    this.closeModal();
+    request
+      .post('/api/problemUpload')
+      .send({ name: this.state.name, description: this.state.description, image: this.state.cloudinaryUrl})
+      .then(result => console.log(result));
   }
 
   render(){
@@ -43,11 +68,10 @@ class CreateProblemModal extends React.Component {
           contentLabel="Create a Problem"
         >
           <div>
-            <h2>this.subtitle here?</h2>
+            <h2>Create a Problem</h2>
             <button style={{marginLeft: "90%"}} onClick={this.closeModal}>X</button>
             <div>
               <form onSubmit={this.handleSubmit}>
-                <h1>H1 Create a Problem</h1>
                 <div>
                   <input
                     value={this.state.name}
@@ -68,7 +92,7 @@ class CreateProblemModal extends React.Component {
                       <Dropzone
                         multiple={false}
                         accept="image/*"
-                        onDrop={this.onImageDrop}
+                        onDrop={this.handleDrop}
                         style={{border: "dashed"}}
                       >
                         <p>Drop an image or click a file to upload</p>
