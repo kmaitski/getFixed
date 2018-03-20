@@ -2,3 +2,5 @@ node_modules
 client/dist/bundle.js
 package-lock.json
 config/.cloudinary.js
+.env
+

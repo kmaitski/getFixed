@@ -1,6 +1,5 @@
-
 var Sequelize = require('sequelize');
-var sequelize = new Sequelize('getfixed', 'root', 'password', {
+var sequelize = new Sequelize('getfixed', 'root', process.env.MONGO_PASSWORD, {
   host: 'localhost',
   port: 3306,
   dialect: 'mysql',

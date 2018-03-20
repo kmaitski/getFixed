@@ -1,7 +1,5 @@
 const path = require('path');
-console.log('path', path.join(__dirname, '../../'));
-require('dotenv').config({path: path.join(__dirname, '../../')});
-console.log('process', process.env.MONGO_PASSWORD);
+require('dotenv').config();
 
 var Sequelize = require('sequelize');
 var sequelize = new Sequelize('getfixed', 'root', process.env.MONGO_PASSWORD, {
@@ -19,8 +17,8 @@ db.sequelize = sequelize;
 
 //Models/tables
 
-db.users = require('../models/users.js')(sequelize, Sequelize);
-db.listings = require('../models/listings.js')(sequelize, Sequelize);
+db.users = require('./server/models/users.js')(sequelize, Sequelize);
+db.listings = require('./server/models/listings.js')(sequelize, Sequelize);
 
 db.sequelize.sync({force: true})
   .then(function() {
