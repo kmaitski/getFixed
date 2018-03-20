@@ -17,6 +17,7 @@ export default class CategoryView extends React.Component {
 
 
     return (
+
       <div>
         <Container textAlign='center'>
           <Menu compact icon='labeled'>
