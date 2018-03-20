@@ -4,12 +4,10 @@ const Problem = (props) => {
 
   return (
     <div className="ui card">
-      <img src={props.image}/>
+      <img src={props.problem.image}/>
       <div className="content">
-        <a className="header problemTitle">{props.title}</a>
-        <p className="problemDesc">{props.description}</p>
-        <div className="chat">
-        </div>
+        <a className="header problemTitle">{props.problem.title}</a>
+        <p className="problemDesc">{props.problem.description}</p>
       </div>
     </div>
   )
