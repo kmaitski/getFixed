@@ -13,8 +13,8 @@ class SideBar extends React.Component {
   render() {
     return (
       <div>
-        <div className="ui visible left sidebar">
-          {this.state.filters.map((filter, index) => <a className="filter" href={filter.name} key={`filter${index}`} />)}
+        <div>
+          {this.state.filters.map((filter, index) => <p className="ui red segment" key={`filter${index}`}>{filter.name}</p>)}
         </div>
       </div>
     )
