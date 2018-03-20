@@ -13,7 +13,7 @@ class Navbar extends React.Component {
 
 
   render() {
-    const { activeItem } = this.state
+
 
     return (
       <div>
@@ -37,7 +37,6 @@ class Navbar extends React.Component {
         >
           Testimonials
         </Menu.Item>
-
         <Menu.Item
           name='getFixed'
           active={activeItem === 'Get Fixed'}
