@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Problem = (props) => {
 
@@ -8,17 +9,20 @@ const Problem = (props) => {
 
   return (
     <div className={`ui very raised ${color} card`}>
-      <img className="ui centered medium image" src={props.problem.image} />
+      <Link to={`/singleProblemPage/${props.problem.id}`}>
+        <img className="ui centered medium image" src={props.problem.image} />
+      </Link>
       <div className="content">
-        <a className="header problemTitle">{props.problem.title}</a>
+        <Link to={`/singleProblemPage/${props.problem.id}`}className="header problemTitle">{props.problem.title}</Link>
         <p className="problemDesc">{props.problem.description}</p>
       </div>
+
       <div>
-      <a className={`ui ${color} image label`}>
-        <img src="https://www.w3schools.com/howto/img_avatar.png"/>
-        {props.problem.owner}
-        <div className="detail">⭐️⭐️⭐️⭐️⭐️</div>
-      </a>
+        <a className={`ui ${color} image label`}>
+          <img src="https://www.w3schools.com/howto/img_avatar.png"/>
+          {props.problem.owner}
+          <div className="detail">⭐️⭐️⭐️⭐️⭐️</div>
+        </a>
       </div>
     </div>
   )

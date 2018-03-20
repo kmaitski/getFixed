@@ -16,7 +16,7 @@ class App extends React.Component {
         <Route path='/signup' component={ Signup } />
         <Route path='/landing' component={ Landing } />
         <Route path='/loginPage' component={ LoginPage } />
-        <Route path='/singleProblemPage' component={ SingleProblemPage } />
+        <Route path='/singleProblemPage/:id' component={ SingleProblemPage } />
         <Route path='/userProfile' component={ UserProfile } />
         <Route path='/viewConversation' component={ ViewConversation } />
       </div>
