@@ -1,7 +1,7 @@
 import React from 'react';
 import { Input, Menu } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import Navbar from './navbar.jsx';
+import Navbar from './navBar.jsx';
 import ProblemsView from './problemsView.jsx';
 import CategoryView from './categoryView.jsx';
 import Sidebar from './sidebar.jsx';
@@ -19,14 +19,14 @@ const problems = [
     {
       id: 124,
       title: 'Antique table needs new leg',
-      description: `My grandmother's heirloom table has a broken leg, and we hope someone can help us fix dat shit`,
+      description: `My grandmother's heirloom table has a broken leg, and we hope someone can help us fix it`,
       image: `https://images.pier1.com/dis/dw/image/v2/AAID_PRD/on/demandware.static/-/Sites-pier1_master/default/dw792403f3/images/2562667/2562667_1.jpg?sw=500&sh=500`,
       owner: 'Brandon'
     },
     {
       id: 125,
       title: `My iPhone's screen don't work`,
-      description: `Shit's broke`,
+      description: `Screen's broke`,
       image: `http://www.iphoneinformer.com/wp-content/uploads/2016/05/Get-Your-iPhone-Fixed-With-The-New-iCracked-Kit.jpg`,
       owner: 'Greg'
     },
