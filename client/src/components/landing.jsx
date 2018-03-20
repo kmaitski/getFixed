@@ -36,6 +36,7 @@ class Landing extends React.Component {
   render() {
     return (
       <div>
+       <Link to ='/signUp'> test button </Link>
         <Navbar />
         <CategoryView />
         <ProblemsView problems={problems} />

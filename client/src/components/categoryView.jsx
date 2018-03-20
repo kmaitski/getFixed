@@ -16,6 +16,7 @@ export default class CategoryView extends React.Component {
 
 
     return (
+
       <Menu compact icon='labeled'>
         <Menu.Item name='gamepad'  onClick={this.handleItemClick}>
           <Icon name='keyboard' />
@@ -28,7 +29,7 @@ export default class CategoryView extends React.Component {
         </Menu.Item>
 
         <Menu.Item name='Handyman'  onClick={this.handleItemClick}>
-          <Icon name='user secret' />
+          <Icon name='user' />
           Handyman
         </Menu.Item>
                 <Menu.Item name='Computer skills'  onClick={this.handleItemClick}>
