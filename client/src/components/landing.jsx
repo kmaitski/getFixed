@@ -5,7 +5,7 @@ import Navbar from './navbar.jsx';
 import ProblemsView from './problemsView.jsx';
 import CategoryView from './categoryView.jsx';
 import Sidebar from './sidebar.jsx';
-import FixButton from './fixButton.jsx';
+
 
 
 const problems = [
@@ -68,11 +68,8 @@ class Landing extends React.Component {
   render() {
     return (
       <div>
-       <Link to ='/signUp'> test button </Link>
         <Navbar />
         <CategoryView />
-        <FixButton />
-      Let's get Fixed
       <div className="ui hidden divider"></div>
       <div className="ui grid container">
         <div className="ui left aligned three wide column">
