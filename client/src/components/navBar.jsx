@@ -13,7 +13,7 @@ class Navbar extends React.Component {
 
 
   render() {
-    const { activeItem } = this.state
+
 
     return (
       <div>
@@ -31,16 +31,15 @@ class Navbar extends React.Component {
         </Menu.Item>
 
         <Menu.Item
-          name='testimonials'
-          active={activeItem === 'testimonials'}
+          name='Services'
+          active={activeItem === 'Services'}
           onClick={this.handleItemClick}
         >
           Testimonials
         </Menu.Item>
-
         <Menu.Item
-          name='sign-in'
-          active={activeItem === 'sign-in'}
+          name='getFixed'
+          active={activeItem === 'Get Fixed'}
           onClick={this.handleItemClick}
         >
           Sign-in

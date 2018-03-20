@@ -6,7 +6,7 @@ class SideBar extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      listings: [],
+      filters: props.filters,
     }
   }
 
@@ -14,7 +14,7 @@ class SideBar extends React.Component {
     return (
       <div>
         <div>
-          //{this.state.listings.map((listing, index) => <Listing key={listing.id} listing={listing} index={index} />)}
+          {this.state.filters.map((filter, index) => <p className="ui red segment" key={`filter${index}`}>{filter.name}</p>)}
         </div>
       </div>
     )

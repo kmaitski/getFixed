@@ -6,14 +6,16 @@ class ProblemsView extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      problems = []
+      problems: props.problems
     }
   }
 
   render() {
     return (
-      <div>
-        //{this.state.categories.map((problem, index) => <Problem key={problem.id} problem={problem} index={index} />)}
+      <div className="ui right internal attached">
+        <div className="ui cards">
+        {this.state.problems.map((problem, index) => <Problem key={problem.id} problem={problem} index={index} />)}
+        </div>
       </div>
     )
   }
