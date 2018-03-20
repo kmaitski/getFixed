@@ -1,11 +1,7 @@
 import React from 'react';
-<<<<<<< HEAD
-
-=======
 import NavBar from './navBar.jsx';
 import CategoryView from './categoryView.jsx';
 // import GoogleMap from './googleMap.jsx';
->>>>>>> Create basic profile page
 
 class UserProfile extends React.Component {
   constructor(props) {
