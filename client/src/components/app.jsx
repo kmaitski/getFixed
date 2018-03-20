@@ -4,7 +4,7 @@ import Landing from './landing.jsx'
 import LoginPage from './loginPage.jsx'
 import SingleProblemPage from './singleProblemPage.jsx'
 import ViewConversation from './viewConversation.jsx'
-import SignUp from './signUp.jsx'
+import Signup from './signup.jsx'
 import UserProfile from './userProfile.jsx'
 
 
@@ -13,9 +13,9 @@ class App extends React.Component {
     return (
       <div>
         <Route exact path='/' component={ Landing } />
-        <Route path='/signUp' component={ SignUp } />
+        <Route path='/signup' component={ Signup } />
         <Route path='/landing' component={ Landing } />
-        <Route path='/login' component={ LoginPage } />
+        <Route path='/loginPage' component={ LoginPage } />
         <Route path='/singleProblemPage/:id' component={ SingleProblemPage } />
         <Route path='/userProfile' component={ UserProfile } />
         <Route path='/viewConversation' component={ ViewConversation } />

@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import { Input, Menu } from 'semantic-ui-react'
+import FixButton from './fixButton.jsx';
+import { Link } from 'react-router-dom';
 
 class Navbar extends React.Component {
     constructor(props) {
     super(props)
     this.state = {
-       activeItem: 'home'
+
     }
   }
 
@@ -13,46 +15,36 @@ class Navbar extends React.Component {
 
 
   render() {
-    const { activeItem } = this.state
+
 
     return (
-      <div>
-      <Menu stackable>
+    <div>
+      <Menu fluid horizontal>
+      <Link to ='/landing'>
         <Menu.Item>
-          logo
+          Logo
         </Menu.Item>
-
-        <Menu.Item
-          name='features'
-          active={activeItem === 'features'}
-          onClick={this.handleItemClick}
-        >
-          Features
+      </Link>
+        <Menu.Item>
+          <Input style={{width: "50vw",height: "35px"}} icon='search' placeholder='What are you looking for?' />
         </Menu.Item>
-
-        <Menu.Item
-          name='Services'
-          active={activeItem === 'Services'}
-          onClick={this.handleItemClick}
-        >
-          Testimonials
+        <Menu.Menu position='right'>
+        <Menu.Item>
+          <FixButton />
         </Menu.Item>
-
-        <Menu.Item
-          name='getFixed'
-          active={activeItem === 'Get Fixed'}
-          onClick={this.handleItemClick}
-        >
-          Sign-in
-        </Menu.Item>
-
+        <Link to ='/signUp'>
           <Menu.Item>
-            <Input icon='search' placeholder='What are you looking for?' />
+             Sign Up
           </Menu.Item>
-          <Menu.Item name='logout' active={activeItem === 'logout'} onClick={this.handleItemClick} />
-
+        </Link>
+        <Link to ='/loginPage'>
+          <Menu.Item>
+             Login
+          </Menu.Item>
+        </Link>
+        </Menu.Menu>
       </Menu>
-      </div>
+    </div>
     )
   }
 }
