@@ -1,22 +1,38 @@
-import PropTypes from 'prop-types'
-import React from 'react'
-import { Label } from 'semantic-ui-react'
+import React from 'react';
+// import { withApollo } from 'react-apollo'; // for wrapping component with apollo client ?
+// import gql from 'graphql-tag'; // for constructing query
 
+class Search extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchQuery: '',
+    }
+  }
 
+  _executeSearch = async () => {
+    // TODO
+  }
 
-
-const resultRenderer = ({ title }) => <Label content={title} />
-
-
-resultRenderer.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
+  render() {
+    return (
+      <div>
+        <div>
+          Search
+          <input type='text'
+            onChange={(e) => this.setState({ searchQuery: e.target.value })}
+          />
+          <button onClick={() => this._executeSearch()}>
+            SEARCH
+          </button>
+        </div>
+      </div>
+    )
+  }
 }
 
+const LISTING_SEARCH_QUERY; // graphQL query
 
+export default Search;
 
-const SearchBar = () => (
-  <SearchExampleStandard resultRenderer={resultRenderer} />
-)
-
-export default SearchBar
+// export default withApollo(Search); // for apollo

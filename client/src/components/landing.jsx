@@ -3,6 +3,9 @@ import { Input, Menu } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 import Navbar from './navbar.jsx';
 import ProblemsView from './problemsView.jsx';
+import CategoryView from './categoryView.jsx';
+
+
 
 const problems = [
     {
@@ -27,7 +30,6 @@ class Landing extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-
     };
   }
 
@@ -35,8 +37,9 @@ class Landing extends React.Component {
     return (
       <div>
         <Navbar />
-      Let's get Fixed
+        <CategoryView />
         <ProblemsView problems={problems} />
+
       </div>
     )
   }
