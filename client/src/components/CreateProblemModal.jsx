@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
+import Dropzone from 'react-dropzone';
 
 const customStyles = {
   content: {
@@ -19,7 +20,8 @@ class CreateProblemModal extends React.Component {
     this.state = {
       modalOpen: true,
       name: '',
-      description: ''
+      description: '',
+      dropzoneView: true
     };
     this.closeModal = this.closeModal.bind(this);
   }
@@ -59,6 +61,24 @@ class CreateProblemModal extends React.Component {
                     type="text"
                     placeholder="Enter a Description of Your Problem"
                   />
+                  <div>
+                    {
+                    this.state.dropzoneView ?
+                    <div>
+                      <Dropzone
+                        multiple={false}
+                        accept="image/*"
+                        onDrop={this.onImageDrop}
+                        style={{border: "dashed"}}
+                      >
+                        <p>Drop an image or click a file to upload</p>
+                      </Dropzone>
+                    </div> : 
+                    <div>
+                      <p>File has been submitted. Thank you</p>
+                    </div>
+                    }
+                  </div>
                   <button onClick={this.handleSubmit}>Submit your Problem</button>
                 </div>
               </form>
