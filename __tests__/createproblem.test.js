@@ -23,6 +23,15 @@ describe('<FixButton />', () => {
     expect(wrapper.state().modalOpen).toEqual(true);
   });
 
+  it('should close the modal when the x button is clicked', () => {
+    const handleClose = jest.fn();
+    const wrapper = shallow(<CreateProblemModal closeMainModal={handleClose} />);
+    const button = wrapper.find('button').at(0);
+
+    button.simulate('click');
+    expect(handleClose).toBeCalled();
+  });
+
   it('should allow users to type data', () => {
     const wrapper = shallow(<CreateProblemModal />);
     const problemNameInput = wrapper.find('input').at(0);

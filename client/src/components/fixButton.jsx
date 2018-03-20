@@ -10,17 +10,22 @@ class FixButton extends React.Component {
     this.state = {
       modalOpen: false
     };
+    this.closeMainModal = this.closeMainModal.bind(this);
   }
 
   // const _createListing = async () => {
   //   // TODO
   // }
 
+  closeMainModal() {
+    this.setState({ modalOpen: false })
+  }
+
   render() {
     return (
       <div>
         <button onClick={() => this.setState({modalOpen: true})}>Fix My Stuff</button>
-        {this.state.modalOpen && <CreateProblemModal />}
+        {this.state.modalOpen && <CreateProblemModal closeMainModal={this.closeMainModal} />}
       </div>
     );
   }
