@@ -1,5 +1,5 @@
 import React from 'react';
-import GoogleMap from './googleMap.jsx';
+
 
 const UserProfile = (props) => {
 
@@ -18,7 +18,7 @@ const UserProfile = (props) => {
         </div>
         <div>
           LOCATION
-          <GoogleMap />
+
         </div>
       </div>
     </div>
