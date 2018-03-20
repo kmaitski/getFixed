@@ -30,8 +30,8 @@ describe('<Problem />', () => {
     const wrapper = shallow(<Problem problem={problem}/>)
     expect(wrapper.find('.problemDesc')).toHaveLength(1);
   });
-  it('should render a chat section', () => {
+  it('should not render a chat section', () => {
     const wrapper = shallow(<Problem problem={problem}/>)
-    expect(wrapper.find('.chat')).toHaveLength(1);
+    expect(wrapper.find('.chat')).toHaveLength(0);
   });
 });

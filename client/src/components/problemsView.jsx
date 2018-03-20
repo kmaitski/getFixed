@@ -12,11 +12,12 @@ class ProblemsView extends React.Component {
 
   render() {
     return (
-      <div className="ui cards">
-        <div className="header">
-          <h4>Listings</h4>
+      <div>
+        <div className="header"><h4>Listings</h4></div>
+        <div className="ui cards">
+
+        {this.state.problems.map((problem, index) => <Problem className="ui card" key={problem.id} problem={problem} index={index} />)}
         </div>
-        {this.state.problems.map((problem, index) => <Problem key={problem.id} problem={problem} index={index} />)}
       </div>
     )
   }
