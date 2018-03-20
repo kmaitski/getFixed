@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Icon, Menu } from 'semantic-ui-react'
 
-<<<<<<< HEAD
+
 export default class CategoryView extends React.Component {
     constructor(props) {
     super(props)
@@ -9,10 +9,7 @@ export default class CategoryView extends React.Component {
        activeItem: 'home'
     }
   }
-=======
-export default class MenuExampleCompact extends React.Component {
-  state = {}
->>>>>>> 358363f4270e1ade14ebc517bb494d4530c08be7
+
 
 
   render() {
