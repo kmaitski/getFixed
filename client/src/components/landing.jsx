@@ -1,10 +1,11 @@
 import React from 'react';
-import { Input, Menu } from 'semantic-ui-react'
+import { Input, Menu } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import Navbar from './navbar.jsx';
 import ProblemsView from './problemsView.jsx';
 import CategoryView from './categoryView.jsx';
 import Sidebar from './sidebar.jsx';
+import FixButton from './fixButton.jsx';
 
 
 const problems = [
@@ -69,6 +70,7 @@ class Landing extends React.Component {
       <div>
         <Navbar />
         <CategoryView />
+        <FixButton />
       Let's get Fixed
       <div className="ui hidden divider"></div>
       <div className="ui grid container">

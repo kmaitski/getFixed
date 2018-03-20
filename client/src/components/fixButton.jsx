@@ -1,18 +1,34 @@
 import React from 'react';
+import CreateProblemModal from './CreateProblemModal.jsx'
+
 // import { graphql } from 'react-apollo'; // for wrapping component with apollo client ??
 // import gql from 'graph-ql-tag'; // for constructing query
 
-const FixButton = () => {
+class FixButton extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      modalOpen: false
+    };
+    this.closeMainModal = this.closeMainModal.bind(this);
+  }
 
   // const _createListing = async () => {
   //   // TODO
   // }
 
-  return (
-    <div>
-      <button onClick={() => this._createListing()}>Fix My Stuff</button>
-    </div>
-  )
+  closeMainModal() {
+    this.setState({ modalOpen: false })
+  }
+
+  render() {
+    return (
+      <div>
+        <button onClick={() => this.setState({modalOpen: true})}>Fix My Stuff</button>
+        {this.state.modalOpen && <CreateProblemModal closeMainModal={this.closeMainModal} />}
+      </div>
+    );
+  }
 }
 
 // const POST_MUTATION; // graphQL query
