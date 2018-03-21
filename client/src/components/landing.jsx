@@ -28,6 +28,8 @@ class Landing extends React.Component {
   constructor(props){
     super(props);
     this.state = {
+      problems: [] 
+    }
 
   componentDidMount() {
     axios.get('http://localhost:1337/listings')
