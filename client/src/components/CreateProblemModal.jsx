@@ -137,6 +137,7 @@ class CreateProblemModal extends React.Component {
                         accept="image/*"
                         onDrop={this.handleDrop}
                         style={{border: "dashed"}}
+                        className="drop"
                       >
                         <p>Drop an image or click a file to upload</p>
                       </Dropzone>
@@ -146,7 +147,7 @@ class CreateProblemModal extends React.Component {
                     </div>
                     }
                   </div>
-                  <button onClick={this.handleSubmit}>Submit your Problem</button>
+                  <button onClick={this.handleSubmit} type="submit">Submit your Problem</button>
                 </div>
               </form>
             </div>
