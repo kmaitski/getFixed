@@ -21,9 +21,11 @@ class CreateProblemModal extends React.Component {
     this.state = {
       modalOpen: true,
       name: '',
+      city: '',
       description: '',
       dropzoneView: true,
-      cloudinaryUrl: ''
+      cloudinaryUrl: '',
+      category: ''
     };
     this.closeModal = this.closeModal.bind(this);
     this.handleDrop = this.handleDrop.bind(this);
@@ -68,23 +70,64 @@ class CreateProblemModal extends React.Component {
           contentLabel="Create a Problem"
         >
           <div>
+            <button
+              style={{marginLeft: "98%"}}
+              onClick={this.closeModal}
+            >
+              X
+            </button>
             <h2>Create a Problem</h2>
-            <button style={{marginLeft: "90%"}} onClick={this.closeModal}>X</button>
             <div>
-              <form onSubmit={this.handleSubmit}>
+              <form
+                onSubmit={this.handleSubmit}
+                className="ui form"
+              >
                 <div>
-                  <input
-                    value={this.state.name}
-                    onChange={e => this.setState({ name: e.target.value })}
-                    type="text"
-                    placeholder="Title of Your Problem"
-                  />
-                  <input
-                    value={this.state.description}
-                    onChange={e => this.setState({ description: e.target.value })}
-                    type="text"
-                    placeholder="Enter a Description of Your Problem"
-                  />
+                  <div className="field">
+                    <label>Problem Name</label>
+                    <input
+                      value={this.state.name}
+                      onChange={e => this.setState({ name: e.target.value })}
+                      type="text"
+                      placeholder="Title of Your Problem"
+                    />
+                  </div>
+                  <div className="field">
+                    <label>City</label>
+                    <input
+                      value={this.state.city}
+                      onChange={e => this.setState({ city: e.target.value })}
+                      type="text"
+                      placeholder="City"
+                    />
+                  </div>
+                  <div className="field">
+                    <label>Category</label>
+                    <select
+                      className="ui search dropdown"
+                      value={this.state.category}
+                      onChange={e => this.setState({ category: e.target.value })}
+                    >
+                      <option value="">Select Category</option>
+                      <option>Other</option>
+                      <option>Speciality</option>
+                      <option>Labor</option>
+                      <option>Computer</option>
+                      <option>Handyman</option>
+                      <option>Automotive</option>
+                      <option>Electronics</option>
+                    </select>
+                  </div>
+                  <div className="field">
+                    <label>Problem Description</label>
+                    <textarea
+                      value={this.state.description}
+                      onChange={e => this.setState({ description: e.target.value })}
+                      type="text"
+                      placeholder="Enter a Description of Your Problem"
+                      rows="2"
+                    />
+                  </div>
                   <div>
                     {
                     this.state.dropzoneView ?
