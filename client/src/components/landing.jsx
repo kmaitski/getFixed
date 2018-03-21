@@ -7,6 +7,7 @@ import CategoryView from './categoryView.jsx';
 import Sidebar from './sidebar.jsx';
 import axios from 'axios';
 
+
 const filters = [
   {
     id: 1,
@@ -27,7 +28,7 @@ class Landing extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      problems: []
+      problems: [] 
     };
   }
 
@@ -60,6 +61,7 @@ class Landing extends React.Component {
               <ProblemsView problems={this.state.problems} />
             </div>
           </div>
+
         </div>
       </div>
     )

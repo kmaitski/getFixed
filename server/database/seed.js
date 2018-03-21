@@ -49,3 +49,4 @@ db.sequelize.sync({force: true})
     console.error(err);
     sequelize.close();
   });
+

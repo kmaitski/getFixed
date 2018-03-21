@@ -1,5 +1,6 @@
 import React from 'react'
-import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
 const LoginPage = () => (
   <div className='login-form'>
@@ -22,7 +23,7 @@ const LoginPage = () => (
     >
       <Grid.Column style={{ maxWidth: 450 }}>
         <Header as='h2' color='teal' textAlign='center'>
-          <Image src='/logo.png' />
+          <Image src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNe7IRlCRt9dCVMqA_gTY8z5AA2AufA3k1IN4nti_wIZIUrs7u' />
           {' '}Log-in to your account
         </Header>
         <Form size='large'>
@@ -40,12 +41,13 @@ const LoginPage = () => (
               placeholder='Password'
               type='password'
             />
-
+            <Link to ='/landing'>
             <Button color='teal' fluid size='large'>Login</Button>
+            </Link>
           </Segment>
         </Form>
         <Message>
-          New to us? <a href='#'>Sign Up</a>
+          <Link to ='/signUp'>New to us? <a href='#'>Sign Up</a></Link>
         </Message>
       </Grid.Column>
     </Grid>
