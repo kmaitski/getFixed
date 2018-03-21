@@ -38,8 +38,11 @@ app.post('/api/problemUpload', (req, res) => {
 })
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> d
 router(app, db);
 
 db.sequelize.sync().then(() => {
@@ -50,4 +53,7 @@ db.sequelize.sync().then(() => {
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> d

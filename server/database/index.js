@@ -1,3 +1,7 @@
+
+/*
+
+
 var Sequelize = require('sequelize');
 var sequelize = new Sequelize('getfixed', 'root', process.env.MONGO_PASSWORD, {
   host: 'localhost',
@@ -59,3 +63,4 @@ db.listings = require('../models/listings.js')(sequelize, Sequelize);
 
 
 module.exports = db;
+*/
