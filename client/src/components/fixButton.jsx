@@ -1,5 +1,6 @@
 import React from 'react';
 import CreateProblemModal from './CreateProblemModal.jsx'
+import {Button} from 'semantic-ui-react';
 
 // import { graphql } from 'react-apollo'; // for wrapping component with apollo client ??
 // import gql from 'graph-ql-tag'; // for constructing query
@@ -24,7 +25,7 @@ class FixButton extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={() => this.setState({modalOpen: true})}>Fix My Stuff</button>
+        <Button basic color='teal' onClick={() => this.setState({modalOpen: true})} >Fix My Stuff</Button>
         {this.state.modalOpen && <CreateProblemModal closeMainModal={this.closeMainModal} />}
       </div>
     );
