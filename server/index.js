@@ -13,8 +13,6 @@ const db = require('./database/index.js');
 
 
 
-//let db = require('./config/index.js');
-
 
 
 
