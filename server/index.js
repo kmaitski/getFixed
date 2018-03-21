@@ -40,7 +40,7 @@ app.post('/api/problemUpload', (req, res) => {
   res.send('You got into the server heres your response');
 })
 
-<<<<<<< HEAD
+
 
 router(app, db);
 
@@ -51,11 +51,5 @@ db.sequelize.sync().then(() => {
 });
 
 
-=======
-//db.sequelize.sync().then(() => {
-// app.listen(PORT, function() {
-//    console.log(`listening on port ${PORT}`);
-//  });
-//});
->>>>>>> stuff
+
 
