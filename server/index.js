@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const cloudinary = require('cloudinary');
 const multer = require('multer');
 const settings = require('./../config/.cloudinary.js');
-//let db = require('./config/index.js');
+let db = require('./config/index.js');
 
 
 
@@ -35,9 +35,9 @@ app.post('/api/problemUpload', (req, res) => {
   res.send('You got into the server heres your response');
 })
 
-//db.sequelize.sync().then(() => {
-// app.listen(PORT, function() {
-//    console.log(`listening on port ${PORT}`);
-//  });
-//});
+db.sequelize.sync().then(() => {
+ app.listen(PORT, function() {
+    console.log(`listening on port ${PORT}`);
+  });
+});
 
