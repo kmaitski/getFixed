@@ -5,18 +5,13 @@ const bodyParser = require('body-parser');
 const cloudinary = require('cloudinary');
 const multer = require('multer');
 const settings = require('./../config/.cloudinary.js');
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 const db = require('./config/index.js');
-=======
-//let db = require('./config/index.js');
-=======
-let db = require('./config/index.js');
->>>>>>> test
 
 
 
->>>>>>> stuff
+
+
 const app = express();
 const router = require('./router/index.js')
 
