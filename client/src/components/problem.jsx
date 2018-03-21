@@ -18,11 +18,15 @@ const Problem = (props) => {
       </div>
 
       <div>
-        <a className={`ui ${color} image label`}>
-          <img src="https://www.w3schools.com/howto/img_avatar.png"/>
-          {props.problem.owner}
-          <div className="detail">⭐️⭐️⭐️⭐️⭐️</div>
-        </a>
+        <Link to={`/userProfile/${props.problem.userId}`}>
+          <div>
+            <a className={`ui ${color} image label`}>
+              <img src="https://www.w3schools.com/howto/img_avatar.png"/>
+              {props.problem.owner}
+              <div className="detail">⭐️⭐️⭐️⭐️⭐️</div>
+            </a>
+          </div>
+        </Link>
       </div>
     </div>
   )
