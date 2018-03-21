@@ -33,12 +33,6 @@ app.post('/api/cloudinaryUpload', upload.single('problemImage'), (req, res) => {
   }).end(req.file.buffer);
 });
 
-app.post('/api/problemUpload', (req, res) => {
-  //call some database function
-  console.log('you got back here');
-  res.send('You got into the server heres your response');
-})
-
 router(app, db);
 
 db.sequelize.sync().then(() => {
