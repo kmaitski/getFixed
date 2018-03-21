@@ -46,7 +46,6 @@ class UserProfile extends React.Component {
   }
 
   componentWillMount() {
-    // console.log(this.props);
     let id = this.props.match.params.id;
     let user = this.state.users.filter(user => {
       return user.id === +id;
@@ -58,9 +57,9 @@ class UserProfile extends React.Component {
   render() {
     return (
       <div>
-      <NavBar />
-      <CategoryView />
-        <div>
+        <NavBar />
+        <CategoryView />
+        <div style={{paddingLeft: "4%", paddingTop: "2%"}}>
           <h2>{this.state.currentUser.name}</h2>
           <div>
             <div>
