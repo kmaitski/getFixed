@@ -29,27 +29,6 @@ class Landing extends React.Component {
     super(props);
     this.state = {
 
-
-
-  render() {
-    return (
-      <div>
-        <Navbar />
-        <CategoryView />
-
-      <div className="ui hidden divider"></div>
-      <div className="ui grid container">
-        <div className="ui left aligned three wide column">
-          <Sidebar filters={filters}/>
-        </div>
-        <div className="thirteen wide column">
-          <ProblemsView problems={problems} />
-
-
-      problems: []
-    };
-  }
-
   componentDidMount() {
     axios.get('http://localhost:1337/listings')
       .then(response => {
