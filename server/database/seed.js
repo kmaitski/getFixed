@@ -1,3 +1,4 @@
+/*
 const path = require('path');
 console.log('path', path.join(__dirname, '../../'));
 require('dotenv').config({path: path.join(__dirname, '../../')});
@@ -49,3 +50,5 @@ db.sequelize.sync({force: true})
     console.error(err);
     sequelize.close();
   });
+
+*/
