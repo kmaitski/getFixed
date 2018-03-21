@@ -6,9 +6,13 @@ const cloudinary = require('cloudinary');
 const multer = require('multer');
 const settings = require('./../config/.cloudinary.js');
 <<<<<<< HEAD
+<<<<<<< HEAD
 const db = require('./config/index.js');
 =======
 //let db = require('./config/index.js');
+=======
+let db = require('./config/index.js');
+>>>>>>> test
 
 
 
@@ -42,6 +46,7 @@ app.post('/api/problemUpload', (req, res) => {
 
 
 
+
 router(app, db);
 
 db.sequelize.sync().then(() => {
@@ -49,7 +54,6 @@ db.sequelize.sync().then(() => {
     console.log(`listening on port ${PORT}`);
   });
 });
-
 
 
 
