@@ -46,15 +46,19 @@ class Landing extends React.Component {
   render() {
     return (
       <div>
-        <Navbar />
-        <CategoryView />
+        <div>
+          <Navbar />
+          <CategoryView />
+        </div>
         <div className="ui hidden divider"></div>
-        <div className="ui grid container">
-          <div className="ui left aligned three wide column">
-            <Sidebar filters={filters}/>
-          </div>
-          <div className="thirteen wide column">
-            <ProblemsView problems={this.state.problems} />
+        <div>
+          <div className="ui grid container">
+            <div className="ui left aligned three wide column">
+              <Sidebar filters={filters}/>
+            </div>
+            <div className="thirteen wide column">
+              <ProblemsView problems={this.state.problems} />
+            </div>
           </div>
         </div>
       </div>
