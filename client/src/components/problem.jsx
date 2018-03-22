@@ -16,12 +16,11 @@ class Problem extends React.Component {
     var index = Math.round(Math.random()*13);
     var color = colors[index];
     var user_id = this.props.userId;
-
     var username = this.props.data.user ? this.props.data.user.username : 'USER';
 
     return (
       <div className={`ui very raised ${color} card`}>
-        <Link to={`/singleProblemPage/${this.props.problem.id}`}>
+        <Link to={`/singleProblemPage/${this.props.problem.id}/${username}`}>
           <img className="ui centered medium image" src={this.props.problem.image} />
         </Link>
         <div className="content">

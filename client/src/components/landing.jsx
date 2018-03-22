@@ -62,7 +62,7 @@ class Landing extends React.Component {
               <ProblemsView problems={this.state.problems} />
             </div>
           </div>
-
+        <div className="ui hidden divider"></div>
         </div>
         <Footer />
         <br />
