@@ -8,8 +8,8 @@ const settings = require('./../config/.cloudinary.js');
 const db = require('./database/index.js');
 const app = express();
 const router = require('./router/index.js');
-import { makeExecutableSchema} from 'graphql-tools';
-import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
+const graphQLTools = require('graphql-tools');
+const graphQLExp = require('apollo-server-express');
 
 const PORT = process.env.PORT || 1337;
 
@@ -79,14 +79,14 @@ const root = {
   }
 }
 
-const schema = makeExecutableSchema({ typeDefs });
+const schema = graphQLTools.makeExecutableSchema({ typeDefs });
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, '../client/dist')));
-app.use('/graphql', bodyParser.json(), graphqlExpress({ schema:schema, rootValue: root, graphiql: true }));
-app.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
+app.use('/graphql', bodyParser.json(), graphQLExp.graphqlExpress({ schema:schema, rootValue: root, graphiql: true }));
+app.use('/graphiql', graphQLExp.graphiqlExpress({ endpointURL: '/graphql' }));
 
 //app.use('/', routes);
 const storage = multer.memoryStorage();
