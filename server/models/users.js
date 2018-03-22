@@ -20,10 +20,10 @@ module.exports = (sequelize, DataTypes) => {
     type: DataTypes.STRING,
     required: true
   },
-  avg_rating: DataTypes.STRING,
-  rating_count: DataTypes.INTEGER,
-  city: DataTypes.STRING,
-  phone_number: DataTypes.STRING
+  // avg_rating: DataTypes.STRING,
+  // rating_count: DataTypes.INTEGER,
+  // city: DataTypes.STRING,
+  // phone_number: DataTypes.STRING
   // first_name: {},
   // last_name: {},
   // street: {},
