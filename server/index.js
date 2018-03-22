@@ -29,6 +29,7 @@ const typeDefs = `
     rating_count: Int
     city: String
     phone_number: String
+    num: String
   }
 
   type Listing {

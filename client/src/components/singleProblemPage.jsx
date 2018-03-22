@@ -3,6 +3,9 @@ import { Link, Redirect } from 'react-router-dom';
 import NavBar from './navBar.jsx';
 import CategoryView from './categoryView.jsx';
 import axios from 'axios';
+import { withApollo } from 'react-apollo';
+import gql from 'graphql-tag';
+import { Card } from 'semantic-ui-react';
 
 class SingleProblemPage extends React.Component {
   constructor(props){
@@ -39,14 +42,17 @@ class SingleProblemPage extends React.Component {
           <div className="ui segment">
             <img className="ui large image" src={this.state.currentProblem.image}/>
           </div>
-          <div className="content description">
-            <h4 className="ui sub header">Problem Description:</h4>
-            <p>{this.state.currentProblem.description}</p>
+          <div className="ui card">
+            <div className="content description">
+              <h4 className="ui sub header">Problem Description:</h4>
+              <p>{this.state.currentProblem.description}</p>
+            </div>
           </div>
         </div>
       </div>
     )
   }
 }
+
 
 export default SingleProblemPage
