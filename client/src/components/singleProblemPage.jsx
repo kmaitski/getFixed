@@ -3,22 +3,20 @@ import { Link, Redirect } from 'react-router-dom';
 import NavBar from './navBar.jsx';
 import CategoryView from './categoryView.jsx';
 import axios from 'axios';
-import { withApollo } from 'react-apollo';
+import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
-import { Card } from 'semantic-ui-react';
 
 class SingleProblemPage extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      currentProblem: {}
+      currentProblem: {},
     }
   }
 
   componentWillMount() {
     axios.get(`http://localhost:1337/listing/${this.props.match.params.id}`)
       .then(response => {
-        response.data.image = 'https://www.aquaspresso.co.za/wp-content/uploads/2015/10/what-problem-are-you-trying-to-solve.png'
         this.setState({
           currentProblem: response.data
         });
@@ -54,5 +52,4 @@ class SingleProblemPage extends React.Component {
   }
 }
 
-
-export default SingleProblemPage
+export default SingleProblemPage;
