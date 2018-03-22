@@ -25,6 +25,10 @@ const typeDefs = `
     id: String
     username: String
     email: String
+    avg_rating: String
+    rating_count: Int
+    city: String
+    phone_number: String
   }
 
   type Listing {
