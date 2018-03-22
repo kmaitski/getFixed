@@ -13,7 +13,7 @@ class ProblemsView extends React.Component {
     return (
       <div className="ui right internal attached">
         <div className="ui cards">
-        {this.props.problems.map((problem, index) => <Problem key={problem.id} problem={problem} index={index} />)}
+        {this.props.problems.map((problem, index) => <Problem key={problem.id} problem={problem} userId={problem.user_id} index={index} />)}
         </div>
       </div>
     )

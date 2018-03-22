@@ -1,36 +1,58 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
 
-const Problem = (props) => {
+class Problem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: {}
+    }
+  }
 
-  var colors = ['red', 'orange', 'yellow', 'olive', 'green', 'teal', 'blue', 'violet', 'purple', 'pink', 'brown', 'grey', 'black'];
-  var index = Math.round(Math.random()*13);
-  var color = colors[index];
-  var user_id = props.problem.user_id;
+  render() {
+    var colors = ['red', 'orange', 'yellow', 'olive', 'green', 'teal', 'blue', 'violet', 'purple', 'pink', 'brown', 'grey', 'black'];
+    var index = Math.round(Math.random()*13);
+    var color = colors[index];
+    var user_id = this.props.userId;
 
-  return (
-    <div className={`ui very raised ${color} card`}>
-      <Link to={`/singleProblemPage/${props.problem.id}`}>
-        <img className="ui centered medium image" src={props.problem.image} />
-      </Link>
-      <div className="content">
-        <Link to={{pathname:`/singleProblemPage/${props.problem.id}`, state:{user_id}}} className="header problemTitle">{props.problem.title}</Link>
-        <p className="problemDesc">{props.problem.description}</p>
-      </div>
+    var username = this.props.data.user ? this.props.data.user.username : 'USER';
 
-      <div>
-        <Link to={`/userProfile/${props.problem.user_id}`}>
-          <div>
-            <span className={`ui ${color} image label`}>
-              <img src="https://www.w3schools.com/howto/img_avatar.png"/>
-              {props.problem.user_id}
-              <div className="detail">⭐️⭐️⭐️⭐️⭐️</div>
-            </span>
-          </div>
+    return (
+      <div className={`ui very raised ${color} card`}>
+        <Link to={`/singleProblemPage/${this.props.problem.id}`}>
+          <img className="ui centered medium image" src={this.props.problem.image} />
         </Link>
+        <div className="content">
+          <Link to={{pathname:`/singleProblemPage/${this.props.problem.id}`}} className="header problemTitle">{this.props.problem.title}</Link>
+          <p className="problemDesc">{this.props.problem.description}</p>
+        </div>
+
+        <div>
+          <Link to={`/userProfile/${user_id}`}>
+            <div>
+              <span className={`ui ${color} image label`}>
+                <img src="https://www.w3schools.com/howto/img_avatar.png"/>
+                {username}
+                <div className="detail">⭐️⭐️⭐️⭐️⭐️</div>
+              </span>
+            </div>
+          </Link>
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
 
-export default Problem;
+const SINGLE_USER_QUERY = gql`
+  query SingleUserQuery($userId: String!) {
+    user(num: $userId) {
+      username
+    }
+  }
+`
+
+export default graphql(SINGLE_USER_QUERY, {
+  options: ({ userId }) => ({variables: { userId }}),
+})(Problem)
