@@ -19,7 +19,7 @@ class Navbar extends React.Component {
 
     return (
     <div>
-      <Menu fluid horizontal>
+      <Menu className="fluid horizontal">
       <Link to ='/landing'>
         <Menu.Item>
           <Button basic color='red' content='Home' />
