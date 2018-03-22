@@ -36,7 +36,7 @@ class SingleProblemPage extends React.Component {
           <div className="content">
             <div className="ui header">{this.state.currentProblem.title}</div>
           </div>
-          <a className="ui red ribbon label">{this.state.currentProblem.user_id}</a>
+          <a className="ui red ribbon label">{this.props.match.params.username}</a>
           <div className="ui segment">
             <img className="ui large image" src={this.state.currentProblem.image}/>
           </div>
