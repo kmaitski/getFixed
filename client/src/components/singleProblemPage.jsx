@@ -13,7 +13,6 @@ class SingleProblemPage extends React.Component {
   }
 
   componentWillMount() {
-    console.log(this.props.match.params.id);
     axios.get(`http://localhost:1337/listing/${this.props.match.params.id}`)
       .then(response => {
         response.data.image = 'https://www.aquaspresso.co.za/wp-content/uploads/2015/10/what-problem-are-you-trying-to-solve.png'
