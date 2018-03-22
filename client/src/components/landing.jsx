@@ -5,6 +5,7 @@ import Navbar from './navBar.jsx';
 import ProblemsView from './problemsView.jsx';
 import CategoryView from './categoryView.jsx';
 import Sidebar from './sidebar.jsx';
+import Footer from './footer.jsx';
 import axios from 'axios';
 
 
@@ -28,7 +29,7 @@ class Landing extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      problems: [] 
+      problems: []
     };
   }
 
@@ -63,6 +64,8 @@ class Landing extends React.Component {
           </div>
 
         </div>
+        <Footer />
+        <br />
       </div>
     )
   }
