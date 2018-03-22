@@ -6,8 +6,7 @@ const Problem = (props) => {
   var colors = ['red', 'orange', 'yellow', 'olive', 'green', 'teal', 'blue', 'violet', 'purple', 'pink', 'brown', 'grey', 'black'];
   var index = Math.round(Math.random()*13);
   var color = colors[index];
-
-  props.problem.image = props.problem.image || 'https://www.aquaspresso.co.za/wp-content/uploads/2015/10/what-problem-are-you-trying-to-solve.png';
+  var user_id = props.problem.user_id;
 
   return (
     <div className={`ui very raised ${color} card`}>
@@ -15,7 +14,7 @@ const Problem = (props) => {
         <img className="ui centered medium image" src={props.problem.image} />
       </Link>
       <div className="content">
-        <Link to={`/singleProblemPage/${props.problem.id}`}className="header problemTitle">{props.problem.title}</Link>
+        <Link to={{pathname:`/singleProblemPage/${props.problem.id}`, state:{user_id}}} className="header problemTitle">{props.problem.title}</Link>
         <p className="problemDesc">{props.problem.description}</p>
       </div>
 

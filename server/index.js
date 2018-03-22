@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 1337;
 
 const typeDefs = `
   type Query {
-    user(id: String!): User
+    user(num: String!): User
     allUsers: [User]
     listing(id: String!): Listing
     allListings: [Listing]
@@ -39,6 +39,7 @@ const typeDefs = `
     description: String
     category: String
     location: String
+    image: String
   }
 
   type Mutation {
@@ -52,7 +53,7 @@ const typeDefs = `
 const root = {
   user: (obj, args, context) => {
     return db.users.find({
-      where: args
+      where: obj
     });
   },
   allUsers: (obj, args, context) => {
@@ -60,7 +61,7 @@ const root = {
   },
   listing: (obj, args, context) => {
     return db.listings.find({
-      where: args
+      where: obj
     });
   },
   allListings: (obj, args, context) => {

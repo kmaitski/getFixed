@@ -11,7 +11,8 @@ module.exports = (sequelize, DataTypes) => {
   title: DataTypes.STRING,
   description: DataTypes.STRING,
   category: DataTypes.STRING,
-  location: DataTypes.STRING
+  location: DataTypes.STRING,
+  image: DataTypes.STRING,
   });
 return Listing
 }
