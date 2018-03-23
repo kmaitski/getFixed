@@ -27,20 +27,26 @@ const problems = [
 ] // sample problem
 
 describe('<ProblemsView />', () => {
+  it('should be defined', () => {
+    expect(ProblemsView).toBeDefined();
+  });
   it('should render', () => {
-    const wrapper = shallow(<ProblemsView problems={problems}/>)
+    const wrapper = shallow(<ProblemsView problems={problems}/>);
     expect(wrapper.exists()).toBe(true);
+    expect(wrapper).toMatchSnapshot();
   });
   it ('should render all problems in the problems array', () => {
     const problemsCount = problems.length;
     const wrapper = shallow(<ProblemsView problems={problems}/>)
-    expect(wrapper.find('Problem')).toHaveLength(problemsCount);
+    console.log(wrapper);
+    console.log(wrapper.find('Apollo(Problem)'));
+    expect(wrapper.find('Apollo(Problem)')).toHaveLength(problemsCount);
   });
   it(`should have a semantic ui class of 'ui cards'`, () => {
     const wrapper = shallow(<ProblemsView problems={problems}/>)
     expect(wrapper.find('.cards')).toHaveLength(1);
   });
-  it('should have a header with the text "Listings"', () => {
+  xit('should have a header with the text "Listings"', () => {
     const wrapper = shallow(<ProblemsView problems={problems}/>)
     expect(wrapper.find('.header')).toHaveLength(1);
   });
