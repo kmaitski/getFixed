@@ -5,7 +5,7 @@ var sequelize = new Sequelize(
   config.MYSQL_USER,
   config.MYSQL_PASSWORD,
   {
-    host: "35.193.181.113",
+    host: config.SQL_IP_ADDRESS,
     dialect: "mysql",
     define: {
       underscored: true

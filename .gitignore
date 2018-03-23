@@ -3,4 +3,6 @@ client/dist/bundle.js
 package-lock.json
 config/.cloudinary.js
 .env
+server/config.js
+/config
 

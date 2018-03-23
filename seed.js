@@ -8,8 +8,7 @@ var sequelize = new Sequelize(
   config.MYSQL_USER,
   config.MYSQL_PASSWORD,
   {
-    host: "127.0.0.1",
-    port: "3306",
+    host: config.SQL_IP_ADDRESS,
     dialect: "mysql",
     define: {
       underscored: true

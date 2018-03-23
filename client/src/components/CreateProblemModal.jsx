@@ -55,7 +55,7 @@ class CreateProblemModal extends React.Component {
     request
       .post('/listing')
       .send({
-        name: this.state.name,
+        title: this.state.name,
         description: this.state.description,
         image: this.state.cloudinaryUrl,
         city: this.state.city,
