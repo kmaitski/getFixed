@@ -4,6 +4,7 @@ module.exports = (app, db) => {
     .then(listings => {
       res.json(listings);
     })
+    .catch(err => console.log('In server error', err));
   });
 
   app.get('/listing/:id', (req, res) => {

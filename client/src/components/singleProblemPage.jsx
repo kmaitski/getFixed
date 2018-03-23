@@ -15,7 +15,7 @@ class SingleProblemPage extends React.Component {
   }
 
   componentWillMount() {
-    axios.get(`http://localhost:1337/listing/${this.props.match.params.id}`)
+    axios.get(`/listing/${this.props.match.params.id}`)
       .then(response => {
         this.setState({
           currentProblem: response.data

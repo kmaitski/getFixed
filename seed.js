@@ -1,15 +1,21 @@
 const path = require('path');
 require('dotenv').config();
 var seedData = require('./server/database/seedData');
-var Sequelize = require('sequelize');
-var sequelize = new Sequelize('getfixed', 'root', process.env.MONGO_PASSWORD, {
-  host: 'localhost',
-  port: 3306,
-  dialect: 'mysql',
-  define: {
-    underscored: true
+var Sequelize = require("sequelize");
+const config = require("./server/config.js");
+var sequelize = new Sequelize(
+  "get_fixed",
+  config.MYSQL_USER,
+  config.MYSQL_PASSWORD,
+  {
+    host: "127.0.0.1",
+    port: "3306",
+    dialect: "mysql",
+    define: {
+      underscored: true
+    }
   }
-});
+);
 let db = {};
 
 db.Sequelize = Sequelize;
