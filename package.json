@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "webpack": "webpack -d --watch",
-    "start": "nodemon --inspect server/index.js",
+    "start": "node server/index.js",
     "seed": "node seed.js"
   },
   "license": "ISC",

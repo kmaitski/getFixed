@@ -10,8 +10,9 @@ const app = express();
 const router = require('./router/index.js');
 const graphQLTools = require('graphql-tools');
 const graphQLExp = require('apollo-server-express');
+const lodash = require('lodash/util')
 
-const PORT = process.env.PORT || 1337;
+const PORT = process.env.PORT || 8080;
 
 const typeDefs = `
   type Query {
@@ -107,9 +108,20 @@ app.post('/api/cloudinaryUpload', upload.single('problemImage'), (req, res) => {
 
 router(app, db);
 
-db.sequelize.sync().then(() => {
-  app.listen(PORT, function() {
-    console.log(`listening on port ${PORT}`);
+db.sequelize
+  .authenticate()
+  .then(() => {
+    console.log("Connection has been established successfully.");
+  })
+  .catch(err => {
+    console.error("Unable to connect to the database:", err);
   });
-});
+
+db.sequelize.sync()
+  .then(() => {
+    app.listen(PORT, function() {
+      console.log(`listening on port ${PORT}`);
+    });
+  })
+  .catch(err => console.log(err));
 

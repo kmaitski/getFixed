@@ -34,7 +34,7 @@ class Landing extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:1337/listings')
+    axios.get('/listings')
       .then(response => {
         this.setState({
           problems: response.data,
