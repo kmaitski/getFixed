@@ -1,12 +1,17 @@
 var Sequelize = require('sequelize');
-var sequelize = new Sequelize('getfixed', 'root', process.env.MONGO_PASSWORD, {
-  host: 'localhost',
-  port: 3306,
-  dialect: 'mysql',
-  define: {
-    underscored: true
+const config = require('../config.js');
+var sequelize = new Sequelize(
+  "get_fixed",
+  config.MYSQL_USER,
+  config.MYSQL_PASSWORD,
+  {
+    host: config.SQL_IP_ADDRESS,
+    dialect: "mysql",
+    define: {
+      underscored: true
+    }
   }
-});
+);
 let db = {};
 
 db.Sequelize = Sequelize;

@@ -1,7 +1,7 @@
 'use strict'
 
 module.exports = (sequelize, DataTypes) => {
-  var Listing = sequelize.define('Listing', {
+  var Listing = sequelize.define('listing', {
   id: {
     type: DataTypes.UUID,
     primaryKey: true,
@@ -11,7 +11,8 @@ module.exports = (sequelize, DataTypes) => {
   title: DataTypes.STRING,
   description: DataTypes.STRING,
   category: DataTypes.STRING,
-  location: DataTypes.STRING
+  location: DataTypes.STRING,
+  image: DataTypes.STRING,
   });
 return Listing
 }

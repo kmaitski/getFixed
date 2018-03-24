@@ -34,7 +34,7 @@ class Landing extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:1337/listings')
+    axios.get('/listings')
       .then(response => {
         this.setState({
           problems: response.data,
@@ -62,7 +62,7 @@ class Landing extends React.Component {
               <ProblemsView problems={this.state.problems} />
             </div>
           </div>
-
+        <div className="ui hidden divider"></div>
         </div>
         <Footer />
         <br />

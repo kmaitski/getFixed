@@ -30,11 +30,10 @@ describe('<Sidebar />', () => {
   });
   it ('should render all filters in the filters array', () => {
     const filtersCount = filters.length;
+    console.log("filterCount: ", filtersCount);
     const wrapper = shallow(<Sidebar filters={filters}/>);
+    console.log('wrapper component: ', wrapper);
     expect(wrapper.find('.filter')).toHaveLength(filtersCount);
-  });
-  it(`should be visible`, () => {
-    const wrapper = shallow(<Sidebar filters={filters}/>);
-    expect(wrapper.find('.visible')).toHaveLength(1);
+    console.log("filters counted from wrapper: ", wrapper.find('.filter'));
   });
 });
