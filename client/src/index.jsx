@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, browserHistory } from 'react-router-dom';
 import App from './components/app.jsx';
-
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { ApolloProvider } from 'react-apollo'
 import { ApolloClient } from 'apollo-client'
 import { HttpLink } from 'apollo-link-http'
@@ -20,7 +20,9 @@ const client = new ApolloClient({
 
 ReactDOM.render(
   <BrowserRouter history={ browserHistory }>
+  <MuiThemeProvider>
     <ApolloProvider client={client}>
       <App />
     </ApolloProvider>
+  </MuiThemeProvider>
   </BrowserRouter>, document.getElementById('app'));
