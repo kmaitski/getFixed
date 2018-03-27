@@ -30,7 +30,6 @@ const Landing = (props) => {
   let query;
 
   if (category) {
-    console.log('QUERY WITH ARG');
     query = gql`
       query getProblems($category: String) {
         allListings(category: $category) {
@@ -43,7 +42,6 @@ const Landing = (props) => {
       }
     `;
   } else {
-    console.log('QUERY WITHOUT ARG');
     query = gql`
       query getProblems {
         allListings {
