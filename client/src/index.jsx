@@ -19,7 +19,7 @@ const client = new ApolloClient({
 })
 
 ReactDOM.render(
-  <BrowserRouter history={ browserHistory }>
+  <BrowserRouter>
   <MuiThemeProvider>
     <ApolloProvider client={client}>
       <App />
