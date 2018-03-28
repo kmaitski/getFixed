@@ -29,7 +29,7 @@ app.use((req, res, next) => {
 
 const typeDefs = `
   type Query {
-    user(num: String!): User
+    user(id: String!): User
     allUsers: [User]
     listing(id: String!): Listing
     allListings(category: String): [Listing]

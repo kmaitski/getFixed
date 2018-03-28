@@ -27,7 +27,7 @@ class CategoryView extends React.Component {
         <Button color='blue'>Computers</Button>
         <Button color='green'>General Labour</Button>
         <Button color='teal'>Specialty</Button>
-        <Button color='purple'>Electrican</Button>
+        <Button color='purple'>Electrician</Button>
         <Button color='pink'>Free Stuff</Button>
       </div>
     )
