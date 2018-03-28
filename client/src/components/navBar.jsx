@@ -56,7 +56,6 @@ class Navbar extends React.Component {
         </Link>
           <Menu.Item>
              <CamShot />
-
           </Menu.Item>
         </Menu.Menu>
       </Menu>
