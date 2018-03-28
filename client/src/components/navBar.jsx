@@ -56,7 +56,10 @@ class Navbar extends React.Component {
         </Link>
           <Menu.Item>
              <CamShot />
+<<<<<<< HEAD
 
+=======
+>>>>>>> Updated Nav Bar responsive
           </Menu.Item>
         </Menu.Menu>
       </Menu>
