@@ -57,8 +57,6 @@ class Navbar extends React.Component {
           <Menu.Item>
              <CamShot />
 
-             <Button onClick={this.handleClick}basic color='teal' content='Logout' />
-
           </Menu.Item>
         </Menu.Menu>
       </Menu>
