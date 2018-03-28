@@ -125,6 +125,10 @@ app.post('/api/cloudinaryUpload', upload.single('problemImage'), (req, res) => {
 
 router(app, db);
 
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+});
+
 db.sequelize
   .authenticate()
   .then(() => {
