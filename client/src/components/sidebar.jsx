@@ -13,7 +13,7 @@ class SideBar extends React.Component {
   render() {
     return (
       <div>
-        <div>
+        <div className="sidebar">
           {this.state.filters.map((filter, index) => <p className="ui red segment filter" key={`filter${index}`}>{filter.name}</p>)}
         </div>
       </div>

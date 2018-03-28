@@ -1,13 +1,14 @@
 import React from 'react';
 import { Input, Menu } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import Navbar from './navBar2.jsx';
+import Navbar from './navBar.jsx';
 import ProblemsView from './problemsView.jsx';
 import CategoryView from './categoryView.jsx';
 import Sidebar from './sidebar.jsx';
 import Footer from './footer.jsx';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
+import FixButton from './fixButton.jsx'
 
 
 const filters = [
@@ -50,11 +51,11 @@ const Landing = (props) => {
           <div>
             <Navbar />
           </div>
-              <CategoryView history={history}/>
+
                 <div className="ui hidden divider"></div>
                     <div className="ui grid container">
                       <div className="ui left aligned three wide column">
-                      <Sidebar filters={filters}/>
+                      <CategoryView history={history}/>
                       </div>
                       <div className="thirteen wide column">
                       <ProblemsView problems={data.allListings} />
@@ -64,6 +65,8 @@ const Landing = (props) => {
                     <Footer />
                     <br />
                   </div>
+
+
 
         )
       }}

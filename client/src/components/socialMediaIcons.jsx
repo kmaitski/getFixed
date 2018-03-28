@@ -1,9 +1,13 @@
-react import React from 'react';
+import React from 'react'
+import { Button } from 'semantic-ui-react'
 
-const SocialMediaIcons = (props) => (
+const SocialMedia = () => (
   <div>
-    Social media icons
+    <Button circular color='facebook' icon='facebook' />
+    <Button circular color='twitter' icon='twitter' />
+    <Button circular color='linkedin' icon='linkedin' />
+    <Button circular color='google plus' icon='google plus' />
   </div>
 )
 
-export default SocialMediaIcons;
+export default SocialMedia

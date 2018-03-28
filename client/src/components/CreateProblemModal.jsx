@@ -146,12 +146,13 @@ class CreateProblemModal extends React.Component {
                       >
                         <p>Drop an image or click a file to upload</p>
                       </Dropzone>
-                    </div> : 
+                    </div> :
                     <div>
                       <p>File has been submitted. Thank you</p>
                     </div>
                     }
                   </div>
+                  <a href="https://www.youtube.com/watch?v=jNSORWnr5ZQ">click here</a>
                   <button onClick={this.handleSubmit}>Submit your Problem</button>
                 </div>
               </form>
