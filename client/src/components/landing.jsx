@@ -1,7 +1,7 @@
 import React from 'react';
 import { Input, Menu } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import Navbar from './navBar.jsx';
+import Navbar from './navBar2.jsx';
 import ProblemsView from './problemsView.jsx';
 import CategoryView from './categoryView.jsx';
 import Sidebar from './sidebar.jsx';
@@ -63,25 +63,25 @@ const Landing = (props) => {
         if (error) return <p>Error :(</p>;
         return (
           <div>
-            <div>
-              <Navbar />
-              <CategoryView history={history}/>
-            </div>
-            <div className="ui hidden divider"></div>
-            <div>
-              <div className="ui grid container">
-                <div className="ui left aligned three wide column">
-                  <Sidebar filters={filters}/>
-                </div>
-                <div className="thirteen wide column">
-                  <ProblemsView problems={data.allListings} />
-                </div>
-              </div>
-            </div>
-            <div className="ui hidden divider"></div>
-            <Footer />
-            <br />
+          <div>
+            <Navbar />
           </div>
+
+              <CategoryView history={history}/>
+                <div className="ui hidden divider"></div>
+                    <div className="ui grid container">
+                      <div className="ui left aligned three wide column">
+                      <Sidebar filters={filters}/>
+                      </div>
+                      <div className="thirteen wide column">
+                      <ProblemsView problems={data.allListings} />
+                      </div>
+                    </div>
+                  <div className="ui hidden divider"></div>
+                    <Footer />
+                    <br />
+                  </div>
+
         )
       }}
     </Query>

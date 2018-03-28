@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
-import { Input, Menu, Button} from 'semantic-ui-react'
+import React, { Component } from 'react';
+import { Input, Menu, Button} from 'semantic-ui-react';
 import FixButton from './fixButton.jsx';
+import CamShot from './cameraFunction.jsx';
 import { Link } from 'react-router-dom';
 
 class Navbar extends React.Component {
@@ -42,6 +43,9 @@ class Navbar extends React.Component {
              <Button basic color='teal' content='Login' />
           </Menu.Item>
         </Link>
+          <Menu.Item>
+             <CamShot />
+          </Menu.Item>
         </Menu.Menu>
       </Menu>
     </div>

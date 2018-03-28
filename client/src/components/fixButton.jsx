@@ -25,7 +25,7 @@ class FixButton extends React.Component {
   render() {
     return (
       <div>
-        <Button basic color='teal' onClick={() => this.setState({modalOpen: true})} >Fix My Stuff</Button>
+        <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={() => this.setState({modalOpen: true})} >Fix My Stuff</button>
         {this.state.modalOpen && <CreateProblemModal closeMainModal={this.closeMainModal} />}
       </div>
     );
