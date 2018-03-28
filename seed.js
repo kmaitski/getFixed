@@ -137,7 +137,7 @@ function createListing(userID) {
   return newEntry;
 }
 
-let users = createUsers(100);
+let users = createUsers(15);
 let listings = [];
 
 users.forEach(function(user) {
