@@ -1,5 +1,6 @@
 import React from 'react'
 import { Icon, Image, Statistic } from 'semantic-ui-react'
+import SocialMedia from './socialMediaIcons.jsx'
 
 const Footer = () => (
   <div className="ui inverted vertical footer segment">
@@ -19,16 +20,10 @@ const Footer = () => (
             <a href="#" className="item">user agreement</a>
           </div>
         </div>
-        <div className="three wide column">
-          <h4 className="ui inverted header">FAQs</h4>
-          <div className="ui inverted link list">
-            <a href="#" className="item">Help</a>
-            <a href="#" className="item">Chat Bot</a>
-          </div>
-        </div>
+
         <div className="seven wide column">
           <h4 className="ui inverted header">Get Fixed</h4>
-          <p>Sometimes an answer is a picture away.</p>
+          <SocialMedia />
         </div>
       </div>
       <div className="ui inverted section divider"></div>
