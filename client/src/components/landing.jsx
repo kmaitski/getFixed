@@ -50,18 +50,10 @@ const Landing = (props) => {
             <div>
               <Navbar />
             </div>
-<<<<<<< Updated upstream
             <div className="ui hidden divider"></div>
             <div className="ui grid container">
               <div className="ui left aligned three wide column">
               <CategoryView history={history}/>
-=======
-
-            <div className="ui hidden divider"></div>
-            <div className="ui grid container">
-              <div className="ui left aligned three wide column">
-                <CategoryView history={history}/>
->>>>>>> Stashed changes
               </div>
               <div className="thirteen wide column">
                 <ProblemsView problems={data.allListings} />
