@@ -38,7 +38,7 @@ class LoginPage extends React.Component {
         password: this.state.password,
       })
       .then(function (response) {
-        // context.props.history.push("/");
+        context.props.history.push("/");
         console.log(response.message);
       })
       .catch(function (error) {
