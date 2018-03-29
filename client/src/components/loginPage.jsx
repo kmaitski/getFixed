@@ -99,11 +99,6 @@ class LoginPage extends React.Component {
                   fluid size='large'
                   onClick={this.handleClick}
                 >Login</Button>
-                <Button
-                  color='teal'
-                  fluid size='large'
-                  onClick={this.testFunc}
-                >Test</Button>
               </Segment>
             </Form>
             <Message>
@@ -116,5 +111,9 @@ class LoginPage extends React.Component {
     )
   }
 }
-
+/*<Button
+  color='teal'
+  fluid size='large'
+  onClick={this.testFunc}
+>Test</Button>*/
 export default LoginPage

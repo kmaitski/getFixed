@@ -141,7 +141,7 @@ class Signup extends React.Component {
                   color='teal'
                   fluid size='large'
                   onClick={this.handleClick}
-                >Login</Button>
+                >Sign Up</Button>
           </Message>
           <Message>
             <Link to ='/loginPage'>Already have an account? Sign in here. </Link>
