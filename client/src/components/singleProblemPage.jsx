@@ -27,7 +27,6 @@ class SingleProblemPage extends React.Component {
   }
 
   render() {
-    console.log(this.state.currentProblem);
     return (
       <div>
         <NavBar />
