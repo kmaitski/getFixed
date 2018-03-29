@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import Navbar from './navBar.jsx';
 import ProblemsView from './problemsView.jsx';
 import CategoryView from './categoryView.jsx';
-import Sidebar from './sidebar.jsx';
 import Footer from './footer.jsx';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
