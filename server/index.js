@@ -1,4 +1,4 @@
-require('dotenv').config();
+// require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const passport = require('passport')
@@ -29,7 +29,7 @@ app.use((req, res, next) => {
 
 const typeDefs = `
   type Query {
-    user(num: String!): User
+    user(id: String!): User
     allUsers: [User]
     listing(id: String!): Listing
     allListings(category: String): [Listing]
@@ -80,7 +80,8 @@ const root = {
   },
   allListings: (obj, args, context) => {
     return db.listings.findAll({
-      where: obj
+      where: obj,
+      limit: 10
     });
   },
   createUser: (obj, args, context) => {
