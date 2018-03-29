@@ -6,6 +6,7 @@ import axios from 'axios';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
+
 class SingleProblemPage extends React.Component {
   constructor(props){
     super(props);
@@ -47,6 +48,7 @@ class SingleProblemPage extends React.Component {
             </div>
           </div>
         </div>
+
       </div>
     )
   }
