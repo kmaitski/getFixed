@@ -81,7 +81,7 @@ const root = {
   allListings: (obj, args, context) => {
     return db.listings.findAll({
       where: obj,
-      limit: 10
+      limit: 25
     });
   },
   createUser: (obj, args, context) => {
