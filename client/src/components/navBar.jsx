@@ -3,14 +3,13 @@ import { Input, Menu, Button} from 'semantic-ui-react';
 import FixButton from './fixButton.jsx';
 import CamShot from './cameraFunction.jsx';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 
 class Navbar extends React.Component {
     constructor(props) {
     super(props)
     this.state = {
 
-    }
+       }
     this.handleClick = this.handleClick.bind(this);
 
   }
@@ -26,42 +25,51 @@ class Navbar extends React.Component {
         });
       }
 
+
   render() {
 
 
     return (
-    <div>
-      <Menu className="fluid horizontal">
-      <Link to ='/landing'>
-        <Menu.Item>
-          <Button basic color='red' content='Home' />
-        </Menu.Item>
-      </Link>
-        <Menu.Item>
-          <Input style={{width: "50vw",height: "35px"}} icon='search' placeholder='What are you looking for?' />
-        </Menu.Item>
-        <Menu.Menu>
-        <Menu.Item>
-          <FixButton />
-        </Menu.Item>
-        <Link to ='/signUp'>
-          <Menu.Item>
-             <Button basic color='teal' content='Sign Up' />
-          </Menu.Item>
-        </Link>
-        <Link to ='/loginPage'>
-          <Menu.Item>
-             <Button basic color='teal' content='Login' />
-          </Menu.Item>
-        </Link>
-          <Menu.Item>
-             <CamShot />
 
-          </Menu.Item>
-        </Menu.Menu>
-      </Menu>
+    <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header className="mdl-layout__header">
+        <div className="mdl-layout__header-row">
+          <Link to ='/landing'>
+          <span className="mdl-navigation__link"><h3>Get Fixed!</h3> </span>
+          </Link>
+          <div className="mdl-layout-spacer"></div>
+          <Input style={{width: "29vw",height: "35px"}} icon='search' placeholder='What are you looking for?' />
+
+          <nav className="mdl-navigation mdl-layout--large-screen-only">
+            <Link to ='/signUp'>
+            <span className="mdl-navigation__link">Sign Up</span>
+            </Link>
+            <Link to ='/loginPage'>
+            <span className="mdl-navigation__link">Login</span>
+            </Link>
+            <span className="mdl-navigation__link"><FixButton /></span>
+
+          </nav>
+        </div>
+      </header>
+      <div className="mdl-layout__drawer">
+        <span className="mdl-layout-title">Get Fixed!</span>
+        <nav className="mdl-navigation">
+          <span className="mdl-navigation__link" href=""><FixButton /></span>
+          <Link to ='/signUp'>
+          <span className="mdl-navigation__link" >Sign Up</span>
+          </Link>
+          <Link to ='/loginPage'>
+          <span className="mdl-navigation__link" >Login</span>
+          </Link>
+          <Link to ='/UserProfile'>
+          <span className="mdl-navigation__link" >My Account</span>
+          </Link>
+        </nav>
+      </div>
+
     </div>
-    )
+        )
   }
 }
 
