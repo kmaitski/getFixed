@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import NavBar from './navBar.jsx';
-import CategoryView from './categoryView.jsx';
 import axios from 'axios';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
@@ -31,7 +30,6 @@ class SingleProblemPage extends React.Component {
     return (
       <div>
         <NavBar />
-        <CategoryView />
         <div className="ui hidden divider"></div>
         <div className="ui raised container">
           <div className="content">

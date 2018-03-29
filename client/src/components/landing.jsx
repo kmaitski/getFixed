@@ -50,14 +50,14 @@ const Landing = (props) => {
             <div>
               <Navbar />
             </div>
-            <CategoryView history={history}/>
             <div className="ui hidden divider"></div>
             <div className="ui grid container">
               <div className="ui left aligned three wide column">
-                <Sidebar filters={filters}/>
+              <CategoryView history={history}/>
               </div>
               <div className="thirteen wide column">
                 <ProblemsView problems={data.allListings} />
+
               </div>
             </div>
             <div className="ui hidden divider"></div>
