@@ -41,11 +41,11 @@ const Landing = (props) => {
 
   return (
 
-    <Query query={query} variables={{category}}>
-      {({ loading, error, data }) => {
-        if (loading) return <p>Loading...</p>;
-        if (error) return <p>Error :(</p>;
-        return (
+    // <Query query={query} variables={{category}}>
+    //   {({ loading, error, data }) => {
+    //     if (loading) return <p>Loading...</p>;
+    //     if (error) return <p>Error :(</p>;
+    //     return (
           <div>
             <div>
               <Navbar />
@@ -63,9 +63,9 @@ const Landing = (props) => {
             <Footer />
             <br />
           </div>
-        )
-      }}
-    </Query>
+        // )
+    //   }}
+    // </Query>
   )
 
 }
