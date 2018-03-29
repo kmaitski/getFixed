@@ -57,7 +57,6 @@ const Landing = (props) => {
               </div>
               <div className="thirteen wide column">
                 <ProblemsView problems={data.allListings} />
-
               </div>
             </div>
             <div className="ui hidden divider"></div>
