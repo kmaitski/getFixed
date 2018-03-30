@@ -1,23 +1,24 @@
-var Sequelize = require('sequelize');
+let Sequelize = require('sequelize');
 const config = require('../config.js');
-var sequelize = new Sequelize(
-  "get_fixed",
+
+let sequelize = new Sequelize(
+  'get_fixed',
   config.MYSQL_USER,
   config.MYSQL_PASSWORD,
   {
     host: config.SQL_IP_ADDRESS,
-    dialect: "mysql",
+    dialect: 'mysql',
     define: {
-      underscored: true
-    }
-  }
+      underscored: true,
+    },
+  },
 );
-let db = {};
+const db = {};
 
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-//Models/tables
+// Models/tables
 db.users = require('../models/users.js')(sequelize, Sequelize);
 db.listings = require('../models/listings.js')(sequelize, Sequelize);
 

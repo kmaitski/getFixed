@@ -1,18 +1,25 @@
 // require('dotenv').config();
 const express = require('express');
 const path = require('path');
-const passport = require('passport')
+const passport = require('passport');
 const cookieParser = require('cookie-parser');
-const session = require('express-session')
+const session = require('express-session');
 const bodyParser = require('body-parser');
 const cloudinary = require('cloudinary');
 const multer = require('multer');
-const settings = require('./../config/.cloudinary.js');
-const app = express();
-const router = require('./router/index.js');
+
+// GraphQL modules
 const graphQLTools = require('graphql-tools');
 const graphQLExp = require('apollo-server-express');
+// const graphQLSchema = require('./graphQL/schema.js');
+
+const settings = require('./../config/.cloudinary.js');
+
+const app = express();
+const router = require('./router/index.js');
+
 const db = require('./database/index.js');
+
 const PORT = process.env.PORT || 8080;
 
 app.enable('trust proxy');
@@ -21,10 +28,9 @@ app.use((req, res, next) => {
   if (req.secure || req.headers.host === 'localhost:8080') {
     next();
   } else {
-    res.redirect('https://' + req.headers.host + req.url);
+    res.redirect(`https://${req.headers.host}${req.url}`);
   }
 });
-
 
 
 const typeDefs = `
@@ -102,32 +108,35 @@ const root = {
   }
 }
 
+// GraphQL
+// const typeDefs = graphQLSchema.typeDefs;
+// const resolvers = graphQLSchema.resolvers;
 const schema = graphQLTools.makeExecutableSchema({ typeDefs });
-app.use(bodyParser.urlencoded({extended: false }));
+
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser());
-app.use(session({secret: 'keyboard cat', resave: true, saveUninitialized:true}));
+app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 require('./passport/passport.js')(passport, db.users);
 
 
-
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
-var authRoute = require('./router/routes/auth.js')(app, db, passport);
+const authRoute = require('./router/routes/auth.js')(app, db, passport);
 
 
-app.use('/graphql', bodyParser.json(), graphQLExp.graphqlExpress({ schema:schema, rootValue: root, graphiql: true }));
+app.use('/graphql', bodyParser.json(), graphQLExp.graphqlExpress({ schema, rootValue: root, graphiql: true }));
 app.use('/graphiql', graphQLExp.graphiqlExpress({ endpointURL: '/graphql' }));
 
-//app.use('/', routes);
+// app.use('/', routes);
 const storage = multer.memoryStorage();
-const upload = multer({ storage: storage });
+const upload = multer({ storage });
 cloudinary.config(settings);
 
 app.post('/api/cloudinaryUpload', upload.single('problemImage'), (req, res) => {
-  cloudinary.uploader.upload_stream(result => {
+  cloudinary.uploader.upload_stream((result) => {
     res.status(200).send(result);
   }).end(req.file.buffer);
 });
@@ -141,15 +150,15 @@ app.get('/*', (req, res) => {
 db.sequelize
   .authenticate()
   .then(() => {
-    console.log("Connection has been established successfully.");
+    console.log('Connection has been established successfully.');
   })
-  .catch(err => {
-    console.error("Unable to connect to the database:", err);
+  .catch((err) => {
+    console.error('Unable to connect to the database:', err);
   });
 
 db.sequelize.sync()
   .then(() => {
-    app.listen(PORT, function() {
+    app.listen(PORT, () => {
       console.log(`listening on port ${PORT}`);
     });
   })

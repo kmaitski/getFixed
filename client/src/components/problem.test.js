@@ -13,31 +13,31 @@ const problem = {
   username: 'BLittle',
   password: '456',
   email: 'brandon@testing.com',
-  avg_rating: "5.00",
+  avg_rating: '5.00',
   rating_count: 4,
-  city: "Indianapolis",
-  phone_number: "19834128082"
+  city: 'Indianapolis',
+  phone_number: '19834128082',
 }; // sample problem
 
 describe('<Problem />', () => {
   xit('should render', () => {
-    const wrapper = shallow(<Problem problem={problem}/>)
+    const wrapper = shallow(<Problem problem={problem}/>);
     expect(wrapper.exists()).toBe(true);
   });
-  xit ('should contain an image', () => {
-    const wrapper = shallow(<Problem problem={problem}/>)
+  xit('should contain an image', () => {
+    const wrapper = shallow(<Problem problem={problem}/>);
     expect(wrapper.find('img')).toHaveLength(1);
   });
   xit('should render a title', () => {
-    const wrapper = shallow(<Problem problem={problem}/>)
+    const wrapper = shallow(<Problem problem={problem}/>);
     expect(wrapper.find('.problemTitle')).toHaveLength(1);
   });
   xit('should render a description of the problem', () => {
-    const wrapper = shallow(<Problem problem={problem}/>)
+    const wrapper = shallow(<Problem problem={problem}/>);
     expect(wrapper.find('.problemDesc')).toHaveLength(1);
   });
   xit('should not render a chat section', () => {
-    const wrapper = shallow(<Problem problem={problem}/>)
+    const wrapper = shallow(<Problem problem={problem}/>);
     expect(wrapper.find('.chat')).toHaveLength(0);
   });
 });

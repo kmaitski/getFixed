@@ -1,4 +1,4 @@
-'use strict'
+
 
 module.exports = (sequelize, DataTypes) => {
   const Listing = sequelize.define('listing', {
@@ -14,5 +14,5 @@ module.exports = (sequelize, DataTypes) => {
   location: DataTypes.STRING,
   image: DataTypes.STRING,
   });
-return Listing
-}
+  return Listing;
+};
