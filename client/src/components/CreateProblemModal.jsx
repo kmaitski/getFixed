@@ -6,13 +6,14 @@ import CamShot from './CamShot.jsx';
 
 const customStyles = {
   content: {
-    top: '50%',
+    top: '55%',
     left: '50%',
     right: 'auto',
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
-    width: '80%'
+    width: '80%',
+    height: '60%'
   }
 };
 
@@ -67,7 +68,7 @@ class CreateProblemModal extends React.Component {
 
   render(){
     return(
-      <div>
+      <div >
         <Modal
           isOpen={this.state.modalOpen}
           onAfterOpen={this.afterOpen}
@@ -84,7 +85,7 @@ class CreateProblemModal extends React.Component {
               X
             </button>
             <h2>Create a Problem</h2>
-            <CamShot />
+            <CamShot2 />
             <div>
               <form
                 onSubmit={this.handleSubmit}
