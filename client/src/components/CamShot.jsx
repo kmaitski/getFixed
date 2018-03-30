@@ -5,7 +5,6 @@ var videoPlayer = document.querySelector('#player');
 var videoElement = document.querySelector('#canvas');
 var captureButton = document.querySelector('#capture-btn');
 var imagePicker = document.querySelector('#image-picker');
-var imagePickerArea = document.querySelector('#pick-mage');
 
 //check to see if navigator media devices to capture picture is supported
 function initializeMedia() {
@@ -43,22 +42,15 @@ function initializeMedia() {
 
 
 
+
+
 const CamShot = (props) => (
   <div>
-    <video id="player" autoplay></video>
-    <canvas id="canvas" width="320px" height="240px">
-    </canvas>
-    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="capture-btn">Capture
-    </button>
     <div id="pick-image">
-      <h6>Pick an Image instead</h6>
-      <input type="file" accept="image/*" id="image-picker" />
+      <h6>Take a Photo</h6>
+      <input type="file" accept="image/*" />
     </div>
-    <div class="input-section">
-  <button class="mdl-button mdl-js-button mdl-button mdl-button--colored" type="button" id="location-btn">Get
-    Location
-  </button>
-<div class="mdl-spinner mdl-js-spinner is-active" id="location-loader"></div>
+    <div className="input-section">
 </div>
   </div>
 )
