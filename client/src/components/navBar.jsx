@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Input, Menu, Button} from 'semantic-ui-react';
 import FixButton from './fixButton.jsx';
-import CamShot from './cameraFunction.jsx';
 import { Link } from 'react-router-dom';
 
 class Navbar extends React.Component {

@@ -20,6 +20,9 @@ class FixButton extends React.Component {
 
   closeMainModal() {
     this.setState({ modalOpen: false })
+    imagePickerArea.style.display = 'none';
+    videoPlayer.style.display ='none';
+    canvasElement.style.display = 'none';
   }
 
   render() {
