@@ -4,6 +4,7 @@ import ProblemsView from './problemsView.jsx';
 import CategoryView from './categoryView.jsx';
 import Footer from './footer.jsx';
 
+
 class Landing extends React.Component {
   constructor(props) {
     super(props);
@@ -70,6 +71,7 @@ class Landing extends React.Component {
     );
   }
 }
+
 
 export default Landing;
 
