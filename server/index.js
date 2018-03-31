@@ -7,11 +7,16 @@ const session = require('express-session');
 const bodyParser = require('body-parser');
 const cloudinary = require('cloudinary');
 const multer = require('multer');
+const PubSub = require('graphql-subscriptions');
 
 // GraphQL modules
 const graphQLTools = require('graphql-tools');
 const graphQLExp = require('apollo-server-express');
 // const graphQLSchema = require('./graphQL/schema.js');
+const cors = require('cors');
+const { execute, subscribe } = require('graphql');
+const { createServer } = require('http');
+const { SubscriptionServer } = require('subscriptions-transport-ws');
 
 const settings = require('./../config/.cloudinary.js');
 
@@ -68,7 +73,13 @@ const typeDefs = `
     deleteUser(id: String!): User
     deleteListing(id: String!): Listing
   }
+
+  type Subscription {
+    listingAdded: Listing
+  }
 `;
+
+const pubsub = new PubSub.PubSub();
 
 const root = {
   user: (obj, args, context) => {
@@ -94,7 +105,12 @@ const root = {
     return db.users.create(obj);
   },
   createListing: (obj, args, context) => {
-    return db.listings.create(obj);
+    let newListing = db.listings.create(obj);
+    pubsub.publish('listingAdded', { listingAdded: newListing });
+    return newListing;
+  },
+  listingAdded: {
+    subscribe: () => pubsub.asyncIterator('listingAdded')
   },
   deleteUser: (obj, args, context) => {
     return db.users.destroy({
@@ -126,10 +142,25 @@ app.use(express.static(path.join(__dirname, '../client/dist')));
 
 const authRoute = require('./router/routes/auth.js')(app, db, passport);
 
-
+app.use('*', cors({ origin: `http://localhost:${PORT}` }));
 app.use('/graphql', bodyParser.json(), graphQLExp.graphqlExpress({ schema, rootValue: root, graphiql: true }));
-app.use('/graphiql', graphQLExp.graphiqlExpress({ endpointURL: '/graphql' }));
+app.use('/graphiql', graphQLExp.graphiqlExpress({
+  endpointURL: '/graphql',
+  subscriptionsEndpoint: `ws://localhost:${PORT}/subscriptions`
+}));
 
+const ws = createServer(app);
+// ws.listen(PORT, () => {
+//   console.log(`Apollo Server is now running on http://localhost:${PORT}`);
+//   new SubscriptionServer({
+//     execute,
+//     subscribe,
+//     schema
+//   }, {
+//     server: ws,
+//     path: '/subscriptions',
+//   });
+// })
 // app.use('/', routes);
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
@@ -158,9 +189,17 @@ db.sequelize
 
 db.sequelize.sync()
   .then(() => {
-    app.listen(PORT, () => {
-      console.log(`listening on port ${PORT}`);
-    });
+    ws.listen(PORT, () => {
+      console.log(`Apollo Server is now running on http://localhost:${PORT}`);
+      new SubscriptionServer({
+        execute,
+        subscribe,
+        schema
+      }, {
+        server: ws,
+        path: '/subscriptions',
+      });
+    })
   })
   .catch(err => console.log(err));
 
