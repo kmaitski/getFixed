@@ -82,47 +82,33 @@ const typeDefs = `
 const pubsub = new PubSub.PubSub();
 
 const root = {
-  user: (obj, args, context) => {
-    return db.users.find({
-      where: obj
-    });
-  },
-  allUsers: (obj, args, context) => {
-    return db.users.findAll();
-  },
-  listing: (obj, args, context) => {
-    return db.listings.find({
-      where: obj
-    });
-  },
-  allListings: (obj, args, context) => {
-    return db.listings.findAll({
-      where: obj,
-      limit: 25
-    });
-  },
-  createUser: (obj, args, context) => {
-    return db.users.create(obj);
-  },
+  user: (obj, args, context) => db.users.find({
+    where: obj,
+  }),
+  allUsers: (obj, args, context) => db.users.findAll(),
+  listing: (obj, args, context) => db.listings.find({
+    where: obj,
+  }),
+  allListings: (obj, args, context) => db.listings.findAll({
+    where: obj,
+    limit: 25,
+  }),
+  createUser: (obj, args, context) => db.users.create(obj),
   createListing: (obj, args, context) => {
-    let newListing = db.listings.create(obj);
+    const newListing = db.listings.create(obj);
     pubsub.publish('listingAdded', { listingAdded: newListing });
     return newListing;
   },
   listingAdded: {
-    subscribe: () => pubsub.asyncIterator('listingAdded')
+    subscribe: () => pubsub.asyncIterator('listingAdded'),
   },
-  deleteUser: (obj, args, context) => {
-    return db.users.destroy({
-      where: obj
-    });
-  },
-  deleteListing: (obj, args, context) => {
-    return db.listings.destroy({
-      where: obj
-    })
-  }
-}
+  deleteUser: (obj, args, context) => db.users.destroy({
+    where: obj,
+  }),
+  deleteListing: (obj, args, context) => db.listings.destroy({
+    where: obj,
+  }),
+};
 
 // GraphQL
 // const typeDefs = graphQLSchema.typeDefs;
@@ -146,7 +132,7 @@ app.use('*', cors({ origin: `http://localhost:${PORT}` }));
 app.use('/graphql', bodyParser.json(), graphQLExp.graphqlExpress({ schema, rootValue: root, graphiql: true }));
 app.use('/graphiql', graphQLExp.graphiqlExpress({
   endpointURL: '/graphql',
-  subscriptionsEndpoint: `ws://localhost:${PORT}/subscriptions`
+  subscriptionsEndpoint: `ws://localhost:${PORT}/subscriptions`,
 }));
 
 const ws = createServer(app);
@@ -183,12 +169,12 @@ db.sequelize.sync()
       new SubscriptionServer({
         execute,
         subscribe,
-        schema
+        schema,
       }, {
         server: ws,
         path: '/subscriptions',
       });
-    })
+    });
   })
   .catch(err => console.log(err));
 
