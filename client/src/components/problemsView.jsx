@@ -5,6 +5,7 @@ import { Query } from 'react-apollo';
 import Problem from './problem.jsx';
 
 const ProblemsView = (props) => {
+  console.log("problemsview", props);
   const { category } = props;
   let query = gql`
     query getProblems($category: String) {
@@ -17,7 +18,6 @@ const ProblemsView = (props) => {
       }
     }
   `;
-
   return (
     <Query
       query={query}

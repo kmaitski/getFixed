@@ -4,35 +4,63 @@ import ProblemsView from './problemsView.jsx';
 import CategoryView from './categoryView.jsx';
 import Footer from './footer.jsx';
 
+class Landing extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
-const Landing = (props) => (
-  <div>
-    <div>
-      <Navbar
-        isLoggedIn={props.isLoggedIn}
-        onLogout={props.onLogout}
-        />
-    </div>
-    <div className="ui hidden divider"></div>
-    <div className="ui grid container">
-      <div
-        className="ui left aligned three wide column"
-        style={{paddingTop: "6%"}}
-      >
-        <CategoryView history={history} />
+  geoLocationSuccess(pos) {
+    const crd = pos.coords;
+
+    console.log(crd);
+  }
+
+  geoLocationError(error) {
+    console.log(`ERROR(${error.code}): ${error.message}`);
+  }
+
+  componentWillMount() {
+    const options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0
+    };
+
+    navigator.geolocation.getCurrentPosition(this.geoLocationSuccess, this.geoLocationError, options); 
+  }
+
+  render() {
+    return (
+      <div>
+        <div>
+          <Navbar />
+        </div>
+        <div className="ui hidden divider"></div>
+        <div className="ui grid container">
+          <div
+            className="ui left aligned three wide column"
+            style={{paddingTop: "6%"}}
+          >
+            <CategoryView history={history} />
+          </div>
+          <div
+            className="thirteen wide column"
+            style={{paddingTop: "6%"}}
+          >
+            <ProblemsView category={this.props.match.params.category}/>
+          </div>
+        </div>
+        <div className="ui hidden divider"></div>
+        <Footer />
+        <br />
       </div>
-      <div
-        className="thirteen wide column"
-        style={{paddingTop: "6%"}}
-      >
-        <ProblemsView category={props.match.params.category}/>
-      </div>
-    </div>
-    <div className="ui hidden divider"></div>
-    <Footer />
-    <br />
-  </div>
-)
+    )
+  }
+
+}
+
+
 
 export default Landing;
 
