@@ -1,19 +1,19 @@
 const bCrypt = require('bcrypt-nodejs');
 
-console.log('PASSPORT MODULE REQUIRED SUCCESSFULLY')
+console.log('PASSPORT MODULE REQUIRED SUCCESSFULLY');
 
 
-module.exports = function(passport, user) {
-  var LocalStrategy = require('passport-local').Strategy;
-  var User = user;
+module.exports = function (passport, user) {
+  let LocalStrategy = require('passport-local').Strategy;
+  let User = user;
   // console.log('INSIDE PASSPORT CONFIG', User.findAll({ where: {username: 'Gkolb'} })
   //   .then((user) => {if (user) {console.log('HERE IS USER', user[0].id)}}))
-  passport.serializeUser(function(user, done) {
+  passport.serializeUser((user, done) => {
     console.log('serializeUser', user);
     done(null, user.id);
   });
 
-  passport.deserializeUser(function(id, done) {
+  passport.deserializeUser((id, done) => {
     console.log('deserializeUser', user);
     User.findById(id)
     .then(function(user) {
@@ -41,20 +41,21 @@ module.exports = function(passport, user) {
   //     })
   //   }
   //   )
-  passport.use('local-signup', new LocalStrategy({
-      usernameField : 'username',
-      passwordField : 'password',
-      passReqToCallback : true // allows us to pass back the entire request to the callback
-    },
-    function(req, username, password, done) {
-      console.log('got into local-signup', username, password)
-      var generateHash = function(password) {
-        return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
-      };
+  passport.use('local-signup', new LocalStrategy(
+{
+    usernameField: 'username',
+    passwordField: 'password',
+    passReqToCallback: true, // allows us to pass back the entire request to the callback
+  },
+  function (req, username, password, done) {
+    console.log('got into local-signup', username, password);
+    var generateHash = function (password) {
+      return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
+    };
 
 
-      User.findOne({where: {username: username}})
-      .then(function(user){
+    User.findOne({ where: { username: username } })
+      .then((user) => {
         if(user) {
           return done(null, false, {message : 'That username is already taken'});
         } else {
@@ -76,21 +77,23 @@ module.exports = function(passport, user) {
         });
       }
     });
-  })
-);
-  //LOCAL LOGIN
-  passport.use('local-login', new LocalStrategy({
-      usernameField : 'username',
-      passwordField : 'password',
-      passReqToCallback : true, // allows us to pass back the entire request to the callback
-    },
+  }
+),
+  );
+  // LOCAL LOGIN
+  passport.use('local-login', new LocalStrategy(
+{
+    usernameField: 'username',
+    passwordField: 'password',
+    passReqToCallback: true, // allows us to pass back the entire request to the callback
+  },
 
-    function(req, username, password, done) {
-      var isValidPassword = function(userpass, password){
-        return bCrypt.compareSync(password, userpass);
-      }
-      User.findOne({where: { username: username}})
-      .then(function (user) {
+  function (req, username, password, done) {
+    var isValidPassword = function (userpass, password) {
+      return bCrypt.compareSync(password, userpass);
+    };
+    User.findOne({ where: { username} })
+      .then((user) => {
         console.log(user)
         if (!user) {
           return done(null, false);
@@ -101,10 +104,10 @@ module.exports = function(passport, user) {
         var userinfo = user.get();
         return done(null, userinfo);
       })
-      .catch(function(err){
+      .catch((err) => {
         console.log("Error:",err);
         return done(null, false);
       });
-    }
-    ));
-}
+  },
+  ));
+};
