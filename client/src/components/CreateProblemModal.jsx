@@ -86,11 +86,9 @@ class CreateProblemModal extends React.Component {
               X
             </button>
             <h2>Create a Problem</h2>
-<<<<<<< HEAD
+
             <CamShot3 />
-=======
-            <CamShot2 />
->>>>>>> cam func2
+
             <div>
               <form
                 onSubmit={this.handleSubmit}
