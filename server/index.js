@@ -7,12 +7,10 @@ const session = require('express-session');
 const bodyParser = require('body-parser');
 const cloudinary = require('cloudinary');
 const multer = require('multer');
-const PubSub = require('graphql-subscriptions');
 
 // GraphQL modules
-const graphQLTools = require('graphql-tools');
 const graphQLExp = require('apollo-server-express');
-// const graphQLSchema = require('./graphQL/schema.js');
+const schema = require('./graphQL/schema.js');
 const cors = require('cors');
 const { execute, subscribe } = require('graphql');
 const { createServer } = require('http');
@@ -38,83 +36,6 @@ app.use((req, res, next) => {
 });
 
 
-const typeDefs = `
-  type Query {
-    user(id: String!): User
-    allUsers: [User]
-    listing(id: String!): Listing
-    allListings(category: String): [Listing]
-  }
-
-  type User {
-    id: String
-    username: String
-    email: String
-    avg_rating: String
-    rating_count: Int
-    city: String
-    phone_number: String
-    num: String
-  }
-
-  type Listing {
-    id: String
-    user_id: String
-    title: String
-    description: String
-    category: String
-    location: String
-    image: String
-  }
-
-  type Mutation {
-    createUser(username: String!, email: String!, password: String!): User!
-    createListing(title: String!, description: String!, category: String!, location: String!): Listing!
-    deleteUser(id: String!): User
-    deleteListing(id: String!): Listing
-  }
-
-  type Subscription {
-    listingAdded: Listing
-  }
-`;
-
-const pubsub = new PubSub.PubSub();
-
-const root = {
-  user: (obj, args, context) => db.users.find({
-    where: obj,
-  }),
-  allUsers: (obj, args, context) => db.users.findAll(),
-  listing: (obj, args, context) => db.listings.find({
-    where: obj,
-  }),
-  allListings: (obj, args, context) => db.listings.findAll({
-    where: obj,
-    limit: 25,
-  }),
-  createUser: (obj, args, context) => db.users.create(obj),
-  createListing: (obj, args, context) => {
-    const newListing = db.listings.create(obj);
-    pubsub.publish('listingAdded', { listingAdded: newListing });
-    return newListing;
-  },
-  listingAdded: {
-    subscribe: () => pubsub.asyncIterator('listingAdded'),
-  },
-  deleteUser: (obj, args, context) => db.users.destroy({
-    where: obj,
-  }),
-  deleteListing: (obj, args, context) => db.listings.destroy({
-    where: obj,
-  }),
-};
-
-// GraphQL
-// const typeDefs = graphQLSchema.typeDefs;
-// const resolvers = graphQLSchema.resolvers;
-const schema = graphQLTools.makeExecutableSchema({ typeDefs });
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser());
@@ -129,7 +50,7 @@ app.use(express.static(path.join(__dirname, '../client/dist')));
 const authRoute = require('./router/routes/auth.js')(app, db, passport);
 
 app.use('*', cors({ origin: `http://localhost:${PORT}` }));
-app.use('/graphql', bodyParser.json(), graphQLExp.graphqlExpress({ schema, rootValue: root, graphiql: true }));
+app.use('/graphql', bodyParser.json(), graphQLExp.graphqlExpress({ schema, graphiql: true }));
 app.use('/graphiql', graphQLExp.graphiqlExpress({
   endpointURL: '/graphql',
   subscriptionsEndpoint: `ws://localhost:${PORT}/subscriptions`,
