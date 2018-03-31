@@ -14,8 +14,8 @@ const customStyles = {
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
     width: '80%',
-    height: '60%'
-  }
+    height: '60%',
+  },
 };
 
 class CreateProblemModal extends React.Component {
@@ -43,11 +43,11 @@ class CreateProblemModal extends React.Component {
   handleDrop(files) {
     const req = request.post('/api/cloudinaryUpload');
     req.attach('problemImage', files[0]);
-    req.then(result => {
+    req.then((result) => {
       console.log(result);
       this.setState({
         dropzoneView: false,
-        cloudinaryUrl: result.body.secure_url
+        cloudinaryUrl: result.body.secure_url,
       });
     });
   }
@@ -67,8 +67,8 @@ class CreateProblemModal extends React.Component {
       .then(result => console.log(result));
   }
 
-  render(){
-    return(
+  render() {
+    return (
       <div >
         <Modal
           isOpen={this.state.modalOpen}
