@@ -4,6 +4,7 @@ import ProblemsView from './problemsView.jsx';
 import CategoryView from './categoryView.jsx';
 import Footer from './footer.jsx';
 
+
 class Landing extends React.Component {
   constructor(props) {
     super(props);
@@ -33,7 +34,7 @@ class Landing extends React.Component {
       maximumAge: 0,
     };
 
-    navigator.geolocation.getCurrentPosition(this.geoLocationSuccess, this.geoLocationError, options); 
+    navigator.geolocation.getCurrentPosition(this.geoLocationSuccess, this.geoLocationError, options);
   }
 
   render() {
@@ -67,6 +68,7 @@ class Landing extends React.Component {
     );
   }
 }
+
 
 export default Landing;
 
