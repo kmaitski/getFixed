@@ -2,7 +2,8 @@ import React from 'react';
 import Modal from 'react-modal';
 import Dropzone from 'react-dropzone';
 import request from 'superagent';
-import CamShot from './CamShot.jsx';
+import CamShot3 from './CamShot3.jsx';
+
 
 const customStyles = {
   content: {
@@ -85,7 +86,7 @@ class CreateProblemModal extends React.Component {
               X
             </button>
             <h2>Create a Problem</h2>
-            <CamShot2 />
+            <CamShot3 />
             <div>
               <form
                 onSubmit={this.handleSubmit}
