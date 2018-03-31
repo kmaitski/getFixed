@@ -150,18 +150,7 @@ app.use('/graphiql', graphQLExp.graphiqlExpress({
 }));
 
 const ws = createServer(app);
-// ws.listen(PORT, () => {
-//   console.log(`Apollo Server is now running on http://localhost:${PORT}`);
-//   new SubscriptionServer({
-//     execute,
-//     subscribe,
-//     schema
-//   }, {
-//     server: ws,
-//     path: '/subscriptions',
-//   });
-// })
-// app.use('/', routes);
+
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 cloudinary.config(settings);
