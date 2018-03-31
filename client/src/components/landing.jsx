@@ -7,24 +7,30 @@ import Footer from './footer.jsx';
 class Landing extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      latitude: null,
+      longitude: null,
+    };
+    this.geoLocationSuccess = this.geoLocationSuccess.bind(this);
   }
 
   geoLocationSuccess(pos) {
     const crd = pos.coords;
-
-    console.log(crd);
+    this.setState({
+      latitude: crd.latitude,
+      longitude: crd.longitude,
+    });
   }
 
   geoLocationError(error) {
     console.log(`ERROR(${error.code}): ${error.message}`);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const options = {
       enableHighAccuracy: true,
-      timeout: 5000,
-      maximumAge: 0
+      timeout: 30000,
+      maximumAge: 0,
     };
 
     navigator.geolocation.getCurrentPosition(this.geoLocationSuccess, this.geoLocationError, options); 
@@ -40,27 +46,27 @@ class Landing extends React.Component {
         <div className="ui grid container">
           <div
             className="ui left aligned three wide column"
-            style={{paddingTop: "6%"}}
+            style={{ paddingTop: '6%' }}
           >
             <CategoryView history={history} />
           </div>
           <div
             className="thirteen wide column"
-            style={{paddingTop: "6%"}}
+            style={{ paddingTop: '6%' }}
           >
-            <ProblemsView category={this.props.match.params.category}/>
+            <ProblemsView
+              category={this.props.match.params.category}
+              coords={{ latitude: this.state.latitude, longitude: this.state.longitude }}
+            />
           </div>
         </div>
         <div className="ui hidden divider"></div>
         <Footer />
         <br />
       </div>
-    )
+    );
   }
-
 }
-
-
 
 export default Landing;
 

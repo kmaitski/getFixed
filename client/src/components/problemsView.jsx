@@ -5,9 +5,8 @@ import { Query } from 'react-apollo';
 import Problem from './problem.jsx';
 
 const ProblemsView = (props) => {
-  console.log("problemsview", props);
   const { category } = props;
-  let query = gql`
+  const query = gql`
     query getProblems($category: String) {
       allListings(category: $category) {
         id
@@ -21,7 +20,7 @@ const ProblemsView = (props) => {
   return (
     <Query
       query={query}
-      variables={{category}}
+      variables={{ category }}
     >
       {({ loading, error, data }) => {
         if (loading) { return <p>Loading...</p>; }
@@ -35,14 +34,14 @@ const ProblemsView = (props) => {
                         problem={problem}
                         userId={problem.user_id}
                         index={index}
-                      />
+                      />;
               })}
             </Card.Group>
           </div>
-        )
+        );
       }}
     </Query>
   );
-}
+};
 
 export default ProblemsView;
