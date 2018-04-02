@@ -77,7 +77,6 @@ const typeDefs = `
 
 const resolvers = {
   Query: {
-
     user: (obj, args, context) =>
       db.users.find({
       where: args,

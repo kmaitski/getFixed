@@ -5,6 +5,7 @@ import axios from 'axios'
 import { Card } from 'semantic-ui-react';
 import Problem from './problem.jsx';
 import NavBar2 from './navBar2.jsx';
+
 // import GoogleMap from './googleMap.jsx';
 
 class PersonalProfile extends React.Component {
