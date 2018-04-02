@@ -87,7 +87,7 @@ const resolvers = {
       limit: 25,
     }),
     problemMessages: (obj, args, context) => {
-      const messages = {id: args.id, messages: tempMessages[args.id]};
+      const messages = tempMessages[args.id] ? {id: args.id, messages: tempMessages[args.id]} : {id: args.id, messages: []};
       return messages;
     }
   },
@@ -110,7 +110,7 @@ const resolvers = {
       } else {
         tempMessages[args.id] = [args.text];
       }
-      let newMessage = {id: args.id, messages: tempMessages[args.id]};
+      let newMessage = {id: args.id, messages: [args.text]};
       pubsub.publish('messageAdded', { messageAdded: newMessage, id: args.id });
       return newMessage;
     }

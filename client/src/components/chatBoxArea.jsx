@@ -14,7 +14,7 @@ const MESSAGES_QUERY = gql`
 
 const MESSAGES_SUBSCRIPTION = gql`
   subscription onMessageAdded($id: String!) {
-    commentAdded(id: $id) {
+    messageAdded(id: $id) {
       id
       messages
     }
@@ -30,6 +30,7 @@ const ChatBoxWithMessages = (props) => (
       <ChatBox
         {...result}
         data={data}
+        problemId={props.id}
         subscribeToNewMessages={() =>
           subscribeToMore({
             document: MESSAGES_SUBSCRIPTION,
@@ -37,10 +38,11 @@ const ChatBoxWithMessages = (props) => (
             updateQuery: (prev, { subscriptionData }) => {
               if (!subscriptionData.data) return prev;
               const newMessage = subscriptionData.data.messageAdded;
-
               return Object.assign({}, prev, {
-                entry: {
-                  messages: [newMessage, ...prev.entry.messages]
+                problemMessages: {
+                  id: prev.problemMessages.id,
+                  messages: [...prev.problemMessages.messages, ...newMessage.messages],
+                  __typename: "Messages"
                 }
               });
             }

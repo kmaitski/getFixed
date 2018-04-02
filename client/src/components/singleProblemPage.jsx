@@ -42,7 +42,7 @@ class SingleProblemPage extends React.Component {
           <a className="ui red ribbon label">{this.props.match.params.username}</a>
           <div className="ui segment">
             <img className="ui large image" style={{"display": "inline-block"}} src={this.state.currentProblem.image}/>
-            <div className="ui card" style={{"display": "inline-block"}}>
+            <div className="ui card" style={{"display": "inline-block", "margin":15}}>
               <ChatBoxWithMessages  id={this.props.match.params.id}/>
             </div>
           </div>
