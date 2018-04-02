@@ -49,7 +49,7 @@ app.use(express.static(path.join(__dirname, '../client/dist')));
 
 const authRoute = require('./router/routes/auth.js')(app, db, passport);
 
-app.use('*', cors({ origin: `http://localhost:${PORT}` }));
+// app.use('*', cors({ origin: `http://localhost:${PORT}` }));
 app.use('/graphql', bodyParser.json(), graphQLExp.graphqlExpress({ schema, graphiql: true }));
 app.use('/graphiql', graphQLExp.graphiqlExpress({
   endpointURL: '/graphql',

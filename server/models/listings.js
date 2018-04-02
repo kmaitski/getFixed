@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
     category: DataTypes.STRING,
     location: DataTypes.STRING,
     image: DataTypes.STRING,
+    point: DataTypes.GEOMETRY('point'),
   });
   return Listing;
 };
