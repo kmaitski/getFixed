@@ -67,12 +67,13 @@ const resolvers = {
       where: args,
       limit: 25,
     }),
-    nearbyListings: (obj, args, context) => {
-      db.findAll({
-        attributes: [[sequelize.literal("6371 * acos(cos(radians("+lat+")) * cos(radians(latitude)) * cos(radians("+lng+") - radians(longitude)) + sin(radians("+lat+")) * sin(radians(latitude)))"), 'distance']],
-        order: sequelize.col('distance'),
-        limit: 25,
-      });
+    nearbyListings: (obj, args) => {
+      // db.findAll({
+      //   attributes: [[sequelize.literal("6371 * acos(cos(radians("+lat+")) * cos(radians(latitude)) * cos(radians("+lng+") - radians(longitude)) + sin(radians("+lat+")) * sin(radians(latitude)))"), 'distance']],
+      //   order: sequelize.col('distance'),
+      //   limit: 25,
+      // });
+      return args;
     },
   },
   Mutation: {

@@ -70,11 +70,11 @@ const categories = [
 const cities = [
   'San Francisco',
   'Los Angeles',
-  'Sacramento'
-  'Eureka'
-  'San Diego'
-  'Irvine'
-  'Riverside'
+  'Sacramento',
+  'Eureka',
+  'San Diego',
+  'Irvine',
+  'Riverside',
   'Redlands',
   'Roseville',
   'Bakersville',
@@ -303,8 +303,24 @@ const coordinates = {
   },
   'Riverside': {
     type: 'Point',
-    coordinates: []
-  }
+    coordinates: [33.9806, 117.3755],
+  },
+  'Irvine': {
+    type: 'Point',
+    coordinates: [33.6846, 117.8265],
+  },
+  'San Diego': {
+    type: 'Point',
+    coordinates: [32.7157, 117.1611],
+  },
+  'Eureka': {
+    type: 'Point',
+    coordinates: [40.8021, 124.1637],
+  },
+  'Sacramento': {
+    type: 'Point',
+    coordinates: [38.5816, 121.4944],
+  },
 }
 
 function createListing(userID) {
@@ -318,7 +334,7 @@ function createListing(userID) {
   newEntry.location = cities[Math.floor(Math.random() * 51)];
   newEntry.image = images[Math.floor((Math.random() * 12))];
   // console.log(coordinates['San Francisco']);
-  newEntry.point = coordinates['San Francisco'];
+  newEntry.point = coordinates[newEntry.location];
   listings.push(newEntry);
   // }
   return newEntry;
