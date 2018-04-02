@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from './navBar.jsx';
+import Navbar2 from './navBar2.jsx';
 import ProblemsView from './problemsView.jsx';
 import CategoryView from './categoryView.jsx';
 import Footer from './footer.jsx';
@@ -41,9 +41,8 @@ class Landing extends React.Component {
     return (
       <div>
         <div>
-          <Navbar
-            isLoggedIn={this.props.isLoggedIn}
-            onLogout={this.props.onLogout}
+          <Navbar2
+
             />
         </div>
         <div className="ui hidden divider"></div>
@@ -84,7 +83,8 @@ export default Landing;
 // import Sidebar from './sidebar.jsx';
 // import axios from 'axios';
 
-
+/* isLoggedIn={this.props.isLoggedIn}
+            onLogout={this.props.onLogout}*/
 // const filters = [
 //   {
 //     id: 1,
