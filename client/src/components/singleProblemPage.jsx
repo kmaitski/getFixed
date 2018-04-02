@@ -4,6 +4,7 @@ import NavBar2 from './navBar2.jsx';
 import axios from 'axios';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
+import ChatBoxWithMessages from './chatBoxArea.jsx';
 
 
 class SingleProblemPage extends React.Component {
@@ -40,7 +41,10 @@ class SingleProblemPage extends React.Component {
           </div>
           <a className="ui red ribbon label">{this.props.match.params.username}</a>
           <div className="ui segment">
-            <img className="ui large image" src={this.state.currentProblem.image}/>
+            <img className="ui large image" style={{"display": "inline-block"}} src={this.state.currentProblem.image}/>
+            <div className="ui card" style={{"display": "inline-block", "margin":15}}>
+              <ChatBoxWithMessages  id={this.props.match.params.id}/>
+            </div>
           </div>
           <div className="ui card">
             <div className="content description">
