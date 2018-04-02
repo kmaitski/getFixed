@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import NavBar from './navBar.jsx';
+import NavBar2 from './navBar2.jsx';
 import axios from 'axios';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
@@ -29,7 +29,7 @@ class SingleProblemPage extends React.Component {
   render() {
     return (
       <div>
-        <NavBar
+        <NavBar2
           isLoggedIn={this.props.isLoggedIn}
           onLogout={this.props.onLogout}
         />

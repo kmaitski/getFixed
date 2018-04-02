@@ -44,8 +44,8 @@ const style = {
   preview: {
     position: 'center',
     margin: 'auto',
-    height: '37%',
-    width: '37%'
+    height: '70%',
+    width: '50%'
   },
   captureContainer: {
     position: 'absolute',
