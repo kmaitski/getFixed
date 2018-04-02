@@ -1,9 +1,16 @@
 const db = require('../database/index.js');
 const graphQLTools = require('graphql-tools');
+const graphQLSubs = require('graphql-subscriptions');
+
+const withFilter = graphQLSubs.withFilter;
 
 const PubSub = require('graphql-subscriptions');
 
 const pubsub = new PubSub.PubSub();
+
+let tempMessages = {
+  'fdb6af47-649a-4e83-8469-61cde9697c3b' : ['I love you'],
+};
 
 const typeDefs = `
   type Query {
@@ -11,6 +18,7 @@ const typeDefs = `
     allUsers: [User]
     listing(id: String!): Listing
     allListings(category: String): [Listing]
+    problemMessages(id: String!): Messages
   }
 
   type User {
@@ -34,15 +42,27 @@ const typeDefs = `
     image: String
   }
 
+  type Message {
+    id: String
+    messages: [String]
+  }
+
+  type Messages {
+    id: String
+    messages: [String]
+  }
+
   type Mutation {
     createUser(username: String!, email: String!, password: String!): User!
     createListing(title: String!, description: String!, category: String!, location: String!): Listing!
     deleteUser(id: String!): User
     deleteListing(id: String!): Listing
+    addMessage(id: String!, text: String!): Message
   }
 
   type Subscription {
     listingAdded: Listing
+    messageAdded(id: String!): Message
   }
 
   schema {
@@ -55,7 +75,7 @@ const typeDefs = `
 const resolvers = {
   Query: {
     user: (obj, args, context) => db.users.find({
-      where: obj,
+      where: args,
     }),
     allUsers: (obj, args, context) =>
       db.users.findAll(),
@@ -66,6 +86,10 @@ const resolvers = {
       where: args,
       limit: 25,
     }),
+    problemMessages: (obj, args, context) => {
+      const messages = {id: args.id, messages: tempMessages[args.id]};
+      return messages;
+    }
   },
   Mutation: {
     createUser: (obj, args, context) => db.users.create(args),
@@ -75,17 +99,32 @@ const resolvers = {
       return newListing;
     },
     deleteUser: (obj, args, context) => db.users.destroy({
-    where: obj,
+      where: obj,
     }),
     deleteListing: (obj, args, context) => db.listings.destroy({
       where: obj,
     }),
+    addMessage: (obj, args, context) => {
+      if (tempMessages[args.id]) {
+        tempMessages[args.id].push(args.text);
+      } else {
+        tempMessages[args.id] = [args.text];
+      }
+      let newMessage = {id: args.id, messages: tempMessages[args.id]};
+      pubsub.publish('messageAdded', { messageAdded: newMessage, id: args.id });
+      return newMessage;
+    }
   },
   Subscription: {
     listingAdded: {
       subscribe: () => pubsub.asyncIterator('listingAdded'),
     },
-  },
+    messageAdded: {
+      subscribe: withFilter(() => pubsub.asyncIterator('messageAdded'), (payload, variables) => {
+        return payload.id === variables.id;
+      }),
+    }
+  }
 };
 
 const schema = graphQLTools.makeExecutableSchema({ typeDefs, resolvers });
