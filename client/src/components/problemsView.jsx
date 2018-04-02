@@ -14,6 +14,7 @@ const ProblemsView = (props) => {
         title
         description
         user_id
+        point
       }
     }
   `;

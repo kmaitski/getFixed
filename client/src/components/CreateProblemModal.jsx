@@ -33,6 +33,7 @@ class CreateProblemModal extends React.Component {
     this.closeModal = this.closeModal.bind(this);
     this.handleDrop = this.handleDrop.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.getFreshPhoto = this.getFreshPhoto.bind(this);
   }
 
   closeModal() {
@@ -67,6 +68,10 @@ class CreateProblemModal extends React.Component {
       .then(result => console.log(result));
   }
 
+  getFreshPhoto(file) {
+    this.handleDrop(file);
+  }
+
   render() {
     return (
       <div >
@@ -86,7 +91,7 @@ class CreateProblemModal extends React.Component {
               X
             </button>
             <h2>Create a Problem</h2>
-            <CamShot3 />
+            <CamShot3 getPhoto={this.getFreshPhoto}/>
             <div>
               <form
                 onSubmit={this.handleSubmit}

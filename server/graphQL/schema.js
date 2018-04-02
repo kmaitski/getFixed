@@ -11,6 +11,7 @@ const typeDefs = `
     allUsers: [User]
     listing(id: String!): Listing
     allListings(category: String): [Listing]
+    nearbyListings(longitude: Float, lattitude: Float, Radius: Int): [Listing]
   }
 
   type User {
@@ -55,7 +56,7 @@ const typeDefs = `
 const resolvers = {
   Query: {
     user: (obj, args, context) => db.users.find({
-      where: obj,
+      where: args,
     }),
     allUsers: (obj, args, context) =>
       db.users.findAll(),
@@ -66,12 +67,19 @@ const resolvers = {
       where: args,
       limit: 25,
     }),
+    nearbyListings: (obj, args, context) => {
+      db.findAll({
+        attributes: [[sequelize.literal("6371 * acos(cos(radians("+lat+")) * cos(radians(latitude)) * cos(radians("+lng+") - radians(longitude)) + sin(radians("+lat+")) * sin(radians(latitude)))"), 'distance']],
+        order: sequelize.col('distance'),
+        limit: 25,
+      });
+    },
   },
   Mutation: {
     createUser: (obj, args, context) => db.users.create(args),
     createListing: (obj, args, context) => {
       const newListing = db.listings.create(args);
-      pubsub.publish('listingAdded', { listingAdded: newListing });
+      pubsub.publish('listingAdded', { listingAdded: newListing })
       return newListing;
     },
     deleteUser: (obj, args, context) => db.users.destroy({

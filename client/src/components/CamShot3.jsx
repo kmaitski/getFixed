@@ -10,6 +10,13 @@ export default class CamShot3 extends React.Component {
   takePicture() {
     this.camera.capture()
       .then((blob) => {
+        const reader = new FileReader()
+        reader.readAsDataURL(blob);
+        reader.onloadend = () => {
+          const base64data = reader.result;
+          this.props.getPhoto(base64data);
+          // console.log(base64data);
+        }
         this.img.src = URL.createObjectURL(blob);
         this.img.onload = () => { URL.revokeObjectURL(this.src); };
         console.log(this.img);

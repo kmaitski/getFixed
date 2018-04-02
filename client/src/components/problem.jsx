@@ -6,20 +6,21 @@ import { Card, Icon, Image } from 'semantic-ui-react';
 
 const colors = ['red', 'orange', 'yellow', 'olive', 'green', 'teal', 'blue', 'violet', 'purple', 'pink', 'brown', 'grey', 'black'];
 
-const Problem = ({userId, problem}) => (
+const Problem = ({ userId, problem }) => (
   <Query query={gql`
     query SingleUserQuery($userId: String!) {
       user(id: $userId) {
         username
       }
     }
-    `} variables={{userId}}
+    `} variables={{ userId }}
   >
     {({ loading, error, data }) => {
       if (loading) return <p>Loading...</p>;
       if (error) return <p>Error :(</p>;
 
-      let color = colors[Math.round(Math.random()*13)];
+      const color = colors[Math.round(Math.random() * 13)];
+      console.log(problem);
 
       return (
           <Card color={color} >
@@ -44,7 +45,7 @@ const Problem = ({userId, problem}) => (
               </Link>
             </Card.Content>
           </Card>
-      )
+      );
     }}
   </Query>
 );
