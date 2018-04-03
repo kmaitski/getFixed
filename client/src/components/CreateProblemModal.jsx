@@ -70,7 +70,7 @@ class CreateProblemModal extends React.Component {
 
   render(){
     return(
-      <div className="container">
+      <div >
         <Modal
           isOpen={this.state.modalOpen}
           onAfterOpen={this.afterOpen}
