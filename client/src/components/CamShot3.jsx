@@ -20,7 +20,6 @@ export default class CamShot3 extends React.Component {
     })
     .then(
       this.setState({cameraView: false})
-
     )
   }
 
