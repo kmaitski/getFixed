@@ -53,7 +53,7 @@ const authRoute = require('./router/routes/auth.js')(app, db, passport);
 app.use('/graphql', bodyParser.json(), graphQLExp.graphqlExpress({ schema, graphiql: true }));
 app.use('/graphiql', graphQLExp.graphiqlExpress({
   endpointURL: '/graphql',
-  subscriptionsEndpoint: `ws://localhost:${PORT}/subscriptions`,
+  subscriptionsEndpoint: '/subscriptions',
 }));
 
 const ws = createServer(app);
