@@ -27,9 +27,7 @@ const ProblemsView = (props) => {
         if (error) { return <p>Error :(</p>; }
         return (
           <div className="container">
-
             <Card.Group className="ui cards" itemsPerRow={3}>
-
               {data.allListings.map((problem, index) => {
                 return <Problem
                         key={index}
@@ -45,5 +43,8 @@ const ProblemsView = (props) => {
     </Query>
   );
 };
+
+
+
 
 export default ProblemsView;

@@ -4,7 +4,7 @@ import gql from 'graphql-tag';
 import { Link } from 'react-router-dom';
 import { Card, Icon, Image } from 'semantic-ui-react';
 import { Textfit } from 'react-textfit';
-import './card.css';
+
 
 const colors = ['red', 'orange', 'yellow', 'olive', 'green', 'teal', 'blue', 'violet', 'purple', 'pink', 'brown', 'grey', 'black'];
 
@@ -26,12 +26,17 @@ const Problem = ({userId, problem}) => (
       return (
         <div>
           <Card color={color}>
-            <Image src={problem.image}/>
+            <Link to={`/singleProblemPage/${problem.id}/${data.user.username}`}>
+              <Image src={problem.image}/>
+            </Link>
             <Card.Content>
               <Card.Header>
-                <Link to={`/singleProblemPage/${problem.id}/${data.user.username}`}><Textfit mode="multi">{problem.title} </Textfit></Link>
+                <Link to={`/singleProblemPage/${problem.id}/${data.user.username}`}>
+                  <Textfit mode="multi">
+                    {problem.title}
+                  </Textfit>
+                </Link>
               </Card.Header>
-
             </Card.Content>
             <Card.Content>
               <Link to={`/userProfile/${userId}`}>
@@ -44,7 +49,7 @@ const Problem = ({userId, problem}) => (
               </Link>
             </Card.Content>
           </Card>
-          </div>
+        </div>
       )
     }}
   </Query>

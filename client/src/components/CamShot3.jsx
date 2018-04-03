@@ -20,7 +20,6 @@ export default class CamShot3 extends React.Component {
     })
     .then(
       this.setState({cameraView: false})
-
     )
   }
 
@@ -32,9 +31,11 @@ export default class CamShot3 extends React.Component {
             this.camera = cam;
           }}
         >
+
           <button className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"onClick={this.takePicture} style={style.captureButton}>
             <i className="material-icons">add</i>
           </button>
+
         </Camera>
       : <img
           style={style.captureImage}
@@ -77,5 +78,6 @@ const style = {
     margin: 'auto',
     height: '37%',
     width: '37%'
+
   }
 };
