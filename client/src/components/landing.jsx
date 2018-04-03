@@ -60,6 +60,7 @@ class Landing extends React.Component {
           <div
             className="fixed-top"
 
+
             style={{ padding:" 230px 0px 200px 0px", width:"12vw" }}
 
           >
@@ -68,10 +69,10 @@ class Landing extends React.Component {
           <div
 
 
+
             className="sixteen wide column"
 
             style={{ padding:" 35px 0px 0px 160px" }}
-
           >
             <ProblemsView
               category={this.props.match.params.category}
@@ -79,9 +80,7 @@ class Landing extends React.Component {
             />
           </div>
         </div>
-
         <div className="fixed-bottom" style={{padding:" 70px 0px 270px 0px" }}> <FixButton /></div>
-
         <div className="ui hidden divider"></div>
         <Footer />
         <br />
