@@ -1,6 +1,7 @@
 const db = require('../database/index.js');
 const graphQLTools = require('graphql-tools');
 const graphQLSubs = require('graphql-subscriptions');
+const sequelize = require('sequelize');
 
 const withFilter = graphQLSubs.withFilter;
 
@@ -19,6 +20,7 @@ const typeDefs = `
     listing(id: String!): Listing
     allListings(category: String): [Listing]
     problemMessages(id: String!): Messages
+    nearByListings(longitude: Float, latitude: Float, radius: Int): [Listing]
   }
 
   type User {
@@ -91,7 +93,18 @@ const resolvers = {
     problemMessages: (obj, args, context) => {
       const messages = tempMessages[args.id] ? {id: args.id, messages: tempMessages[args.id]} : {id: args.id, messages: []};
       return messages;
-    }
+    },
+    nearByListings: (obj, args) => {
+      // const location = sequelize.literal(`ST_GeomFromText('POINT(${args.latitude} ${args.longitude})')`);
+      const distance = sequelize.fn('ST_Distance_Sphere', sequelize.literal('point'), { type: 'Point', coordinates: [args.latitude, args.longitude] });
+      return db.listings.findAll({
+        // attributes: [distance, 'distance'],
+        // order: 'distance',
+        where: sequelize.where(distance, { lte: 10000 }),
+        // limit: 25,
+      });
+      // console.log(args);
+    },
   },
   Mutation: {
     createUser: (obj, args, context) => db.users.create(args),

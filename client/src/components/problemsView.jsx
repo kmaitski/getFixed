@@ -5,10 +5,10 @@ import { Query } from 'react-apollo';
 import Problem from './problem.jsx';
 
 const ProblemsView = (props) => {
-  const { category } = props;
+  // const { category } = props;
   const query = gql`
-    query getProblems($category: String) {
-      allListings(category: $category) {
+    query nearByListings($longitude: Float, $latitude: Float, $radius: Int) {
+      nearByListings(longitude: $longitude, latitude: $latitude, radius: $radius) {
         id
         image
         title
@@ -20,11 +20,16 @@ const ProblemsView = (props) => {
   return (
     <Query
       query={query}
-      variables={{ category }}
+      variables={{
+        longitude: 121.8379,
+        latitude: 37.2113,
+        radius: 300,
+        }}
     >
       {({ loading, error, data }) => {
         if (loading) { return <p>Loading...</p>; }
         if (error) { return <p>Error :(</p>; }
+        console.log(data);
         return (
           <div className="container">
             <Card.Group className="ui cards" itemsPerRow={3}>
