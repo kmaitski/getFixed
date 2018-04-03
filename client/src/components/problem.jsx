@@ -26,12 +26,15 @@ const Problem = ({userId, problem}) => (
       return (
         <div>
           <Card color={color}>
-            <Image src={problem.image}/>
+            <Link to={`/singleProblemPage/${problem.id}/${data.user.username}`}>
+              <Image src={problem.image}/>
+            </Link>
             <Card.Content>
+            <Link to={`/singleProblemPage/${problem.id}/${data.user.username}`}>
               <Card.Header>
-                <Link to={`/singleProblemPage/${problem.id}/${data.user.username}`}><Textfit mode="multi">{problem.title} </Textfit></Link>
+                {problem.title}
               </Card.Header>
-
+            </Link>
             </Card.Content>
             <Card.Content>
               <Link to={`/userProfile/${userId}`}>
@@ -44,7 +47,7 @@ const Problem = ({userId, problem}) => (
               </Link>
             </Card.Content>
           </Card>
-          </div>
+        </div>
       )
     }}
   </Query>

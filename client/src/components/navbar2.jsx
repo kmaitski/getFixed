@@ -40,12 +40,12 @@ class Navbar2 extends React.Component {
           <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
             <Link to ='/personalProfile'>
             <li className="nav-item active">
-              <a className="nav-link" href="#">Profile <span className="sr-only">(current)</span></a>
+              <h5 className="nav-link">Profile <span className="sr-only">(current)</span></h5>
             </li>
             </Link>
             <Link to='/'>
               <li onClick={this.handleClick}className="nav-item">
-                <a className="nav-link" href="#">Logout</a>
+                <h5 className="nav-link" href="#">Logout</h5>
               </li>
             </Link>
             <li className="nav-item">
@@ -63,7 +63,7 @@ class Navbar2 extends React.Component {
       </nav>
         ) : (<nav className="navbar navbar-expand-lg navbar-dark bg-primary">
       <Link to ='/landing'>
-        <a className="navbar-brand" href="#"><h3>GetFixed</h3></a>
+        <span className="navbar-brand" href="#"><h3>GetFixed</h3></span>
       </Link>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
@@ -73,12 +73,12 @@ class Navbar2 extends React.Component {
           <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
             <Link to ='/signUp'>
             <li className="nav-item active">
-              <span className="nav-link">Sign Up <span className="sr-only">(current)</span></span>
+              <h5 className="nav-link">Sign Up <span className="sr-only">(current)</span></h5>
             </li>
             </Link>
             <Link to ='/loginPage'>
             <li className="nav-item">
-              <span className="nav-link">Login</span>
+              <h5 className="nav-link">Login</h5>
             </li>
             </Link>
             <li className="nav-item">
