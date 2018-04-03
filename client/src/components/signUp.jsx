@@ -71,7 +71,7 @@ class Signup extends React.Component {
         verticalAlign='middle'
       >
         <Grid.Column style={{ maxWidth: 450 }}>
-          <Header as='h2' color='teal' textAlign='center'>
+          <Header as='h2' color='blue' textAlign='center'>
             <Image src='https://hdwallpaperz.net/wp-content/uploads/2017/03/Cute-Animal-Art-Wallpaper-2.jpg' />
             {' '}Create your Account
           </Header>
@@ -151,7 +151,7 @@ class Signup extends React.Component {
           </Form>
           <Message>
                 <Button
-                  color='teal'
+                  color='blue'
                   fluid size='large'
                   onClick={this.handleClick}
                 >Sign Up</Button>

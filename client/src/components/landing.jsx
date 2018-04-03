@@ -59,13 +59,13 @@ class Landing extends React.Component {
         <div className="ui grid container">
           <div
             className="fixed-top"
-            style={{ padding:" 230px 0px 200px 0px", width:"12vw" }}
+            style={{ padding:" 230px 0px 180px 0px", width:"12vw" }}
           >
             <CategoryView history={history} />
           </div>
           <div
             className="sixteen wide column"
-            style={{ padding:" 35px 0px 0px 160px" }}
+            style={{ padding:" 35px 0px 0px 120px" }}
           >
             <ProblemsView
               category={this.props.match.params.category}

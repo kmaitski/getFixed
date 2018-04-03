@@ -81,7 +81,7 @@ class LoginPage extends React.Component {
           verticalAlign='middle'
         >
           <Grid.Column style={{ maxWidth: 450 }}>
-            <Header as='h2' color='teal' textAlign='center'>
+            <Header as='h2' color='blue' textAlign='center'>
               <Image src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNe7IRlCRt9dCVMqA_gTY8z5AA2AufA3k1IN4nti_wIZIUrs7u' />
               {' '}Log-in to your account
             </Header>
@@ -107,12 +107,12 @@ class LoginPage extends React.Component {
                   onChange={this.onChange}
                 />
                 <Button
-                  color='teal'
+                  color='blue'
                   fluid size='large'
                   onClick={this.handleClick}
                 >Login</Button>
                 <Button
-                    color='teal'
+                    color='blue'
                     fluid size='large'
                     onClick={this.testFunc}
                   >Test</Button>
@@ -129,7 +129,7 @@ class LoginPage extends React.Component {
   }
 }
 /*<Button
-  color='teal'
+  color='blue'
   fluid size='large'
   onClick={this.testFunc}
 >Test</Button>*/
