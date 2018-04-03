@@ -38,6 +38,7 @@ const Problem = ({userId, problem}) => (
               <Image src={problem.image}/>
             </Link>
             <Card.Content>
+            <Link to={`/singleProblemPage/${problem.id}/${data.user.username}`}>
               <Card.Header>
                 <Link to={`/singleProblemPage/${problem.id}/${data.user.username}`}>
                   <Textfit mode="multi">
@@ -45,6 +46,7 @@ const Problem = ({userId, problem}) => (
                   </Textfit>
                 </Link>
               </Card.Header>
+            </Link>
             </Card.Content>
             <Card.Content>
               <Link to={`/userProfile/${userId}`}>

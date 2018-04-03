@@ -61,7 +61,7 @@ class Landing extends React.Component {
             className="fixed-top"
             style={{ padding:" 230px 0px 180px 0px", width:"12vw" }}
           >
-          <CategoryView history={history} />
+            <CategoryView history={history} />
           </div>
           <div
 
@@ -84,6 +84,5 @@ class Landing extends React.Component {
     );
   }
 }
-//top right bottom
 
 export default Landing;
