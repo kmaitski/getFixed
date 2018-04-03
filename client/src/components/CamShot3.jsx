@@ -31,9 +31,11 @@ export default class CamShot3 extends React.Component {
             this.camera = cam;
           }}
         >
+        <div>
           <button className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"onClick={this.takePicture} style={style.captureButton}>
             <i className="material-icons">add</i>
           </button>
+        </div>
 
         </Camera>
       : <img
@@ -70,13 +72,18 @@ const style = {
   captureButton: {
     position: 'absolute',
     top: '80px',
-    margin: 'auto'
+    margin: 'auto',
   },
   captureImage: {
     position: 'center',
     margin: 'auto',
     height: '37%',
+<<<<<<< HEAD
     width: '37%'
 
+=======
+    width: '37%',
+    padding:" 0px 0px 0px 0px"
+>>>>>>> no real change
   }
 };
