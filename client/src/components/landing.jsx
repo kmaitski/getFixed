@@ -3,7 +3,7 @@ import Navbar2 from './navBar2.jsx';
 import ProblemsView from './problemsView.jsx';
 import CategoryView from './categoryView.jsx';
 import Footer from './footer.jsx';
-
+import FixButton from './fixButton.jsx';
 
 class Landing extends React.Component {
   constructor(props) {
@@ -11,6 +11,7 @@ class Landing extends React.Component {
     this.state = {
       latitude: null,
       longitude: null,
+      modalOpen: false
     };
     this.geoLocationSuccess = this.geoLocationSuccess.bind(this);
   }
@@ -48,14 +49,14 @@ class Landing extends React.Component {
         <div className="ui hidden divider"></div>
         <div className="ui grid container">
           <div
-            className="ui left aligned three wide column"
-            style={{ paddingTop: '6%' }}
+            className="fixed-top"
+            style={{ padding:" 70px 0px 100px 0px", width:"12vw" }}
           >
-            <CategoryView history={history} />
+          <CategoryView history={history} />
           </div>
           <div
             className="thirteen wide column"
-            style={{ paddingTop: '6%' }}
+            style={{ padding:" 70px 0px 0px 150px" }}
           >
             <ProblemsView
               category={this.props.match.params.category}
@@ -63,6 +64,7 @@ class Landing extends React.Component {
             />
           </div>
         </div>
+        <div className="fixed-bottom" style={{padding:" 70px 0px 400px 0px" }}> <FixButton /></div>
         <div className="ui hidden divider"></div>
         <Footer />
         <br />
@@ -70,7 +72,7 @@ class Landing extends React.Component {
     );
   }
 }
-
+//top right bottom
 
 export default Landing;
 
