@@ -28,7 +28,6 @@ const ProblemsView = (props) => {
         return (
           <div className="container">
             <Card.Group className="ui cards" itemsPerRow={3}>
-
               {data.allListings.map((problem, index) => {
                 return <Problem
                         key={index}
