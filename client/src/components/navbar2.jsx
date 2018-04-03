@@ -76,13 +76,11 @@ class Navbar2 extends React.Component {
           <ul className="navbar-nav mr-auto mt-2 mt-md-0">
             <Link to ='/signUp'>
             <li className="nav-item active">
-
               <h5 className="nav-link">Sign Up <span className="sr-only">(current)</span></h5>
             </li>
             </Link>
             <Link to ='/loginPage'>
             <li className="nav-item">
-
               <h5 className="nav-link">Login</h5>
             </li>
             </Link>

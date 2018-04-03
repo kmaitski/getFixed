@@ -27,7 +27,11 @@ const ProblemsView = (props) => {
         if (error) { return <p>Error :(</p>; }
         return (
           <div className="container">
+<<<<<<< HEAD
             <Card.Group className="ui cards" itemsPerRow={3}>
+=======
+            <Card.Group itemsPerRow={3}>
+>>>>>>> nav bar, categories fix button sticky design changes
               {data.allListings.map((problem, index) => {
                 return <Problem
                         key={index}

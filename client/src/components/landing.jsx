@@ -66,7 +66,6 @@ class Landing extends React.Component {
           <div
             className="sixteen wide column"
             style={{ padding:" 35px 0px 0px 120px" }}
-          >
             <ProblemsView
               category={this.props.match.params.category}
               coords={{ latitude: this.state.latitude, longitude: this.state.longitude }}
@@ -83,6 +82,6 @@ class Landing extends React.Component {
     );
   }
 }
-
+//top right bottom
 
 export default Landing;
