@@ -4,15 +4,6 @@ import gql from 'graphql-tag';
 import { Link } from 'react-router-dom';
 import { Card, Icon, Image } from 'semantic-ui-react';
 import { Textfit } from 'react-textfit';
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
-import './card.css';
->>>>>>> nav bar, categories fix button sticky design changes
-=======
-import './card.css';
->>>>>>> nav bar, categories fix button sticky design changes
 
 const colors = ['red', 'orange', 'yellow', 'olive', 'green', 'teal', 'blue', 'violet', 'purple', 'pink', 'brown', 'grey', 'black'];
 
