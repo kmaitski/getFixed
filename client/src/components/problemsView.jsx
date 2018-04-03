@@ -26,8 +26,8 @@ const ProblemsView = (props) => {
         if (loading) { return <p>Loading...</p>; }
         if (error) { return <p>Error :(</p>; }
         return (
-          <div>
-            <Card.Group className="ui cards">
+          <div className="container">
+            <Card.Group itemsPerRow={3}>
               {data.allListings.map((problem, index) => {
                 return <Problem
                         key={index}

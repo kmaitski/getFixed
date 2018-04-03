@@ -3,7 +3,7 @@ import Camera from 'react-camera';
 
 export default class CamShot3 extends React.Component {
 
-  constructor(props) {
+ constructor(props) {
     super(props);
     this.takePicture = this.takePicture.bind(this);
     this.state = {
@@ -20,7 +20,8 @@ export default class CamShot3 extends React.Component {
     })
     .then(
       this.setState({cameraView: false})
-    );
+
+    )
   }
 
   render() {

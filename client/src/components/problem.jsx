@@ -3,6 +3,8 @@ import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 import { Link } from 'react-router-dom';
 import { Card, Icon, Image } from 'semantic-ui-react';
+import { Textfit } from 'react-textfit';
+import './card.css';
 
 const colors = ['red', 'orange', 'yellow', 'olive', 'green', 'teal', 'blue', 'violet', 'purple', 'pink', 'brown', 'grey', 'black'];
 
@@ -22,28 +24,27 @@ const Problem = ({userId, problem}) => (
       let color = colors[Math.round(Math.random()*13)];
 
       return (
-          <Card color={color} >
-            <Image src={problem.image} fluid/>
+        <div>
+          <Card color={color}>
+            <Image src={problem.image}/>
             <Card.Content>
               <Card.Header>
-                <Link to={`/singleProblemPage/${problem.id}/${data.user.username}`}>{problem.title} </Link>
+                <Link to={`/singleProblemPage/${problem.id}/${data.user.username}`}><Textfit mode="multi">{problem.title} </Textfit></Link>
               </Card.Header>
-              <Card.Description>
-                {problem.description}
-              </Card.Description>
+
             </Card.Content>
             <Card.Content>
               <Link to={`/userProfile/${userId}`}>
                 <div>
                   <span className={`ui ${color} image label`}>
-                    <img src="https://www.w3schools.com/howto/img_avatar.png"/>
+                    <img src="https://www.w3schools.com/howto/img_avatar.png" />
                       {data.user.username}
-                    <div className="detail">⭐️⭐️⭐️⭐️⭐️</div>
                   </span>
                 </div>
               </Link>
             </Card.Content>
           </Card>
+          </div>
       )
     }}
   </Query>
