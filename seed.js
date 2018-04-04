@@ -128,203 +128,203 @@ const cities = [
 const coordinates = {
   'San Francisco': {
     type: 'Point',
-    coordinates: [37.7749, 122.4194],
+    coordinates: [37.7749, -122.4194],
   },
   'Los Angeles': {
     type: 'Point',
-    coordinates: [34.0522, 118.2437],
+    coordinates: [34.0522, -118.2437],
   },
   'Fullerton': {
     type: 'Point',
-    coordinates: [33.8704, 117.9242],
+    coordinates: [33.8704, -117.9242],
   },
   'Pasadena': {
     type: 'Point',
-    coordinates: [34.1478, 118.1445],
+    coordinates: [34.1478, -118.1445],
   },
   'Orange': {
     type: 'Point',
-    coordinates: [33.7879, 117.8531],
+    coordinates: [33.7879, -117.8531],
   },
   'Torrance': {
     type: 'Point',
-    coordinates: [33.8358, 118.3406],
+    coordinates: [33.8358, -118.3406],
   },
   'Escondido': {
     type: 'Point',
-    coordinates: [33.1192, 117.0864],
+    coordinates: [33.1192, -117.0864],
   },
   'Sunnyvale': {
     type: 'Point',
-    coordinates: [37.3688, 122.0363],
+    coordinates: [37.3688, -122.0363],
   },
   'Pomona': {
     type: 'Point',
-    coordinates: [34.0551, 117.7500],
+    coordinates: [34.0551, -117.7500],
   },
   'Salinas': {
     type: 'Point',
-    coordinates: [36.6777, 121.6555],
+    coordinates: [36.6777, -121.6555],
   },
   'Hayward': {
     type: 'Point',
-    coordinates: [37.6688, 122.0808],
+    coordinates: [37.6688, -122.0808],
   },
   'Palmdale': {
     type: 'Point',
-    coordinates: [34.5794, 118.1165],
+    coordinates: [34.5794, -118.1165],
   },
   'Lancaster': {
     type: 'Point',
-    coordinates: [34.6868, 118.1542],
+    coordinates: [34.6868, -118.1542],
   },
   'Corona': {
     type: 'Point',
-    coordinates: [33.8753, 117.5664],
+    coordinates: [33.8753, -117.5664],
   },
   'Elk Grove': {
     type: 'Point',
-    coordinates: [38.4088, 38.4088],
+    coordinates: [38.4088, -121.3716],
   },
   'Ontario': {
     type: 'Point',
-    coordinates: [34.0633, 117.6509],
+    coordinates: [34.0633, -117.6509],
   },
   'Santa Rosa': {
     type: 'Point',
-    coordinates: [38.4404, 122.7141],
+    coordinates: [38.4404, -122.7141],
   },
   'Garden Grove': {
     type: 'Point',
-    coordinates: [33.7743, 117.9380],
+    coordinates: [33.7743, -117.9380],
   },
   'Oceanside': {
     type: 'Point',
-    coordinates: [33.1959, 117.3795],
+    coordinates: [33.1959, -117.3795],
   },
   'Santa Clarita': {
     type: 'Point',
-    coordinates: [34.3917, 118.5426],
+    coordinates: [34.3917, -118.5426],
   },
   'Glendale': {
     type: 'Point',
-    coordinates: [34.1425, 118.2551],
+    coordinates: [34.1425, -118.2551],
   },
   'Huntington Beach': {
     type: 'Point',
-    coordinates: [33.6595, 117.9988],
+    coordinates: [33.6595, -117.9988],
   },
   'Moreno Valley': {
     type: 'Point',
-    coordinates: [33.9425, 117.2297],
+    coordinates: [33.9425, -117.2297],
   },
   'Oxnard': {
     type: 'Point',
-    coordinates: [34.1975, 119.1771],
+    coordinates: [34.1975, -119.1771],
   },
   'Fontana': {
     type: 'Point',
-    coordinates: [34.0922, 117.4350],
+    coordinates: [34.0922, -117.4350],
   },
   'Modesto': {
     type: 'Point',
-    coordinates: [37.6391, 120.9969],
+    coordinates: [37.6391, -120.9969],
   },
   'San Bernadino': {
     type: 'Point',
-    coordinates: [34.1083, 117.2898],
+    coordinates: [34.1083, -117.2898],
   },
   'Fremont': {
     type: 'Point',
-    coordinates: [37.5483, 121.9886],
+    coordinates: [37.5483, -121.9886],
   },
   'Chula Vista': {
     type: 'Point',
-    coordinates: [32.6401, 117.0842],
+    coordinates: [32.6401, -117.0842],
   },
   'Stockton': {
     type: 'Point',
-    coordinates: [37.9577, 121.2908],
+    coordinates: [37.9577, -121.2908],
   },
   'Santa Ana': {
     type: 'Point',
-    coordinates: [33.7455, 117.8677],
+    coordinates: [33.7455, -117.8677],
   },
   'Anaheim': {
     type: 'Point',
-    coordinates: [33.8366, 117.9143],
+    coordinates: [33.8366, -117.9143],
   },
   'Oakland': {
     type: 'Point',
-    coordinates: [37.8044, 122.2711],
+    coordinates: [37.8044, -122.2711],
   },
   'Long Beach': {
     type: 'Point',
-    coordinates: [33.7701, 118.1937],
+    coordinates: [33.7701, -118.1937],
   },
   'Fresno': {
     type: 'Point',
-    coordinates: [36.7378, 119.7871],
+    coordinates: [36.7378, -119.7871],
   },
   'Venice': {
     type: 'Point',
-    coordinates: [33.9850, 118.4695],
+    coordinates: [33.9850, -118.4695],
   },
   'Van Nuys': {
     type: 'Point',
-    coordinates: [34.1899, 118.4514],
+    coordinates: [34.1899, -118.4514],
   },
   'Santa Monica': {
     type: 'Point',
-    coordinates: [34.0195, 118.4912],
+    coordinates: [34.0195, -118.4912],
   },
   'Monterrey': {
     type: 'Point',
-    coordinates: [36.6002, 121.8947],
+    coordinates: [36.6002, -121.8947],
   },
   'Santa Barbara': {
     type: 'Point',
-    coordinates: [34.4208, 119.6982],
+    coordinates: [34.4208, -119.6982],
   },
   'Santa Cruz': {
     type: 'Point',
-    coordinates: [36.9741, 122.0308],
+    coordinates: [36.9741, -122.0308],
   },
   'San Jose': {
     type: 'Point',
-    coordinates: [37.3382, 121.8863],
+    coordinates: [37.3382, -121.8863],
   },
   'Bakersville': {
     type: 'Point',
-    coordinates: [35.3733, 119.0187],
+    coordinates: [35.3733, -119.0187],
   },
   'Roseville': {
     type: 'Point',
-    coordinates: [38.7521, 121.2880],
+    coordinates: [38.7521, -121.2880],
   },
   'Redlands': {
     type: 'Point',
-    coordinates: [34.0556, 117.1825],
+    coordinates: [34.0556, -117.1825],
   },
   'Riverside': {
     type: 'Point',
-    coordinates: [33.9806, 117.3755],
+    coordinates: [33.9806, -117.3755],
   },
   'Irvine': {
     type: 'Point',
-    coordinates: [33.6846, 117.8265],
+    coordinates: [33.6846, -117.8265],
   },
   'San Diego': {
     type: 'Point',
-    coordinates: [32.7157, 117.1611],
+    coordinates: [32.7157, -117.1611],
   },
   'Eureka': {
     type: 'Point',
-    coordinates: [40.8021, 124.1637],
+    coordinates: [40.8021, -124.1637],
   },
   'Sacramento': {
     type: 'Point',
-    coordinates: [38.5816, 121.4944],
+    coordinates: [38.5816, -121.4944],
   },
 }
 

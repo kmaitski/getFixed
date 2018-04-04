@@ -1,9 +1,10 @@
 import React from 'react';
+import axios from 'axios';
 import Navbar2 from './navBar2.jsx';
 import ProblemsView from './problemsView.jsx';
 import CategoryView from './categoryView.jsx';
 import Footer from './footer.jsx';
-import FixButton from './fixButton.jsx';
+import DistanceSlideBar from './DistanceSlideBar.jsx';
 
 class Landing extends React.Component {
   constructor(props) {
@@ -11,9 +12,14 @@ class Landing extends React.Component {
     this.state = {
       latitude: null,
       longitude: null,
-      modalOpen: false
+      modalOpen: false,
+      distance: 200,
+      buttonClicked: false,
     };
     this.geoLocationSuccess = this.geoLocationSuccess.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.geoLocationError = this.geoLocationError.bind(this);
+    this.getUsersLocation = this.getUsersLocation.bind(this);
   }
 
   geoLocationSuccess(pos) {
@@ -25,17 +31,32 @@ class Landing extends React.Component {
   }
 
   geoLocationError(error) {
-    console.log(`ERROR(${error.code}): ${error.message}`);
+    console.log('timeout', error);
+    // const retVal = confirm('Geolocation timed out! Try again?');
+    // if (retVal === true) {
+    //   this.getUsersLocation();
+    // }
+    axios.get('/ip')
+      .then(response => console.log(response))
   }
 
-  componentDidMount() {
+  getUsersLocation() {
+    this.setState({ buttonClicked: true });
     const options = {
       enableHighAccuracy: true,
-      timeout: 30000,
-      maximumAge: 0,
+      timeout: 3000,
+      maximumAge: Infinity,
     };
+    // console.log(1);
+    if (navigator.geolocation) {
+      navigator
+        .geolocation
+        .getCurrentPosition(this.geoLocationSuccess, this.geoLocationError, options);
+    }
+  }
 
-    navigator.geolocation.getCurrentPosition(this.geoLocationSuccess, this.geoLocationError, options);
+  handleChange(miles) {
+    this.setState({ distance: miles });
   }
 
   render() {
@@ -62,14 +83,25 @@ class Landing extends React.Component {
             style={{ padding:" 230px 0px 180px 0px", width:"12vw" }}
           >
             <CategoryView history={history} />
+            <DistanceSlideBar />
           </div>
           <div
             className="sixteen wide column"
             style={{ padding:" 35px 0px 0px 120px" }}
           >
+            {/* {
+            !this.state.buttonClicked && */}
+            <button
+              onClick={this.getUsersLocation}
+              style={{ marginBottom: '1%' }}
+            >
+              Click Here To Find Problems Near You!
+            </button>
+            {/* } */}
             <ProblemsView
               category={this.props.match.params.category}
               coords={{ latitude: this.state.latitude, longitude: this.state.longitude }}
+              distance={this.state.distance}
             />
           </div>
         </div>

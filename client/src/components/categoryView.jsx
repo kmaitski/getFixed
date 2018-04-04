@@ -1,20 +1,19 @@
-import React, { Component } from 'react';
-import { Button, Divider} from 'semantic-ui-react';
-import { withRouter } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { Button } from 'semantic-ui-react';
+import { withRouter, Link } from 'react-router-dom';
 
 
 class CategoryView extends React.Component {
-    constructor(props) {
-    super(props)
+  constructor(props) {
+    super(props);
     this.state = {
-       activeItem: 'home'
-    }
+      activeItem: 'home',
+    };
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick(e) {
-    let category = e.target.innerText.toLowerCase();
+    const category = e.target.innerText.toLowerCase();
     this.props.history.push(`/landing/${category}`);
   }
 
@@ -37,7 +36,7 @@ class CategoryView extends React.Component {
         </div>
         </Button.Group>
       </div>
-    )
+    );
   }
 }
 
