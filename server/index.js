@@ -58,6 +58,12 @@ app.use('/graphiql', graphQLExp.graphiqlExpress({
 
 const ws = createServer(app);
 
+app.get('/ip', (req, res) => {
+  console.log('req.headers', req.headers['x-forwarded-for']);
+  console.log('req.connection', req.connection.remoteAddress);
+  res.end();
+});
+
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 cloudinary.config(settings);

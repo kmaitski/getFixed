@@ -1,7 +1,6 @@
 const db = require('../database/index.js');
 const graphQLTools = require('graphql-tools');
 const graphQLSubs = require('graphql-subscriptions');
-const sequelize = require('sequelize');
 
 const withFilter = graphQLSubs.withFilter;
 
@@ -10,7 +9,7 @@ const PubSub = require('graphql-subscriptions');
 const pubsub = new PubSub.PubSub();
 
 let tempMessages = {
-  'fdb6af47-649a-4e83-8469-61cde9697c3b' : ['I love you'],
+  'fdb6af47-649a-4e83-8469-61cde9697c3b': ['I love you'],
 };
 
 const typeDefs = `
@@ -20,7 +19,7 @@ const typeDefs = `
     listing(id: String!): Listing
     allListings(category: String): [Listing]
     problemMessages(id: String!): Messages
-    nearByListings(longitude: Float, latitude: Float, radius: Int): [Listing]
+    nearByListings(longitude: Float, latitude: Float, radius: Int, category: String): [Listing]
   }
 
   type User {
@@ -95,15 +94,96 @@ const resolvers = {
       return messages;
     },
     nearByListings: (obj, args) => {
-      // const location = sequelize.literal(`ST_GeomFromText('POINT(${args.latitude} ${args.longitude})')`);
-      const distance = sequelize.fn('ST_Distance_Sphere', sequelize.literal('point'), { type: 'Point', coordinates: [args.latitude, args.longitude] });
-      return db.listings.findAll({
-        // attributes: [distance, 'distance'],
-        // order: 'distance',
-        where: sequelize.where(distance, { lte: 10000 }),
-        // limit: 25,
-      });
+      const toRad = (value) => { return (value * Math.PI) / 180; };
+      const filterByDistance = (userCoordinates, listingCoordinates, distance) => {
+        const radius = 6731e3;
+        if (userCoordinates[1] < 0) {
+          userCoordinates[1] *= -1;
+        }
+        if (listingCoordinates[1] < 0) {
+          listingCoordinates[1] *= -1;
+        }
+        // console.log(userCoordinates[0]);
+        const userRadianLat = toRad(userCoordinates[0]);
+        // console.log(listingCoordinates[0]);
+        const listingRadianLat = toRad(listingCoordinates[0]);
+        const distanceBetweenLat = toRad(listingCoordinates[0] - userCoordinates[0]);
+        const distanceBetweenLong = toRad(listingCoordinates[1] - userCoordinates[1]);
+        const haversineFormula =
+        (Math.sin(distanceBetweenLat / 2) * Math.sin(distanceBetweenLat / 2)) +
+        (Math.cos(userRadianLat) * Math.cos(userRadianLat) * Math.cos(listingRadianLat) *
+        Math.sin(distanceBetweenLong / 2) * Math.sin(distanceBetweenLong / 2));
+        const nextStep =
+        2 * Math.atan2(Math.sqrt(haversineFormula), Math.sqrt(1 - haversineFormula));
+        const result = nextStep * radius;
+        // console.log('result', result, 'distance', distance);
+        if (result <= distance) {
+          return true;
+        }
+        return false;
+      };
+      if (args.latitude !== null && args.category) {
+        // console.log(1);
+        return db.listings.findAll({
+          where: {
+            category: args.category,
+          },
+        })
+          .then((listings) => {
+            const filteredListings = [];
+            for (let i = 0; i < listings.length; i += 1) {
+              if (filteredListings.length === 25) {
+                return filteredListings;
+              }
+              if (listings[i].dataValues.point) {
+                if (filterByDistance(
+                  [args.latitude, args.longitude],
+                  [listings[i].dataValues.point.coordinates[0],
+                    listings[i].dataValues.point.coordinates[1]],
+                  args.radius * 1609.34
+                )) {
+                  filteredListings.push(listings[i]);
+                }
+              }
+            }
+            // console.log(filteredListings);
+            return filteredListings;
+          });
+      }
+      if (args.latitude !== null) {
+        // console.log(1);
+        return db.listings.findAll()
+          .then((listings) => {
+            const filteredListings = [];
+            for (let i = 0; i < listings.length; i += 1) {
+              if (filteredListings.length === 25) {
+                return filteredListings;
+              }
+              if (listings[i].dataValues.point) {
+                if (filterByDistance(
+                  [args.latitude, args.longitude],
+                  [listings[i].dataValues.point.coordinates[0],
+                    listings[i].dataValues.point.coordinates[1]],
+                  args.radius * 1609.34
+                )) {
+                  filteredListings.push(listings[i]);
+                }
+              }
+            }
+            // console.log(filteredListings);
+            return filteredListings;
+          });
+      }
       // console.log(args);
+      if (args.category) {
+        return db.listings.findAll({
+          where: {
+            category: args.category,
+          },
+          limit: 25,
+        });
+      }
+      return db.listings.findAll({ limit: 25 });
     },
   },
   Mutation: {

@@ -5,10 +5,9 @@ import { Query } from 'react-apollo';
 import Problem from './problem.jsx';
 
 const ProblemsView = (props) => {
-  // const { category } = props;
   const query = gql`
-    query nearByListings($longitude: Float, $latitude: Float, $radius: Int) {
-      nearByListings(longitude: $longitude, latitude: $latitude, radius: $radius) {
+    query nearByListings($longitude: Float, $latitude: Float, $radius: Int, $category: String) {
+      nearByListings(longitude: $longitude, latitude: $latitude, radius: $radius, category: $category) {
         id
         image
         title
@@ -21,26 +20,25 @@ const ProblemsView = (props) => {
     <Query
       query={query}
       variables={{
-        longitude: 121.8379,
-        latitude: 37.2113,
-        radius: 300,
+        longitude: props.coords.longitude,
+        latitude: props.coords.latitude,
+        radius: props.distance,
+        category: props.category,
         }}
     >
       {({ loading, error, data }) => {
         if (loading) { return <p>Loading...</p>; }
         if (error) { return <p>Error :(</p>; }
-        console.log(data);
         return (
           <div className="container">
-            <Card.Group className="ui cards" itemsPerRow={3}>
-              {data.allListings.map((problem, index) => {
+            <Card.Group className="ui cards">
+              {data.nearByListings.map((problem, index) => {
                 return <Problem
                         key={index}
                         problem={problem}
                         userId={problem.user_id}
                         index={index}
-                      />;
-              })}
+                      />; })}
             </Card.Group>
           </div>
         );
@@ -48,8 +46,5 @@ const ProblemsView = (props) => {
     </Query>
   );
 };
-
-
-
 
 export default ProblemsView;
