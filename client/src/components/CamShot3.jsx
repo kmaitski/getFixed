@@ -35,6 +35,7 @@ export default class CamShot3 extends React.Component {
           <button className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"onClick={this.takePicture} style={style.captureButton}>
             <i className="material-icons">add</i>
           </button>
+
         </Camera>
       : <img
           style={style.captureImage}
@@ -75,18 +76,6 @@ const style = {
   captureImage: {
     position: 'center',
     margin: 'auto',
-    height: '37%',
-<<<<<<< HEAD
-<<<<<<< HEAD
-    width: '37%'
-
-=======
-    width: '37%',
-    padding:" 0px 0px 0px 0px"
->>>>>>> no real change
-=======
-    width: '37%'
-
->>>>>>> nav bar 2, and added link to picture on card
+    height: '37%'
   }
 };

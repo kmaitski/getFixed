@@ -64,7 +64,6 @@ class Landing extends React.Component {
             <CategoryView history={history} />
           </div>
           <div
-
             className="sixteen wide column"
             style={{ padding:" 35px 0px 0px 120px" }}
           >
