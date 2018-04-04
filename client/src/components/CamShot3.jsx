@@ -76,8 +76,6 @@ const style = {
   captureImage: {
     position: 'center',
     margin: 'auto',
-    height: '37%',
-    width: '37%'
-
+    height: '37%'
   }
 };
