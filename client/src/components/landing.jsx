@@ -5,6 +5,7 @@ import ProblemsView from './problemsView.jsx';
 import CategoryView from './categoryView.jsx';
 import Footer from './footer.jsx';
 import DistanceSlideBar from './DistanceSlideBar.jsx';
+import FixButton from './fixButton.jsx';
 
 class Landing extends React.Component {
   constructor(props) {
