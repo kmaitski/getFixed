@@ -1,5 +1,4 @@
 import React from 'react';
-import NavBar from './navBar.jsx';
 import CategoryView from './categoryView.jsx';
 import axios from 'axios'
 import { Card } from 'semantic-ui-react';
