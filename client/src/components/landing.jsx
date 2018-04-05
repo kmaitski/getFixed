@@ -103,7 +103,7 @@ class Landing extends React.Component {
             className="fixed-top"
             style={{ padding:" 184px 0px 180px 0px", width:"12vw" }}
           >
-            <CategoryView history={history} />
+            <SideNav history={history} />
           </div>
             <ProblemsView
               category={this.props.match.params.category}
