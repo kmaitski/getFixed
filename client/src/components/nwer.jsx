@@ -7,15 +7,13 @@ import gql from 'graphql-tag';
 import ChatBoxWithMessages from './chatBoxArea.jsx';
 import SocialMedia from './socialMediaIcons.jsx'
 import Footer from './footer.jsx'
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
-import { Button } from 'semantic-ui-react'
+
 
 class SingleProblemPage extends React.Component {
   constructor(props){
     super(props);
     this.state = {
       currentProblem: {},
-      expanded: false,
     }
   }
 
@@ -41,13 +39,15 @@ class SingleProblemPage extends React.Component {
         <div className="ui hidden divider"></div>
         <div className="ui raised container">
           <div className="content">
-            <div className="ui header">{this.state.currentProblem.title}</div>
+            <div className="ui header"></div>
           </div>
           <a className="ui red ribbon label">{this.props.match.params.username}</a>
           <div className="ui segment">
-            <img className="ui large image" style={{"display": "inline-block"}} src={this.state.currentProblem.image}/>
+            <img className="ui large image" style={{"display": "inline-block", width: '40vw', height: '40vw',}} src={this.state.currentProblem.image}/>
             <div className="ui card" style={{"display": "inline-block", "margin":15}}>
+            <h2>{this.state.currentProblem.title}</h2>
               <ChatBoxWithMessages  id={this.props.match.params.id}/>
+              <h5>Share this Listing</h5>
               <SocialMedia />
             </div>
           </div>
@@ -67,6 +67,8 @@ class SingleProblemPage extends React.Component {
           </button>
           </Link>
         </div>
+        <Footer />
+
       </div>
     )
   }
