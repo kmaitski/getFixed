@@ -41,6 +41,8 @@ const typeDefs = `
     category: String
     location: String
     image: String
+    latitude: Float
+    longitude: Float
   }
 
   type Message {
@@ -123,7 +125,6 @@ const resolvers = {
         return false;
       };
       if (args.latitude !== null && args.category) {
-        // console.log(1);
         return db.listings.findAll({
           where: {
             category: args.category,
@@ -135,18 +136,16 @@ const resolvers = {
               if (filteredListings.length === 25) {
                 return filteredListings;
               }
-              if (listings[i].dataValues.point) {
+              if (listings[i].dataValues.latitude) {
                 if (filterByDistance(
                   [args.latitude, args.longitude],
-                  [listings[i].dataValues.point.coordinates[0],
-                    listings[i].dataValues.point.coordinates[1]],
+                  [listings[i].dataValues.latitude, listings[i].dataValues.longitude],
                   args.radius * 1609.34
                 )) {
                   filteredListings.push(listings[i]);
                 }
               }
             }
-            // console.log(filteredListings);
             return filteredListings;
           });
       }
@@ -159,18 +158,16 @@ const resolvers = {
               if (filteredListings.length === 25) {
                 return filteredListings;
               }
-              if (listings[i].dataValues.point) {
+              if (listings[i].dataValues.latitude) {
                 if (filterByDistance(
                   [args.latitude, args.longitude],
-                  [listings[i].dataValues.point.coordinates[0],
-                    listings[i].dataValues.point.coordinates[1]],
+                  [listings[i].dataValues.latitude, listings[i].dataValues.longitude],
                   args.radius * 1609.34
                 )) {
                   filteredListings.push(listings[i]);
                 }
               }
             }
-            // console.log(filteredListings);
             return filteredListings;
           });
       }

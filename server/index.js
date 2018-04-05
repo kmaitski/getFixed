@@ -7,6 +7,7 @@ const session = require('express-session');
 const bodyParser = require('body-parser');
 const cloudinary = require('cloudinary');
 const multer = require('multer');
+const iplocation = require('iplocation');
 
 // GraphQL modules
 const graphQLExp = require('apollo-server-express');
@@ -53,15 +54,21 @@ const authRoute = require('./router/routes/auth.js')(app, db, passport);
 app.use('/graphql', bodyParser.json(), graphQLExp.graphqlExpress({ schema, graphiql: true }));
 app.use('/graphiql', graphQLExp.graphiqlExpress({
   endpointURL: '/graphql',
-  subscriptionsEndpoint: '/subscriptions',
+  subscriptionsEndpoint: 'wss://subscriptions',
 }));
 
 const ws = createServer(app);
 
 app.get('/ip', (req, res) => {
-  console.log('req.headers', req.headers['x-forwarded-for']);
-  console.log('req.connection', req.connection.remoteAddress);
-  res.end();
+  // console.log('req.connection', req.connection.remoteAddress);
+  if (req.headers.host === 'localhost:8080') {
+    res.end();
+  } else {
+    const ip = req.headers['x-forwarded-for'].split(',')[0];
+    iplocation(ip, (err, response) => {
+      res.send(response);
+    });
+  }
 });
 
 const storage = multer.memoryStorage();

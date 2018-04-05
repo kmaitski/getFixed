@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { Button } from 'semantic-ui-react';
 import Navbar2 from './navBar2.jsx';
 import ProblemsView from './problemsView.jsx';
 import CategoryView from './categoryView.jsx';
@@ -19,7 +20,7 @@ class Landing extends React.Component {
       buttonClicked: false,
     };
     this.geoLocationSuccess = this.geoLocationSuccess.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    this.handleSlide = this.handleSlide.bind(this);
     this.geoLocationError = this.geoLocationError.bind(this);
     this.getUsersLocation = this.getUsersLocation.bind(this);
   }
@@ -32,14 +33,15 @@ class Landing extends React.Component {
     });
   }
 
-  geoLocationError(error) {
-    console.log('timeout', error);
-    // const retVal = confirm('Geolocation timed out! Try again?');
-    // if (retVal === true) {
-    //   this.getUsersLocation();
-    // }
+  geoLocationError() {
     axios.get('/ip')
-      .then(response => console.log(response))
+      .then((response) => {
+        console.log(response);
+        this.setState({
+          latitude: response.data.latitude,
+          longitude: response.data.longitude,
+        });
+      });
   }
 
   getUsersLocation() {
@@ -57,7 +59,7 @@ class Landing extends React.Component {
     }
   }
 
-  handleChange(miles) {
+  handleSlide(miles) {
     this.setState({ distance: miles });
   }
 
@@ -79,20 +81,30 @@ class Landing extends React.Component {
             />*/}
         </div>
         <div className="ui hidden divider"></div>
+        <div style={{ marginLeft: '14%', marginTop: '1%' }}>
+          {
+          !this.state.buttonClicked ?
+          <Button
+            onClick={this.getUsersLocation}
+            // style={{ marginBottom: '2%' }}
+            color='purple'
+          >
+            Click Here To Find Problems Near You!
+          </Button> :
+          <DistanceSlideBar handleSlide={this.handleSlide}/>
+          }
+        </div>
+        <div
+          className="sixteen wide column"
+          style={{ padding:" 35px 0 0px 120px" }}
+        >
         <div className="ui grid container">
           <div
             className="fixed-top"
             style={{ padding:" 184px 0px 180px 0px", width:"12vw" }}
           >
-            <SideNav />
+            <CategoryView history={history} />
           </div>
-          <div
-            className="sixteen wide column"
-            style={{ padding:" 35px 0px 0px 0px" }}
-          >
-            {/* {
-            !this.state.buttonClicked && */}
-            {/* } */}
             <ProblemsView
               category={this.props.match.params.category}
               coords={{ latitude: this.state.latitude, longitude: this.state.longitude }}
