@@ -39,14 +39,20 @@ export default class SideNav extends React.Component {
   render() {
     return (
       <div>
-        <RaisedButton
+        <button className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"
           label="Filter"
-          onClick={() => this.handleToggle()} />
+          onClick={() => this.handleToggle()}>
+          <i className="material-icons">add</i>
+          </button>
         <Drawer width={140} open={this.state.open}>
-          <div style={{ padding:" 184px 0px 0px 1px", align:'left' }}>
-            <RaisedButton
-              label="Close Filter"
-              onClick={() => this.handleToggle()} />
+          <div style={{ padding:" 250px 0px 0px 15px", align:'left' }}>
+            <button className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect"
+          label="Filter"
+          onClick={() => this.handleToggle()}>
+          <i className="material-icons">keyboard_return</i>
+          </button>
+          </div>
+          <div style={{ padding:" 15px 0px 0px 1px", align:'left' }}>
             <CategoryView history={history} />
             <DistanceSlideBar />
             <button
