@@ -82,13 +82,13 @@ class Landing extends React.Component {
         <div className="ui grid container">
           <div
             className="fixed-top"
-            style={{ padding:" 220px 0px 180px 0px", width:"12vw" }}
+            style={{ padding:" 184px 0px 180px 0px", width:"12vw" }}
           >
             <SideNav />
           </div>
           <div
             className="sixteen wide column"
-            style={{ padding:" 35px 0px 0px 120px" }}
+            style={{ padding:" 35px 0px 0px 0px" }}
           >
             {/* {
             !this.state.buttonClicked && */}
