@@ -65,17 +65,13 @@ class UserProfile extends React.Component {
             </div>
           </div>
         </div>
-
         <div class="ui vertical strip segment">
-          <div class="ui middle aligned stackable grid container">
-            <div class="row">
-              <h3 class="ui header">Active Listings</h3>
-            </div>
-            <Card.Group className="ui cards">
+          <h3 class="ui header">Active Listings</h3>
+          <div class="container">
+            <div class="card-columns">
               {this.state.listings.map((problem, index) => {
-
                 return (
-                  <div class="five wide column">
+                  <div>
                     <Problem
                       key={index}
                       problem={problem}
@@ -84,12 +80,12 @@ class UserProfile extends React.Component {
                     />
                   </div>);
               })}
-            </Card.Group>
           </div>
         </div>
         <div class="ui vertical strip segment">
         </div>
       </div>
+    </div>
 )}
 
 }

@@ -98,16 +98,8 @@ db.sequelize
 
 db.sequelize.sync()
   .then(() => {
-    ws.listen(PORT, () => {
-      console.log(`Apollo Server is now running on http://localhost:${PORT}`);
-      new SubscriptionServer({
-        execute,
-        subscribe,
-        schema,
-      }, {
-        server: ws,
-        path: '/subscriptions',
-      });
+    app.listen(PORT, function() {
+      console.log(`listening on port ${PORT}`);
     });
   })
   .catch(err => console.log(err));
