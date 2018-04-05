@@ -93,7 +93,7 @@ class Landing extends React.Component {
         <div className="ui grid container">
           <div
             className="fixed-top"
-            style={{ padding:" 184px 0px 180px 0px", width:"12vw" }}
+            style={{ padding:" 250px 10px 180px 15px", width:"12vw" }}
           >
             <SideNav history={history} />
           </div>
