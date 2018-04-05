@@ -36,7 +36,6 @@ class Landing extends React.Component {
   geoLocationError() {
     axios.get('/ip')
       .then((response) => {
-        console.log(response);
         this.setState({
           latitude: response.data.latitude,
           longitude: response.data.longitude,
@@ -72,13 +71,6 @@ class Landing extends React.Component {
             onLogout={this.props.onLogout}
             user={this.props.user}
           />
-
-
-          {/*<Navbar
-            isLoggedIn={this.props.isLoggedIn}
-            onLogout={this.props.onLogout}
-            user={this.props.user}
-            />*/}
         </div>
         <div className="ui hidden divider"></div>
         <div style={{ marginLeft: '14%', marginTop: '1%' }}>
