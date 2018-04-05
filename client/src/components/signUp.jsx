@@ -11,6 +11,10 @@ class Signup extends React.Component {
       password: '',
       email: '',
       city: '',
+      name: '',
+      street: '',
+      state: '',
+      zipcode: '',
       error: ''
     };
     this.handleClick = this.handleClick.bind(this);
@@ -27,7 +31,11 @@ class Signup extends React.Component {
         username: this.state.username,
         password: this.state.password,
         email: this.state.email,
-        city:this.state.city
+        city:this.state.city,
+        name: this.state.name,
+        street: this.state.street,
+        state: this.state.state,
+        zipcode: this.state.zipcode
       })
       .then(function (response) {
         console.log('signup success', response);
@@ -116,14 +124,18 @@ class Signup extends React.Component {
                 fluid
                 iconPosition='left'
                 placeholder='Name'
-                type='text'
+                name='name'
+                value={this.state.name}
+                onChange={this.onChange}
               />
                <Form.Input
                 fluid
                 icon='home'
                 iconPosition='left'
                 placeholder='Street'
-                type='text'
+                name='street'
+                value={this.state.street}
+                onChange={this.onChange}
               />
                <Form.Input
                 fluid
@@ -138,13 +150,17 @@ class Signup extends React.Component {
                 fluid
                 iconPosition='left'
                 placeholder='State'
-                type='text'
+                name='state'
+                value={this.state.state}
+                onChange={this.onChange}
               />
                 <Form.Input
                 fluid
                 iconPosition='left'
                 placeholder='Zip'
-                type='number'
+                name='zipcode'
+                value={this.state.zipcode}
+                onChange={this.onChange}
               />
 
             </Segment>

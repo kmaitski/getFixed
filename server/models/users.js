@@ -25,11 +25,10 @@ module.exports = (sequelize, DataTypes) => {
     city: DataTypes.STRING,
     phone_number: DataTypes.STRING,
     num: DataTypes.STRING,
-  // first_name: {},
-  // last_name: {},
-  // street: {},
-  // state: {},
-  // zipcode: {},
+    name: DataTypes.STRING,
+    street: DataTypes.STRING,
+    state: DataTypes.STRING,
+    zipcode: DataTypes.STRING,
   });
   return User;
 };

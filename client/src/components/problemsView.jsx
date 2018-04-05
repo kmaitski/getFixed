@@ -30,8 +30,9 @@ const ProblemsView = (props) => {
         if (loading) { return <p>Loading...</p>; }
         if (error) { return <p>Error :(</p>; }
         return (
-          <div className="container">
-            <Card.Group className="ui cards">
+          <div>
+            <div class="container">
+              <div class="card-columns">
               {data.nearByListings.map((problem, index) => {
                 return <Problem
                         key={index}
@@ -39,7 +40,8 @@ const ProblemsView = (props) => {
                         userId={problem.user_id}
                         index={index}
                       />; })}
-            </Card.Group>
+              </div>
+            </div>
           </div>
         );
       }}
