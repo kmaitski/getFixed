@@ -5,6 +5,7 @@ import axios from 'axios';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import ChatBoxWithMessages from './chatBoxArea.jsx';
+import SocialMedia from './socialMediaIcons.jsx'
 
 
 class SingleProblemPage extends React.Component {
@@ -44,6 +45,7 @@ class SingleProblemPage extends React.Component {
             <img className="ui large image" style={{"display": "inline-block"}} src={this.state.currentProblem.image}/>
             <div className="ui card" style={{"display": "inline-block", "margin":15}}>
               <ChatBoxWithMessages  id={this.props.match.params.id}/>
+              <SocialMedia />
             </div>
           </div>
           <div className="ui card">
@@ -52,6 +54,15 @@ class SingleProblemPage extends React.Component {
               <p>{this.state.currentProblem.description}</p>
             </div>
           </div>
+        </div>
+        <div className="fixed-bottom" style={{ padding:" 0px 20px 20px 20px"}}>
+          <Link to ='/landing'>
+          <button className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect"
+          label="Filter"
+          >
+          <i className="material-icons">keyboard_return</i>
+          </button>
+          </Link>
         </div>
 
       </div>
