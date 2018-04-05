@@ -72,8 +72,6 @@ class SingleProblemPage extends React.Component {
           </Link>
         </div>
         <Footer />
-
-      </div>
       </div>
     )
   }
