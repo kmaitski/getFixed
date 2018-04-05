@@ -3,7 +3,6 @@ import { Route, Link, Switch } from 'react-router-dom';
 import Landing from './landing.jsx'
 import LoginPage from './loginPage.jsx'
 import SingleProblemPage from './singleProblemPage.jsx'
-import ViewConversation from './viewConversation.jsx'
 import Signup from './signup.jsx'
 import UserProfile from './userProfile.jsx'
 import PersonalProfile from './personalProfile.jsx'
@@ -123,7 +122,6 @@ class App extends React.Component {
                 }
               } />
             />
-          <Route path='/viewConversation' component={ ViewConversation } />
         </Switch>
       </div>
     )
