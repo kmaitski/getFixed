@@ -19,7 +19,6 @@ class CategoryView extends React.Component {
 
   render() {
     return (
-
       <div className="sidebar">
         <Button.Group vertical>
         <Link to ='/landing'>

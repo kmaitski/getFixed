@@ -2,20 +2,16 @@ import React from 'react';
 
 const DistanceSlideBar = props => (
   <div>
-    <select
-      class ="ui dropdown"
-      onChange={e => props.handleChange(e.target.value)}
-    >
-      <option value="">Miles</option>
-      <option value="5">5</option>
-      <option value="10">10</option>
-      <option value="20">20</option>
-      <option value="40">40</option>
-      <option value="80">80</option>
-      <option value="160">160</option>
-      <option value="320">320</option>
-    </select>
+    <input type="range" min="20" max="100" step="20" onChange={e => props.handleSlide(e.target.value) } />
+    <br/>
+    <span>
+      <span style={{marginRight: '1%'}}>20</span>
+      <span style={{marginRight: '1%'}}>40</span>
+      <span style={{marginRight: '1%'}}>60</span>
+      <span style={{marginRight: '1%'}}>80</span>
+      <span style={{marginRight: '1%'}}>100 miles</span>
+      {/* <span>miles</span> */}
+    </span>
   </div>
 );
-
 export default DistanceSlideBar;

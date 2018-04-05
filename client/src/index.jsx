@@ -15,7 +15,7 @@ import { getMainDefinition } from 'apollo-utilities';
 // APOLLO SERVER CONNECTION - create a link that connects the Apollo Client to graphQL server
 const httpLink = new HttpLink({ uri: '/graphql' });
 const wsLink = new WebSocketLink({
-  uri: '/subscriptions',
+  uri: 'wss://subscriptions',
   options: {
     reconnect: true
   }
