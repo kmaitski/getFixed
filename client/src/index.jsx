@@ -14,30 +14,12 @@ import { getMainDefinition } from 'apollo-utilities';
 
 // APOLLO SERVER CONNECTION - create a link that connects the Apollo Client to graphQL server
 const httpLink = new HttpLink({ uri: '/graphql' });
-const wsLink = new WebSocketLink({
-  uri: 'wss://subscriptions',
-  options: {
-    reconnect: true
-  }
-});
 
-// using the ability to split links, you can send data to each link
-// depending on what kind of operation is being sent
-const link = split(
-  // split based on operation type
-  ({ query }) => {
-    const { kind, operation } = getMainDefinition(query);
-    return kind === 'OperationDefinition' && operation === 'subscription';
-  },
-  wsLink,
-  httpLink,
-);
 // Instantiate ApolloClient
 const client = new ApolloClient({
-  link: link,
-  timeout:3000,
+  link: httpLink,
   cache: new InMemoryCache() // store for state management
-})
+});
 
 ReactDOM.render(
   <BrowserRouter>
