@@ -6,6 +6,7 @@ import CategoryView from './categoryView.jsx';
 import Footer from './footer.jsx';
 import DistanceSlideBar from './DistanceSlideBar.jsx';
 import FixButton from './fixButton.jsx';
+import SideNav from './SideNav.jsx'
 
 class Landing extends React.Component {
   constructor(props) {
@@ -81,23 +82,16 @@ class Landing extends React.Component {
         <div className="ui grid container">
           <div
             className="fixed-top"
-            style={{ padding:" 230px 0px 180px 0px", width:"12vw" }}
+            style={{ padding:" 184px 0px 180px 0px", width:"12vw" }}
           >
-            <CategoryView history={history} />
-            <DistanceSlideBar />
+            <SideNav />
           </div>
           <div
             className="sixteen wide column"
-            style={{ padding:" 35px 0px 0px 120px" }}
+            style={{ padding:" 35px 0px 0px 0px" }}
           >
             {/* {
             !this.state.buttonClicked && */}
-            <button
-              onClick={this.getUsersLocation}
-              style={{ marginBottom: '1%' }}
-            >
-              Click Here To Find Problems Near You!
-            </button>
             {/* } */}
             <ProblemsView
               category={this.props.match.params.category}
@@ -105,9 +99,6 @@ class Landing extends React.Component {
               distance={this.state.distance}
             />
           </div>
-        </div>
-        <div className="fixed-bottom" style={{padding:" 70px 0px 140px 0px" }}>
-           <FixButton />
         </div>
           <div className="ui hidden divider"></div>
           <Footer />

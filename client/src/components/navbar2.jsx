@@ -58,10 +58,6 @@ class Navbar2 extends React.Component {
                 />
             </li>
           </ul>
-          <form className="form-inline my-2 my-md-0">
-            <input className="form-control mr-md-2" type="search" placeholder="Search" />
-            <button className="btn btn-outline-success my-2 my-md-0" type="submit">Search</button>
-          </form>
         </div>
       </nav>
         ) : (<nav className="navbar navbar-expand-md navbar-dark bg-primary">
@@ -93,10 +89,6 @@ class Navbar2 extends React.Component {
             </Link>
             </li>
           </ul>
-          <form className="form-inline my-2 my-md-0">
-            <input className="form-control mr-md-2" type="search" placeholder="Search" />
-            <button className="btn btn-secondary" type="submit">Search</button>
-          </form>
         </div>
       </nav>);
 
