@@ -9,7 +9,6 @@ import SocialMedia from './socialMediaIcons.jsx'
 import Footer from './footer.jsx'
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import { Button } from 'semantic-ui-react'
-
 class SingleProblemPage extends React.Component {
   constructor(props){
     super(props);
