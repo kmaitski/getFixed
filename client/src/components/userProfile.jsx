@@ -40,32 +40,55 @@ class UserProfile extends React.Component {
           onLogout={this.props.onLogout}
           user={this.props.user}
         />
-        <div style={{paddingLeft: "4%", paddingTop: "2%"}}>
-          <h2>{this.state.currentUser.username}</h2>
-          <div>
-            <div>
-              Stars Image
+        <div class="ui vertical strip segment">
+          <div class="ui middle aligned stackable grid container">
+            <div class="row">
+              <div class="six wide column">
+                <img class="ui large bordered round image" src="https://pbs.twimg.com/profile_images/799977947461517312/D0dSS5qF_400x400.jpg"/>
+              </div>
+              <div class="eight wide right floated column">
+                <div style={{paddingLeft: "4%", paddingTop: "2%"}}>
+                  <h2>{this.state.currentUser.username}</h2>
+                  <div>
+                    <div>
+                      Stars Image
+                    </div>
+                    <span>{this.state.currentUser.avg_rating || 'Unrated'} </span>
+                    <span>{this.state.currentUser.rating_count || 'No Ratings Yet'}</span>
+                  </div>
+                  <div>
+                    <h4>{this.state.currentUser.phone_number || 'No phone number'}</h4>
+                    <span><em>Serving area around {this.state.currentUser.city}, call for availability</em></span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <span>{this.state.currentUser.avg_rating || 'Unrated'} </span>
-            <span>{this.state.currentUser.rating_count || 'No Ratings Yet'}</span>
-          </div>
-          <div>
-            <h4>{this.state.currentUser.phone_number || 'No phone number'}</h4>
-            <span><em>Serving area around {this.state.currentUser.city}, call for availability</em></span>
           </div>
         </div>
-          <div>
+
+        <div class="ui vertical strip segment">
+          <div class="ui middle aligned stackable grid container">
+            <div class="row">
+              <h3 class="ui header">Active Listings</h3>
+            </div>
             <Card.Group className="ui cards">
               {this.state.listings.map((problem, index) => {
-                return <Problem
-                        key={index}
-                        problem={problem}
-                        userId={problem.user_id}
-                        index={index}
-                      />;
+
+                return (
+                  <div class="five wide column">
+                    <Problem
+                      key={index}
+                      problem={problem}
+                      userId={problem.user_id}
+                      index={index}
+                    />
+                  </div>);
               })}
             </Card.Group>
           </div>
+        </div>
+        <div class="ui vertical strip segment">
+        </div>
       </div>
 )}
 

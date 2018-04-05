@@ -24,10 +24,12 @@ const Problem = ({userId, problem}) => (
       let color = colors[Math.round(Math.random()*13)];
 
       return (
-        <div>
+        <div class="card" style={{paddingBottom: "1%", paddingTop: "1%"}}>
           <Card color={color}>
             <Link to={`/singleProblemPage/${problem.id}/${data.user.username}`}>
+            <div class="image">
               <Image src={problem.image}/>
+            </div>
             </Link>
             <Card.Content>
               <Card.Header>
@@ -41,7 +43,7 @@ const Problem = ({userId, problem}) => (
             <Card.Content>
               <Link to={`/userProfile/${userId}`}>
                 <div>
-                  <span className={`ui ${color} image label`}>
+                  <span className={`ui ${color} image label center`}>
                     <img src="https://www.w3schools.com/howto/img_avatar.png" />
                       {data.user.username}
                   </span>
