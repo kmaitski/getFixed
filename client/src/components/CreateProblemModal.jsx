@@ -26,9 +26,9 @@ class CreateProblemModal extends React.Component {
       name: '',
       city: '',
       description: '',
-      dropzoneView: true,
+      cameraOpen: true,
       cloudinaryUrl: '',
-      category: ''
+      category: '',
     };
     this.closeModal = this.closeModal.bind(this);
     this.handleDrop = this.handleDrop.bind(this);
@@ -45,10 +45,7 @@ class CreateProblemModal extends React.Component {
     req.attach('problemImage', files[0]);
     req.then(result => {
       console.log(result);
-      this.setState({
-        dropzoneView: false,
-        cloudinaryUrl: result.body.secure_url
-      });
+      this.setState({ cloudinaryUrl: result.body.secure_url });
     });
   }
 
@@ -68,8 +65,8 @@ class CreateProblemModal extends React.Component {
       .then(result => console.log(result));
   }
 
-  render(){
-    return(
+  render() {
+    return (
       <div >
         <Modal
           isOpen={this.state.modalOpen}
@@ -87,10 +84,9 @@ class CreateProblemModal extends React.Component {
               X
             </button>
             <h3>List your Issue.</h3>
-            <CamShot3 />
-
             <div>
               <form
+
                 onSubmit={this.handleSubmit}
                 className="ui form"
               >
@@ -140,22 +136,33 @@ class CreateProblemModal extends React.Component {
                       rows="2"
                     />
                   </div>
+                  {
+                  this.state.cameraOpen ?
+                  <CamShot3 /> :
+                  <Dropzone
+                    multiple={false}
+                    accept="image/*"
+                    onDrop={this.handleDrop}
+                    style={{ border: 'dashed' }}
+                  >
+                    <p>Drop an image or click a file to upload</p>
+                  </Dropzone>
+                  }
                   <div>
                     {
-                    this.state.dropzoneView ?
-                    <div>
-                      <Dropzone
-                        multiple={false}
-                        accept="image/*"
-                        onDrop={this.handleDrop}
-                        style={{border: "dashed"}}
-                      >
-                        <p>Drop an image or click a file to upload</p>
-                      </Dropzone>
-                    </div> :
-                    <div>
-                      <p>File has been submitted. Thank you</p>
-                    </div>
+                    this.state.cameraOpen ?
+                    <a
+                      href='#'
+                      onClick={() => this.setState({ cameraOpen: false })}
+                    >
+                      Want to upload a photo instead?
+                    </a> :
+                    <a
+                      href='#'
+                      onClick={() => this.setState({ cameraOpen: true })}
+                    >
+                      Want to take a picture instead?
+                    </a>
                     }
                   </div>
                   <button onClick={this.handleSubmit}>Submit your Problem</button>
