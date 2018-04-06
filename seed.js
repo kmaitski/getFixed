@@ -331,8 +331,6 @@ const coordinates = {
 }
 
 function createListing(userID) {
-  // let listings = [];
-  // for (var i = 0; i <= quantity; i++) {
   let problem = seedData.listings[Math.floor((Math.random() * seedData.listings.length))];
   let newEntry = {};
   newEntry.user_id = userID;
@@ -342,10 +340,11 @@ function createListing(userID) {
   newEntry.location = cities[Math.floor(Math.random() * 51)];
   newEntry.image = problem.image;
   newEntry.point = coordinates[newEntry.location];
-  newEntry.latitude = coordinates[newEntry.location].coordinates[0];
-  newEntry.longitude = coordinates[newEntry.location].coordinates[1];
+  if (coordinates[newEntry.location]){
+    newEntry.latitude = coordinates[newEntry.location].coordinates[0];
+    newEntry.longitude = coordinates[newEntry.location].coordinates[1];
+  }
   listings.push(newEntry);
-  // }
   return newEntry;
 }
 
@@ -381,47 +380,4 @@ users.forEach((user) => {
     });
 });
 
-
 console.log(seedData.listings.length)
-// listings.forEach(function(listing) {
-//   db.sequelize.sync({force:true})
-//     .then(function() {
-//       console.log(listings);
-//       return db.listings.create(listing);
-//     })
-//     .then(function() {
-//       sequelize.close();
-//     })
-//     .catch(function(err) {
-//       console.error(err);
-//       sequelize.close();
-//     });
-// });
-
-// db.sequelize.sync({force: true})
-//   .then(function() {
-//     // Now instantiate an object and save it:
-//     return db.users.create({username: 'Gkolb', password: '123', email: 'gkolb@yahoo.com'});
-//   })
-//   .then(function() {
-//     // Retrieve objects from the database:
-//     return db.users.findAll({ where: {username: 'Gkolb'} });
-//   })
-//   .then(function(users) {
-//     console.log(users[0].id, 'user[0]')
-//     return db.listings.create({
-//       user_id: users[0].id,
-//       title: 'Broken Car',
-//       description: 'My car is broken halp me',
-//       category: 'Automotive',
-//       location: 'Denver'
-//     })
-//   })
-//   .then(function() {
-//     sequelize.close();
-//   })
-//   .catch(function(err) {
-//     // Handle any error in the chain\
-//     console.error(err);
-//     sequelize.close();
-//   });
