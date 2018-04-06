@@ -344,9 +344,10 @@ function createListing(userID) {
   newEntry.category = problem.category;
   newEntry.location = cities[Math.floor(Math.random() * 51)];
   newEntry.image = problem.image;
-  newEntry.point = coordinates[newEntry.location];
-  newEntry.latitude = coordinates[newEntry.location].coordinates[0];
-  newEntry.longitude = coordinates[newEntry.location].coordinates[1];
+  if (coordinates[newEntry.location]) {
+    newEntry.latitude = coordinates[newEntry.location].coordinates[0];
+    newEntry.longitude = coordinates[newEntry.location].coordinates[1];
+  }
   listings.push(newEntry);
   // }
   return newEntry;
@@ -377,9 +378,10 @@ db.sequelize.sync()
     newEntry.category = 'general labour';
     newEntry.location = cities[Math.floor(Math.random() * 51)];
     newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1523035159/kuevyiglxz832e4iokvq.png';
-    newEntry.point = coordinates[newEntry.location];
+  if (coordinates[newEntry.location]) {
     newEntry.latitude = coordinates[newEntry.location].coordinates[0];
     newEntry.longitude = coordinates[newEntry.location].coordinates[1];
+  }
     return db.listings.create(newEntry);
     })
 .then((listing) => {
@@ -390,9 +392,10 @@ db.sequelize.sync()
     newEntry.category = 'general labour';
     newEntry.location = cities[Math.floor(Math.random() * 51)];
     newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1523035159/kuevyiglxz832e4iokvq.png';
-    newEntry.point = coordinates[newEntry.location];
+  if (coordinates[newEntry.location]) {
     newEntry.latitude = coordinates[newEntry.location].coordinates[0];
     newEntry.longitude = coordinates[newEntry.location].coordinates[1];
+  }
     return db.listings.create(newEntry);
     })
 .then((listing) => {
@@ -403,9 +406,10 @@ db.sequelize.sync()
     newEntry.category = 'general labour';
     newEntry.location = cities[Math.floor(Math.random() * 51)];
     newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1523035159/kuevyiglxz832e4iokvq.png';
-    newEntry.point = coordinates[newEntry.location];
+  if (coordinates[newEntry.location]) {
     newEntry.latitude = coordinates[newEntry.location].coordinates[0];
     newEntry.longitude = coordinates[newEntry.location].coordinates[1];
+  }
     return db.listings.create(newEntry);
     })
 .then(() => {
@@ -427,9 +431,10 @@ db.sequelize.sync()
     newEntry.category = 'electronics';
     newEntry.location = cities[Math.floor(Math.random() * 51)];
     newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1523034798/dgbwvuso7fzl7j9plwlw.png';
-    newEntry.point = coordinates[newEntry.location];
+  if (coordinates[newEntry.location]) {
     newEntry.latitude = coordinates[newEntry.location].coordinates[0];
     newEntry.longitude = coordinates[newEntry.location].coordinates[1];
+  }
     return db.listings.create(newEntry);
     })
 .then((listing) => {
@@ -440,9 +445,10 @@ db.sequelize.sync()
     newEntry.category = 'electronics';
     newEntry.location = cities[Math.floor(Math.random() * 51)];
     newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1523034798/dgbwvuso7fzl7j9plwlw.png';
-    newEntry.point = coordinates[newEntry.location];
+  if (coordinates[newEntry.location]) {
     newEntry.latitude = coordinates[newEntry.location].coordinates[0];
     newEntry.longitude = coordinates[newEntry.location].coordinates[1];
+  }
     return db.listings.create(newEntry);
     })
 .then((listing) => {
@@ -453,9 +459,10 @@ db.sequelize.sync()
     newEntry.category = 'electronics';
     newEntry.location = cities[Math.floor(Math.random() * 51)];
     newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1523034798/dgbwvuso7fzl7j9plwlw.png';
-    newEntry.point = coordinates[newEntry.location];
+  if (coordinates[newEntry.location]) {
     newEntry.latitude = coordinates[newEntry.location].coordinates[0];
     newEntry.longitude = coordinates[newEntry.location].coordinates[1];
+  }
     return db.listings.create(newEntry);
     })
 .then((listing) => {
@@ -466,9 +473,10 @@ db.sequelize.sync()
     newEntry.category = 'computers';
     newEntry.location = cities[Math.floor(Math.random() * 51)];
     newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1523034989/hvtdrurvmefnb83fdols.png';
-    newEntry.point = coordinates[newEntry.location];
+  if (coordinates[newEntry.location]) {
     newEntry.latitude = coordinates[newEntry.location].coordinates[0];
     newEntry.longitude = coordinates[newEntry.location].coordinates[1];
+  }
     return db.listings.create(newEntry);
     })
 .then((listing) => {
@@ -479,9 +487,10 @@ db.sequelize.sync()
     newEntry.category = 'computers';
     newEntry.location = cities[Math.floor(Math.random() * 51)];
     newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1523034989/hvtdrurvmefnb83fdols.png';
-    newEntry.point = coordinates[newEntry.location];
+  if (coordinates[newEntry.location]) {
     newEntry.latitude = coordinates[newEntry.location].coordinates[0];
     newEntry.longitude = coordinates[newEntry.location].coordinates[1];
+  }
     return db.listings.create(newEntry);
     })
 .then((listing) => {
@@ -492,9 +501,10 @@ db.sequelize.sync()
     newEntry.category = 'computers';
     newEntry.location = cities[Math.floor(Math.random() * 51)];
     newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1523034989/hvtdrurvmefnb83fdols.png';
-    newEntry.point = coordinates[newEntry.location];
+  if (coordinates[newEntry.location]) {
     newEntry.latitude = coordinates[newEntry.location].coordinates[0];
     newEntry.longitude = coordinates[newEntry.location].coordinates[1];
+  }
     return db.listings.create(newEntry);
     })
 .then(() => {
@@ -516,9 +526,10 @@ db.sequelize.sync()
     newEntry.category = 'electronics';
     newEntry.location = cities[Math.floor(Math.random() * 51)];
     newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1523035071/fk4g9eyohyafjowqwsky.png';
-    newEntry.point = coordinates[newEntry.location];
+  if (coordinates[newEntry.location]) {
     newEntry.latitude = coordinates[newEntry.location].coordinates[0];
     newEntry.longitude = coordinates[newEntry.location].coordinates[1];
+  }
     return db.listings.create(newEntry);
     })
 .then((listing) => {
@@ -529,9 +540,10 @@ db.sequelize.sync()
     newEntry.category = 'electronics';
     newEntry.location = cities[Math.floor(Math.random() * 51)];
     newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1523035071/fk4g9eyohyafjowqwsky.png';
-    newEntry.point = coordinates[newEntry.location];
+  if (coordinates[newEntry.location]) {
     newEntry.latitude = coordinates[newEntry.location].coordinates[0];
     newEntry.longitude = coordinates[newEntry.location].coordinates[1];
+  }
     return db.listings.create(newEntry);
     })
 .then((listing) => {
@@ -542,9 +554,10 @@ db.sequelize.sync()
     newEntry.category = 'electronics';
     newEntry.location = cities[Math.floor(Math.random() * 51)];
     newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1523035071/fk4g9eyohyafjowqwsky.png';
-    newEntry.point = coordinates[newEntry.location];
+  if (coordinates[newEntry.location]) {
     newEntry.latitude = coordinates[newEntry.location].coordinates[0];
     newEntry.longitude = coordinates[newEntry.location].coordinates[1];
+  }
     return db.listings.create(newEntry);
     })
 .then(() => {
@@ -566,9 +579,24 @@ db.sequelize.sync()
     newEntry.category = 'computers';
     newEntry.location = cities[Math.floor(Math.random() * 51)];
     newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1523035109/evfph7ur00xeoystidyi.png';
-    newEntry.point = coordinates[newEntry.location];
+  if (coordinates[newEntry.location]) {
     newEntry.latitude = coordinates[newEntry.location].coordinates[0];
     newEntry.longitude = coordinates[newEntry.location].coordinates[1];
+  }
+    return db.listings.create(newEntry);
+    })
+.then((listing) => {
+    let newEntry = {};
+    newEntry.user_id = listing.user_id;
+    newEntry.title = "My 7th monitor is not working atm. It's impossible to get any coding done until this gets fixed. Please help.";
+    newEntry.description = "Paying top dollar to whoever can fix this.";
+    newEntry.category = 'computers';
+    newEntry.location = cities[Math.floor(Math.random() * 51)];
+    newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1523035109/evfph7ur00xeoystidyi.png';
+  if (coordinates[newEntry.location]) {
+    newEntry.latitude = coordinates[newEntry.location].coordinates[0];
+    newEntry.longitude = coordinates[newEntry.location].coordinates[1];
+  }
     return db.listings.create(newEntry);
     })
 .then((listing) => {
@@ -580,21 +608,10 @@ db.sequelize.sync()
     newEntry.location = cities[Math.floor(Math.random() * 51)];
     newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1523035109/evfph7ur00xeoystidyi.png';
     newEntry.point = coordinates[newEntry.location];
+  if (coordinates[newEntry.location]) {
     newEntry.latitude = coordinates[newEntry.location].coordinates[0];
     newEntry.longitude = coordinates[newEntry.location].coordinates[1];
-    return db.listings.create(newEntry);
-    })
-.then((listing) => {
-    let newEntry = {};
-    newEntry.user_id = listing.user_id;
-    newEntry.title = "My 7th monitor is not working atm. It's impossible to get any coding done until this gets fixed. Please help.";
-    newEntry.description = "Paying top dollar to whoever can fix this.";
-    newEntry.category = 'computers';
-    newEntry.location = cities[Math.floor(Math.random() * 51)];
-    newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1523035109/evfph7ur00xeoystidyi.png';
-    newEntry.point = coordinates[newEntry.location];
-    newEntry.latitude = coordinates[newEntry.location].coordinates[0];
-    newEntry.longitude = coordinates[newEntry.location].coordinates[1];
+  }
     return db.listings.create(newEntry);
     })
 .then(function() {
