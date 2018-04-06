@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Camera from 'react-camera';
+import FlatButton from 'material-ui/FlatButton';
 
 export default class CamShot3 extends React.Component {
 
@@ -31,10 +32,12 @@ export default class CamShot3 extends React.Component {
             this.camera = cam;
           }}
         >
-
-          <button className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"onClick={this.takePicture} style={style.captureButton}>
-            <i className="material-icons">add</i>
-          </button>
+          <div className="fixed-top"style={style.captureContainer}>
+            <button className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"
+              onClick={this.takePicture}>
+              <i className="material-icons">add</i>
+            </button>
+          </div>
 
         </Camera>
       : <img
@@ -45,7 +48,7 @@ export default class CamShot3 extends React.Component {
         />
 
     return (
-      <div style={style.container}>
+      <div>
         {view}
       </div>
     );
@@ -55,27 +58,17 @@ export default class CamShot3 extends React.Component {
 const style = {
   preview: {
     position: 'center',
-    margin: 'auto',
-    height: '70%',
-    width: '50%'
+    height: '60%',
+    width: '40%'
   },
   captureContainer: {
-    position: 'absolute',
-    justifyContent: 'center',
-    margin: 'auto',
-    zIndex: 1,
-    bottom: 0,
-    height: '37%',
-    width: '37%'
+    top:'32%',
+    paddingLeft:'40%'
   },
-  captureButton: {
-    position: 'absolute',
-    top: '80px',
-    margin: 'auto'
-  },
+
   captureImage: {
     position: 'center',
-    margin: 'auto',
-    height: '37%'
+    height: '60%',
+    width: '40%'
   }
 };

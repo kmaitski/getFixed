@@ -13,7 +13,9 @@ import CategoryView from './categoryView.jsx';
 export default class SideNav extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { open: false };
+    this.state = {
+      open: false
+     };
   }
 
   handleToggle () {
@@ -23,6 +25,7 @@ export default class SideNav extends React.Component {
   render() {
     return (
       <div>
+
         <button className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"
           label="Filter"
           onClick={() => this.handleToggle()}>

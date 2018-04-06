@@ -62,7 +62,7 @@ class SingleProblemPage extends React.Component {
             <Button circular color='instagram' icon='instagram' />
             </CardActions>
           </Card>
-          <div className="fixed-bottom" style={{ padding:" 0px 20px 20px 20px"}}>
+          <div className="fixed-bottom" style={{ padding:" 0px 20px 80px 10px"}}>
             <Link to ='/landing'>
               <button className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect"
                 label="Filter"
