@@ -31,18 +31,12 @@ export default class CamShot3 extends React.Component {
             this.camera = cam;
           }}
         >
-<<<<<<< HEAD
           <div className="fixed-top"style={style.captureContainer}>
             <button className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"
               onClick={this.takePicture}>
               <i className="material-icons">add</i>
             </button>
           </div>
-=======
-          <button className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"onClick={this.takePicture} style={style.captureButton}>
-            <i className="material-icons">add</i>
-          </button>
->>>>>>> Style create problem form
 
         </Camera>
       : <img
