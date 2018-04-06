@@ -50,7 +50,7 @@ class SingleProblemPage extends React.Component {
                 src={this.state.currentProblem.image}
                 style={{width:'60vw',height:'40vh'}}
               />
-            <CardTitle title={this.state.currentProblem.description}subtitle={this.state.currentProblem.description} />
+            <CardTitle title={this.state.currentProblem.title}subtitle={this.state.currentProblem.description} />
             <CardText>
               Share this Listing.
             </CardText>
