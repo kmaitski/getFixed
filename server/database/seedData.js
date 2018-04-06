@@ -136,13 +136,13 @@ const listings = [
     title: 'Quarry workers needed. Top notch healthcare benefits.',
     description: 'Environmentally friendly company, no machines that emit greenhouse gasses are used. 100% human powered projects.',
     category: 'general labour',
-    image: 'https://res.cloudinary.com/dwid55cj4/image/upload/v1522971391/aohvbvjral7quym1cewc.png',
+    image: 'https://res.cloudinary.com/dwid55cj4/image/upload/v1523035442/deq8dlldzcufbsinslpa.png',
   },
   {
     title: 'Pipe burst, I wanna save some money and try to fix it myself.',
     description: 'Small leak coming from the basement of my house and I need someone with experience to help guide me through fixing it',
     category: 'handyman',
-    image: 'https://res.cloudinary.com/dwid55cj4/image/upload/v1522964049/xhkzeybcjvqs4tw18zo1.png',
+    image: 'https://res.cloudinary.com/dwid55cj4/image/upload/v1523035349/a6pikxlybvk0wdkggjmj.png',
   },
   {
     user_id: '165a5baa-3846-4833-b19a-eba714077acf',
@@ -208,7 +208,7 @@ const listings = [
     category: 'handyman',
     location: 'El Paso',
     image:
-      'https://res.cloudinary.com/dwid55cj4/image/upload/v1522966472/qucz6sbodpq9bjqe9wwp.png',
+      'https://res.cloudinary.com/dwid55cj4/image/upload/v1523035229/ymfa4h810xszxslopawg.png',
   },
   {
     user_id: '55bd721d-10c3-4cb8-988f-062780b160a7',
@@ -266,7 +266,7 @@ const listings = [
     category: 'specialty',
     location: 'Houston',
     image:
-      'https://res.cloudinary.com/dwid55cj4/image/upload/v1522965874/tl1xqeblffm1ghrznye5.png',
+      'https://res.cloudinary.com/dwid55cj4/image/upload/v1523035411/yzxa2ne1heosrdmslcu2.png',
   },
   {
     user_id: 'dee11b83-449e-400c-8435-7066d7f6cf40',

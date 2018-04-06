@@ -376,7 +376,7 @@ db.sequelize.sync()
     newEntry.description = "Too many people I don't like are coming into my country";
     newEntry.category = 'general labour';
     newEntry.location = cities[Math.floor(Math.random() * 51)];
-    newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1522968966/vipjwby2mxqkud6oikju.png';
+    newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1523035159/kuevyiglxz832e4iokvq.png';
     newEntry.point = coordinates[newEntry.location];
     newEntry.latitude = coordinates[newEntry.location].coordinates[0];
     newEntry.longitude = coordinates[newEntry.location].coordinates[1];
@@ -389,7 +389,7 @@ db.sequelize.sync()
     newEntry.description = "Too many people I don't like are coming into my country";
     newEntry.category = 'general labour';
     newEntry.location = cities[Math.floor(Math.random() * 51)];
-    newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1522968966/vipjwby2mxqkud6oikju.png';
+    newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1523035159/kuevyiglxz832e4iokvq.png';
     newEntry.point = coordinates[newEntry.location];
     newEntry.latitude = coordinates[newEntry.location].coordinates[0];
     newEntry.longitude = coordinates[newEntry.location].coordinates[1];
@@ -402,7 +402,7 @@ db.sequelize.sync()
     newEntry.description = "Too many people I don't like are coming into my country";
     newEntry.category = 'general labour';
     newEntry.location = cities[Math.floor(Math.random() * 51)];
-    newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1522968966/vipjwby2mxqkud6oikju.png';
+    newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1523035159/kuevyiglxz832e4iokvq.png';
     newEntry.point = coordinates[newEntry.location];
     newEntry.latitude = coordinates[newEntry.location].coordinates[0];
     newEntry.longitude = coordinates[newEntry.location].coordinates[1];
@@ -426,7 +426,7 @@ db.sequelize.sync()
     newEntry.description = "Just installed gigabit internet and its not that fast";
     newEntry.category = 'electronics';
     newEntry.location = cities[Math.floor(Math.random() * 51)];
-    newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1522969967/tt5lxp1s2pfnglsydiiw.png';
+    newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1523034798/dgbwvuso7fzl7j9plwlw.png';
     newEntry.point = coordinates[newEntry.location];
     newEntry.latitude = coordinates[newEntry.location].coordinates[0];
     newEntry.longitude = coordinates[newEntry.location].coordinates[1];
@@ -439,7 +439,7 @@ db.sequelize.sync()
     newEntry.description = "Just installed gigabit internet and its not that fast";
     newEntry.category = 'electronics';
     newEntry.location = cities[Math.floor(Math.random() * 51)];
-    newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1522969967/tt5lxp1s2pfnglsydiiw.png';
+    newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1523034798/dgbwvuso7fzl7j9plwlw.png';
     newEntry.point = coordinates[newEntry.location];
     newEntry.latitude = coordinates[newEntry.location].coordinates[0];
     newEntry.longitude = coordinates[newEntry.location].coordinates[1];
@@ -452,7 +452,7 @@ db.sequelize.sync()
     newEntry.description = "Just installed gigabit internet and its not that fast";
     newEntry.category = 'electronics';
     newEntry.location = cities[Math.floor(Math.random() * 51)];
-    newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1522969967/tt5lxp1s2pfnglsydiiw.png';
+    newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1523034798/dgbwvuso7fzl7j9plwlw.png';
     newEntry.point = coordinates[newEntry.location];
     newEntry.latitude = coordinates[newEntry.location].coordinates[0];
     newEntry.longitude = coordinates[newEntry.location].coordinates[1];
@@ -465,7 +465,7 @@ db.sequelize.sync()
     newEntry.description = "This seems like some Jurassic Park era virus";
     newEntry.category = 'computers';
     newEntry.location = cities[Math.floor(Math.random() * 51)];
-    newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1522970937/ibjv8ngemnb5ddctm3vx.png';
+    newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1523034989/hvtdrurvmefnb83fdols.png';
     newEntry.point = coordinates[newEntry.location];
     newEntry.latitude = coordinates[newEntry.location].coordinates[0];
     newEntry.longitude = coordinates[newEntry.location].coordinates[1];
@@ -478,7 +478,7 @@ db.sequelize.sync()
     newEntry.description = "This seems like some Jurassic Park era virus";
     newEntry.category = 'computers';
     newEntry.location = cities[Math.floor(Math.random() * 51)];
-    newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1522970937/ibjv8ngemnb5ddctm3vx.png';
+    newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1523034989/hvtdrurvmefnb83fdols.png';
     newEntry.point = coordinates[newEntry.location];
     newEntry.latitude = coordinates[newEntry.location].coordinates[0];
     newEntry.longitude = coordinates[newEntry.location].coordinates[1];
@@ -491,7 +491,7 @@ db.sequelize.sync()
     newEntry.description = "This seems like some Jurassic Park era virus";
     newEntry.category = 'computers';
     newEntry.location = cities[Math.floor(Math.random() * 51)];
-    newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1522970937/ibjv8ngemnb5ddctm3vx.png';
+    newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1523034989/hvtdrurvmefnb83fdols.png';
     newEntry.point = coordinates[newEntry.location];
     newEntry.latitude = coordinates[newEntry.location].coordinates[0];
     newEntry.longitude = coordinates[newEntry.location].coordinates[1];
@@ -515,7 +515,7 @@ db.sequelize.sync()
     newEntry.description = "Need this fixed at any cost";
     newEntry.category = 'electronics';
     newEntry.location = cities[Math.floor(Math.random() * 51)];
-    newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1522972399/m1etujaphywruc37pjeu.png';
+    newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1523035071/fk4g9eyohyafjowqwsky.png';
     newEntry.point = coordinates[newEntry.location];
     newEntry.latitude = coordinates[newEntry.location].coordinates[0];
     newEntry.longitude = coordinates[newEntry.location].coordinates[1];
@@ -528,7 +528,7 @@ db.sequelize.sync()
     newEntry.description = "Need this fixed at any cost";
     newEntry.category = 'electronics';
     newEntry.location = cities[Math.floor(Math.random() * 51)];
-    newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1522972399/m1etujaphywruc37pjeu.png';
+    newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1523035071/fk4g9eyohyafjowqwsky.png';
     newEntry.point = coordinates[newEntry.location];
     newEntry.latitude = coordinates[newEntry.location].coordinates[0];
     newEntry.longitude = coordinates[newEntry.location].coordinates[1];
@@ -541,7 +541,7 @@ db.sequelize.sync()
     newEntry.description = "Need this fixed at any cost";
     newEntry.category = 'electronics';
     newEntry.location = cities[Math.floor(Math.random() * 51)];
-    newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1522972399/m1etujaphywruc37pjeu.png';
+    newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1523035071/fk4g9eyohyafjowqwsky.png';
     newEntry.point = coordinates[newEntry.location];
     newEntry.latitude = coordinates[newEntry.location].coordinates[0];
     newEntry.longitude = coordinates[newEntry.location].coordinates[1];
@@ -565,7 +565,7 @@ db.sequelize.sync()
     newEntry.description = "Paying top dollar to whoever can fix this.";
     newEntry.category = 'computers';
     newEntry.location = cities[Math.floor(Math.random() * 51)];
-    newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1522972959/x8pnzn4tgjtr2uesm37k.png';
+    newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1523035109/evfph7ur00xeoystidyi.png';
     newEntry.point = coordinates[newEntry.location];
     newEntry.latitude = coordinates[newEntry.location].coordinates[0];
     newEntry.longitude = coordinates[newEntry.location].coordinates[1];
@@ -578,7 +578,7 @@ db.sequelize.sync()
     newEntry.description = "Paying top dollar to whoever can fix this.";
     newEntry.category = 'computers';
     newEntry.location = cities[Math.floor(Math.random() * 51)];
-    newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1522972959/x8pnzn4tgjtr2uesm37k.png';
+    newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1523035109/evfph7ur00xeoystidyi.png';
     newEntry.point = coordinates[newEntry.location];
     newEntry.latitude = coordinates[newEntry.location].coordinates[0];
     newEntry.longitude = coordinates[newEntry.location].coordinates[1];
@@ -591,7 +591,7 @@ db.sequelize.sync()
     newEntry.description = "Paying top dollar to whoever can fix this.";
     newEntry.category = 'computers';
     newEntry.location = cities[Math.floor(Math.random() * 51)];
-    newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1522972959/x8pnzn4tgjtr2uesm37k.png';
+    newEntry.image = 'https://res.cloudinary.com/dwid55cj4/image/upload/v1523035109/evfph7ur00xeoystidyi.png';
     newEntry.point = coordinates[newEntry.location];
     newEntry.latitude = coordinates[newEntry.location].coordinates[0];
     newEntry.longitude = coordinates[newEntry.location].coordinates[1];
