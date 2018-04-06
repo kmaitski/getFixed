@@ -7,14 +7,14 @@ import CamShot3 from './CamShot3.jsx';
 
 const customStyles = {
   content: {
-    top: '55%',
+    top: '40%',
     left: '50%',
     right: 'auto',
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
     width: '80%',
-    height: '60%'
+    height: '80%',
   }
 };
 
@@ -26,9 +26,9 @@ class CreateProblemModal extends React.Component {
       name: '',
       city: '',
       description: '',
-      dropzoneView: true,
+      cameraOpen: true,
       cloudinaryUrl: '',
-      category: ''
+      category: '',
     };
     this.closeModal = this.closeModal.bind(this);
     this.handleDrop = this.handleDrop.bind(this);
@@ -43,12 +43,8 @@ class CreateProblemModal extends React.Component {
   handleDrop(files) {
     const req = request.post('/api/cloudinaryUpload');
     req.attach('problemImage', files[0]);
-    req.then(result => {
-      console.log(result);
-      this.setState({
-        dropzoneView: false,
-        cloudinaryUrl: result.body.secure_url
-      });
+    req.then((result) => {
+      this.setState({ cloudinaryUrl: result.body.secure_url });
     });
   }
 
@@ -68,8 +64,8 @@ class CreateProblemModal extends React.Component {
       .then(result => console.log(result));
   }
 
-  render(){
-    return(
+  render() {
+    return (
       <div >
         <Modal
           isOpen={this.state.modalOpen}
@@ -77,11 +73,11 @@ class CreateProblemModal extends React.Component {
           onRequestClose={this.closeModal}
           style={customStyles}
           ariaHideApp={false}
-          contentLabel="Create a Problem"
+          contentLabel='Create a Problem'
         >
           <div>
             <button
-              style={{marginLeft: "98%"}}
+              style={{ marginLeft: '98%' }}
               onClick={this.closeModal}
             >
               X
@@ -142,20 +138,16 @@ class CreateProblemModal extends React.Component {
                   </div>
                   <div>
                     {
-                    this.state.dropzoneView ?
-                    <div>
-                      <Dropzone
+                    this.state.cameraOpen ?
+                    <CamShot3 /> :
+                    <Dropzone
                         multiple={false}
                         accept="image/*"
                         onDrop={this.handleDrop}
-                        style={{border: "dashed"}}
+                        style={{ border: 'dashed' }}
                       >
                         <p>Drop an image or click a file to upload</p>
                       </Dropzone>
-                    </div> :
-                    <div>
-                      <p>File has been submitted. Thank you</p>
-                    </div>
                     }
                   </div>
                   <button onClick={this.handleSubmit}>Submit your Problem</button>
