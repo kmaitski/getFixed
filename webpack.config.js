@@ -8,6 +8,7 @@ const DIST_DIR = path.join(__dirname, '/client/dist');
 
 module.exports = {
   entry: `${SRC_DIR}/index.jsx`,
+  cache: false,
   output: {
     filename: 'bundle.js',
     path: DIST_DIR,
@@ -25,6 +26,9 @@ module.exports = {
     ],
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': '"production"'
+    }),
     new webpack.optimize.UglifyJsPlugin({
       mangle: true,
       compress: {
