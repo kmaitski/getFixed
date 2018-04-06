@@ -86,6 +86,7 @@ class CreateProblemModal extends React.Component {
             >
               X
             </button>
+            <h3>List your Issue.</h3>
             <CamShot3 />
 
             <div>
