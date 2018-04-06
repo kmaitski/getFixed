@@ -86,7 +86,6 @@ class CreateProblemModal extends React.Component {
 
             <h3>List your Issue.</h3>
 
-
             <div>
               <form
 
