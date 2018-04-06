@@ -68,7 +68,3 @@ export default class CamShot3 extends React.Component {
   }
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> Tidied up create problem modal and moved return buttons to fit within Phone views.
