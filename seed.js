@@ -341,9 +341,10 @@ function createListing(userID) {
   newEntry.category = problem.category;
   newEntry.location = cities[Math.floor(Math.random() * 51)];
   newEntry.image = problem.image;
-  newEntry.point = coordinates[newEntry.location];
-  newEntry.latitude = coordinates[newEntry.location].coordinates[0];
-  newEntry.longitude = coordinates[newEntry.location].coordinates[1];
+  if (coordinates[newEntry.location]) {
+    newEntry.latitude = coordinates[newEntry.location].coordinates[0];
+    newEntry.longitude = coordinates[newEntry.location].coordinates[1];
+  }
   listings.push(newEntry);
   // }
   return newEntry;
