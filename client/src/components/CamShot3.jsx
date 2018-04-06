@@ -47,7 +47,6 @@ export default class CamShot3 extends React.Component {
               className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"
               onClick={this.takePicture}
             >
-
               <i className="material-icons">add</i>
             </button>
           </div>
@@ -67,4 +66,3 @@ export default class CamShot3 extends React.Component {
     );
   }
 }
-
