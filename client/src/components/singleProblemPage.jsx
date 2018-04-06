@@ -5,10 +5,10 @@ import axios from 'axios';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import ChatBoxWithMessages from './chatBoxArea.jsx';
-import SocialMedia from './socialMediaIcons.jsx'
-import Footer from './footer.jsx'
+import SocialMedia from './socialMediaIcons.jsx';
+import Footer from './footer.jsx';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
-import { Button } from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react';
 
 
 class SingleProblemPage extends React.Component {
@@ -50,7 +50,7 @@ class SingleProblemPage extends React.Component {
                 src={this.state.currentProblem.image}
                 style={{width:'60vw',height:'40vh'}}
               />
-            <CardTitle title={this.state.currentProblem.description}subtitle={this.state.currentProblem.description} />
+            <CardTitle title={this.state.currentProblem.title}subtitle={this.state.currentProblem.description} />
             <CardText>
               Share this Listing.
             </CardText>
@@ -74,7 +74,7 @@ class SingleProblemPage extends React.Component {
           <Footer />
         </div>
       </div>
-    )
+    );
   }
 }
 
