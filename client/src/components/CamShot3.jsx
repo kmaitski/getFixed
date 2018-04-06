@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Camera from 'react-camera';
-import FlatButton from 'material-ui/FlatButton';
 
 export default class CamShot3 extends React.Component {
 
@@ -62,7 +61,7 @@ const style = {
     width: '40%'
   },
   captureContainer: {
-    top:'32%',
+    top:'38%',
     paddingLeft:'40%'
   },
 
