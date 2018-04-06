@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Camera from 'react-camera';
+import FlatButton from 'material-ui/FlatButton';
 
 export default class CamShot3 extends React.Component {
   constructor(props) {
@@ -66,3 +67,4 @@ export default class CamShot3 extends React.Component {
     );
   }
 }
+

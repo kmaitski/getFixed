@@ -83,7 +83,12 @@ class CreateProblemModal extends React.Component {
             >
               X
             </button>
+<<<<<<< HEAD
             <h3>List your Issue.</h3>
+=======
+            <CamShot3 />
+
+>>>>>>> Tidied up create problem modal and moved return buttons to fit within Phone views.
             <div>
               <form
 
