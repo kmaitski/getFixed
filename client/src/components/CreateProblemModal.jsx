@@ -86,8 +86,6 @@ class CreateProblemModal extends React.Component {
             >
               X
             </button>
-            <h2>Create a Problem</h2>
-
             <CamShot3 />
 
             <div>
@@ -159,7 +157,6 @@ class CreateProblemModal extends React.Component {
                     </div>
                     }
                   </div>
-                  <a href="https://www.youtube.com/embed/jNSORWnr5ZQ?autoplay=1">click here</a>
                   <button onClick={this.handleSubmit}>Submit your Problem</button>
                 </div>
               </form>

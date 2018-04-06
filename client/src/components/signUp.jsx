@@ -54,7 +54,7 @@ class Signup extends React.Component {
   render() {
     return (
      <div className='login-form'>
-        <div className="fixed-bottom" style={{ padding:" 0px 20px 20px 20px"}}>
+        <div className="fixed-bottom" style={{ padding:" 0px 20px 50px 10px"}}>
           <Link to ='/landing'>
           <button className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect"
           label="Filter"
@@ -72,7 +72,7 @@ class Signup extends React.Component {
         body > div,
         body > div > div,
         body > div > div > div.login-form {
-          height: 100%;
+          height: 99%;
         }
       `}</style>
       <Grid
@@ -85,7 +85,7 @@ class Signup extends React.Component {
             <Image src='https://hdwallpaperz.net/wp-content/uploads/2017/03/Cute-Animal-Art-Wallpaper-2.jpg' />
             {' '}Create your Account
           </Header>
-          <Form size='large'>
+          <Form size='medium'>
             <Segment stacked>
               <Form.Input
                 fluid
