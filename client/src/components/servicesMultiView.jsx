@@ -1,8 +1,5 @@
 import React from 'react';
 
-
-
-
 function shuffleArray(array) {
   let i = array.length - 1;
   for (; i > 0; i--) {
@@ -14,24 +11,15 @@ function shuffleArray(array) {
   return array;
 }
 
-
 class ServicesMultiView extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state = {
-
-    };
-
+    this.state = {};
   }
 
-
   render() {
-    return(
-      <div>
-        list of services
-      </div>
-    )
+    return <div>list of services</div>;
   }
 }
 
-export default ServicesMultiView
+export default ServicesMultiView;

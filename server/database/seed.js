@@ -7,49 +7,51 @@ console.log('process', process.env.MONGO_PASSWORD);
 
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize('getfixed', 'root', process.env.MONGO_PASSWORD, {
-  host: 'localhost',
-  port: 3306,
-  dialect: 'mysql',
-  define: {
-    underscored: true,
-  },
-});
+const sequelize = new Sequelize(
+  'getfixed',
+  'root',
+  process.env.MONGO_PASSWORD,
+  {
+    host: 'localhost',
+    port: 3306,
+    dialect: 'mysql',
+    define: {
+      underscored: true
+    }
+  }
+);
 const db = {};
 
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-// Models/tables
-
 db.users = require('../models/users.js')(sequelize, Sequelize);
 db.listings = require('../models/listings.js')(sequelize, Sequelize);
 
-db.sequelize.sync({ force: true })
+db.sequelize
+  .sync({ force: true })
   .then(() =>
-    // Now instantiate an object and save it:
-    db.users.create({ username: 'Gkolb', password: '123', email: 'gkolb@yahoo.com' }),
+    db.users.create({
+      username: 'Gkolb',
+      password: '123',
+      email: 'gkolb@yahoo.com'
+    })
   )
-  .then(() =>
-    // Retrieve objects from the database:
-    db.users.findAll({ where: { username: 'Gkolb' } }),
-  )
-  .then((users) => {
+  .then(() => db.users.findAll({ where: { username: 'Gkolb' } }))
+  .then(users => {
     console.log(users[0].id, 'user[0]');
     return db.listings.create({
       user_id: users[0].id,
       title: 'Broken Car',
       description: 'My car is broken halp me',
       category: 'Automotive',
-      location: 'Denver',
+      location: 'Denver'
     });
   })
   .then(() => {
     sequelize.close();
   })
-  .catch((err) => {
-    // Handle any error in the chain\
+  .catch(err => {
     console.error(err);
     sequelize.close();
   });
-

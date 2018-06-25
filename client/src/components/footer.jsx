@@ -1,6 +1,6 @@
-import React from 'react'
-import { Icon, Image, Statistic } from 'semantic-ui-react'
-import SocialMedia from './socialMediaIcons.jsx'
+import React from 'react';
+import { Icon, Image, Statistic } from 'semantic-ui-react';
+import SocialMedia from './socialMediaIcons.jsx';
 
 const Footer = () => (
   <div className="ui inverted vertical footer segment">
@@ -9,15 +9,23 @@ const Footer = () => (
         <div className="three wide column">
           <h4 className="ui inverted header">About us</h4>
           <div className="ui inverted link list">
-            <a href="#" className="item">Our Team</a>
-            <a href="#" className="item">Office Hours</a>
+            <a href="#" className="item">
+              Our Team
+            </a>
+            <a href="#" className="item">
+              Office Hours
+            </a>
           </div>
         </div>
         <div className="three wide column">
           <h4 className="ui inverted header">Legal</h4>
           <div className="ui inverted link list">
-            <a href="#" className="item">Our legal team</a>
-            <a href="#" className="item">user agreement</a>
+            <a href="#" className="item">
+              Our legal team
+            </a>
+            <a href="#" className="item">
+              user agreement
+            </a>
           </div>
         </div>
 
@@ -26,15 +34,23 @@ const Footer = () => (
           <SocialMedia />
         </div>
       </div>
-      <div className="ui inverted section divider"></div>
+      <div className="ui inverted section divider" />
       <div className="ui horizontal inverted small divided link list">
-        <a className="item" href="#">Site Map</a>
-        <a className="item" href="#">Contact Us</a>
-        <a className="item" href="#">Terms and Conditions</a>
-        <a className="item" href="#">Privacy Policy</a>
+        <a className="item" href="#">
+          Site Map
+        </a>
+        <a className="item" href="#">
+          Contact Us
+        </a>
+        <a className="item" href="#">
+          Terms and Conditions
+        </a>
+        <a className="item" href="#">
+          Privacy Policy
+        </a>
       </div>
     </div>
   </div>
-)
+);
 
-export default Footer
+export default Footer;

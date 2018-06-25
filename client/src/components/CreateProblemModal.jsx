@@ -4,7 +4,6 @@ import Dropzone from 'react-dropzone';
 import request from 'superagent';
 import CamShot3 from './CamShot3.jsx';
 
-
 const customStyles = {
   content: {
     top: '55%',
@@ -28,7 +27,7 @@ class CreateProblemModal extends React.Component {
       description: '',
       cameraOpen: true,
       cloudinaryUrl: '',
-      category: '',
+      category: ''
     };
     this.closeModal = this.closeModal.bind(this);
     this.handleDrop = this.handleDrop.bind(this);
@@ -67,7 +66,7 @@ class CreateProblemModal extends React.Component {
 
   render() {
     return (
-      <div >
+      <div>
         <Modal
           isOpen={this.state.modalOpen}
           onAfterOpen={this.afterOpen}
@@ -77,19 +76,12 @@ class CreateProblemModal extends React.Component {
           contentLabel="Create a Problem"
         >
           <div>
-            <button
-              style={{marginLeft: "98%"}}
-              onClick={this.closeModal}
-            >
+            <button style={{ marginLeft: '98%' }} onClick={this.closeModal}>
               X
             </button>
             <h3>List your Issue.</h3>
             <div>
-              <form
-
-                onSubmit={this.handleSubmit}
-                className="ui form"
-              >
+              <form onSubmit={this.handleSubmit} className="ui form">
                 <div>
                   <div className="field">
                     <label>Problem Name</label>
@@ -114,7 +106,9 @@ class CreateProblemModal extends React.Component {
                     <select
                       className="ui search dropdown"
                       value={this.state.category}
-                      onChange={e => this.setState({ category: e.target.value })}
+                      onChange={e =>
+                        this.setState({ category: e.target.value })
+                      }
                     >
                       <option value="">Select Category</option>
                       <option>Other</option>
@@ -130,42 +124,46 @@ class CreateProblemModal extends React.Component {
                     <label>Problem Description</label>
                     <textarea
                       value={this.state.description}
-                      onChange={e => this.setState({ description: e.target.value })}
+                      onChange={e =>
+                        this.setState({ description: e.target.value })
+                      }
                       type="text"
                       placeholder="Enter a Description of Your Problem"
                       rows="2"
                     />
                   </div>
-                  {
-                  this.state.cameraOpen ?
-                  <CamShot3 /> :
-                  <Dropzone
-                    multiple={false}
-                    accept="image/*"
-                    onDrop={this.handleDrop}
-                    style={{ border: 'dashed' }}
-                  >
-                    <p>Drop an image or click a file to upload</p>
-                  </Dropzone>
-                  }
+                  {this.state.cameraOpen ? (
+                    <CamShot3 />
+                  ) : (
+                    <Dropzone
+                      multiple={false}
+                      accept="image/*"
+                      onDrop={this.handleDrop}
+                      style={{ border: 'dashed' }}
+                    >
+                      <p>Drop an image or click a file to upload</p>
+                    </Dropzone>
+                  )}
                   <div>
-                    {
-                    this.state.cameraOpen ?
-                    <a
-                      href='#'
-                      onClick={() => this.setState({ cameraOpen: false })}
-                    >
-                      Want to upload a photo instead?
-                    </a> :
-                    <a
-                      href='#'
-                      onClick={() => this.setState({ cameraOpen: true })}
-                    >
-                      Want to take a picture instead?
-                    </a>
-                    }
+                    {this.state.cameraOpen ? (
+                      <a
+                        href="#"
+                        onClick={() => this.setState({ cameraOpen: false })}
+                      >
+                        Want to upload a photo instead?
+                      </a>
+                    ) : (
+                      <a
+                        href="#"
+                        onClick={() => this.setState({ cameraOpen: true })}
+                      >
+                        Want to take a picture instead?
+                      </a>
+                    )}
                   </div>
-                  <button onClick={this.handleSubmit}>Submit your Problem</button>
+                  <button onClick={this.handleSubmit}>
+                    Submit your Problem
+                  </button>
                 </div>
               </form>
             </div>

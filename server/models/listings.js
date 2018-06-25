@@ -1,11 +1,9 @@
-
-
 module.exports = (sequelize, DataTypes) => {
   const Listing = sequelize.define('listing', {
     id: {
       type: DataTypes.UUID,
       primaryKey: true,
-      defaultValue: DataTypes.UUIDV4,
+      defaultValue: DataTypes.UUIDV4
     },
     user_id: DataTypes.STRING,
     title: DataTypes.STRING,
@@ -14,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     location: DataTypes.STRING,
     image: DataTypes.STRING,
     latitude: DataTypes.FLOAT,
-    longitude: DataTypes.FLOAT,
+    longitude: DataTypes.FLOAT
   });
   return Listing;
 };

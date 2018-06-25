@@ -7,7 +7,7 @@ import CategoryView from './categoryView.jsx';
 import Footer from './footer.jsx';
 import DistanceSlideBar from './DistanceSlideBar.jsx';
 import FixButton from './fixButton.jsx';
-import SideNav from './SideNav.jsx'
+import SideNav from './SideNav.jsx';
 
 class Landing extends React.Component {
   constructor(props) {
@@ -16,7 +16,7 @@ class Landing extends React.Component {
       latitude: 37.2113,
       longitude: -121.8379,
       modalOpen: false,
-      distance: 200,
+      distance: 200
     };
     this.geoLocationSuccess = this.geoLocationSuccess.bind(this);
     this.handleSlide = this.handleSlide.bind(this);
@@ -28,32 +28,33 @@ class Landing extends React.Component {
     const crd = pos.coords;
     this.setState({
       latitude: crd.latitude,
-      longitude: crd.longitude,
+      longitude: crd.longitude
     });
   }
 
   geoLocationError() {
-    axios.get('/ip')
-      .then((response) => {
-        if (response.data.latitude) {
-          this.setState({
-            latitude: response.data.latitude,
-            longitude: response.data.longitude,
-          });
-        }
-      });
+    axios.get('/ip').then(response => {
+      if (response.data.latitude) {
+        this.setState({
+          latitude: response.data.latitude,
+          longitude: response.data.longitude
+        });
+      }
+    });
   }
 
   getUsersLocation() {
     const options = {
       enableHighAccuracy: true,
       timeout: 3000,
-      maximumAge: Infinity,
+      maximumAge: Infinity
     };
     if (navigator.geolocation) {
-      navigator
-        .geolocation
-        .getCurrentPosition(this.geoLocationSuccess, this.geoLocationError, options);
+      navigator.geolocation.getCurrentPosition(
+        this.geoLocationSuccess,
+        this.geoLocationError,
+        options
+      );
     }
   }
 
@@ -75,31 +76,31 @@ class Landing extends React.Component {
             user={this.props.user}
           />
         </div>
-        <div className="ui hidden divider"></div>
+        <div className="ui hidden divider" />
         <div
           className="sixteen wide column"
-          style={{ padding:" 35px 0 0px 120px" }}
+          style={{ padding: ' 35px 0 0px 120px' }}
         >
-        <div className="ui grid container">
-          <div
-            className="fixed-top"
-            style={{ padding:" 250px 10px 180px 15px", width:"12vw" }}
-          >
-            <SideNav
-              history={history}
-              handleSlide={this.handleSlide}
-            />
-          </div>
+          <div className="ui grid container">
+            <div
+              className="fixed-top"
+              style={{ padding: ' 250px 10px 180px 15px', width: '12vw' }}
+            >
+              <SideNav history={history} handleSlide={this.handleSlide} />
+            </div>
             <ProblemsView
               category={this.props.match.params.category}
-              coords={{ latitude: this.state.latitude, longitude: this.state.longitude }}
+              coords={{
+                latitude: this.state.latitude,
+                longitude: this.state.longitude
+              }}
               distance={this.state.distance}
             />
           </div>
         </div>
-          <br />
+        <br />
 
-          <Footer />
+        <Footer />
       </div>
     );
   }

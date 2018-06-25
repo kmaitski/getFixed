@@ -1,12 +1,10 @@
-
-
 module.exports = (app, db, passport) => {
   app.post(
-'/signup',
+    '/signup',
     passport.authenticate('local-signup', {
       successRedirect: '/signupSuccess',
-      failureRedirect: '/signupFailed',
-    }),
+      failureRedirect: '/signupFailed'
+    })
   );
 
   app.get('/signupSuccess', (req, res) => {
@@ -25,7 +23,8 @@ module.exports = (app, db, passport) => {
     res.send('Incorrect username or password');
   });
 
-  app.post('/login',
+  app.post(
+    '/login',
     (req, res, next) => {
       console.log('body', req.body);
       console.log('user', req.user);
@@ -34,13 +33,13 @@ module.exports = (app, db, passport) => {
     },
     passport.authenticate('local-login', {
       successRedirect: '/loginSuccess',
-      failureRedirect: '/loginFailed',
-    }),
+      failureRedirect: '/loginFailed'
+    })
   );
 
   app.get('/logout', (req, res) => {
     req.logout();
-    res.send('successful logout')
+    res.send('successful logout');
   });
 
   app.get('/test', (req, res, next) => {
@@ -48,9 +47,5 @@ module.exports = (app, db, passport) => {
     console.log('passport', req.session.passport);
     console.log('user', req.user);
     res.send('success');
-  },
-  );
-
-  // console.log(data)
-  // db.users.findOne({where: {username: 'Gkolb'}})
+  });
 };

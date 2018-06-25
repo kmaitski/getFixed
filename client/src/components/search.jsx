@@ -1,6 +1,4 @@
 import React from 'react';
-// import { withApollo } from 'react-apollo'; // for wrapping component with apollo client ?
-// import gql from 'graphql-tag'; // for constructing query
 
 class Search extends React.Component {
   constructor(props) {
@@ -8,10 +6,6 @@ class Search extends React.Component {
     this.state = {
       searchQuery: '',
     }
-  }
-
-  _executeSearch = async () => {
-    // TODO
   }
 
   render() {
@@ -31,8 +25,6 @@ class Search extends React.Component {
   }
 }
 
-const LISTING_SEARCH_QUERY; // graphQL query
+const LISTING_SEARCH_QUERY;
 
 export default Search;
-
-// export default withApollo(Search); // for apollo

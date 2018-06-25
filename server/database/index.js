@@ -9,16 +9,15 @@ let sequelize = new Sequelize(
     host: config.SQL_IP_ADDRESS,
     dialect: 'mysql',
     define: {
-      underscored: true,
-    },
-  },
+      underscored: true
+    }
+  }
 );
 const db = {};
 
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-// Models/tables
 db.users = require('../models/users.js')(sequelize, Sequelize);
 db.listings = require('../models/listings.js')(sequelize, Sequelize);
 

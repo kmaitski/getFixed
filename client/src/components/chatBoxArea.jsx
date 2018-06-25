@@ -21,11 +21,8 @@ const MESSAGES_SUBSCRIPTION = gql`
   }
 `;
 
-const ChatBoxWithMessages = (props) => (
-  <Query
-    query={MESSAGES_QUERY}
-    variables={{id: props.id}}
-  >
+const ChatBoxWithMessages = props => (
+  <Query query={MESSAGES_QUERY} variables={{ id: props.id }}>
     {({ subscribeToMore, result, data }) => (
       <ChatBox
         {...result}
@@ -41,8 +38,11 @@ const ChatBoxWithMessages = (props) => (
               return Object.assign({}, prev, {
                 problemMessages: {
                   id: prev.problemMessages.id,
-                  messages: [...prev.problemMessages.messages, ...newMessage.messages],
-                  __typename: "Messages"
+                  messages: [
+                    ...prev.problemMessages.messages,
+                    ...newMessage.messages
+                  ],
+                  __typename: 'Messages'
                 }
               });
             }
